@@ -1,0 +1,32 @@
+* {
+    position: relative;
+}
+body{
+    background-color: #00C684;
+}
+.project {
+    background-color: aquamarine;
+    width:30%;
+    height: 200px;
+    margin: 10px;
+    display:inline-table;
+    padding: 10px;
+    color: #7a31ce;
+}
+#intro {
+    text-align: center;
+}
+#link{
+    position: relative;
+    color: #00C684;
+    top:30px;
+}
+.small-box{
+    background-color: orchid;
+    color: #665ca3;
+    padding: 10px;
+}
+.contact-box{
+    background-color: palegoldenrod;
+    padding: 10px;
+}

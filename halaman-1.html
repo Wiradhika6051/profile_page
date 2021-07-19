@@ -1,0 +1,126 @@
+<head>
+    <title>Halaman 1</title>
+</head>
+<body>
+    <a href="sheet-latihan.html" id="back-button">Back</a>
+<link rel="stylesheet" href="css/halaman-1.css">
+<ol>
+    <li id="hsl-s-and-l">
+        <p>1.Using HSL, Saturation(100% full-block,0% transparent),Lisht(100% putih,0% hitam,50 % normal).Gunain buat bikin shade</p>
+    </li>
+    <li id="linear-gradient">
+        <p>Menggunakan gradient(warna yg berubah secara bertahap dari 35 degree mulainya,mulai dari volor red sampai blue</p>
+    </li>
+    <li>
+        <p>Pola linear berikut berulang. berpaa derajat tampilnya(cek kemiringan),terus pasangan (warna stop saat berapa px).kalau di px sama ada warna beda langsung ganti. selain itu nge blend</p>
+        <div id="repeating-linear-pattern" class="palette"></div>
+    </li>
+    <li>
+        <p>Background juga bisa pakai pattern yg didownload pakaai url()</p>
+        <div id="texture-pattern" class="palette"></div>
+    </li>
+    <li>
+        <p> nge perbesar pake transform:scale(x)</p>
+        <div class="palette bola"></div>
+        <div class="palette bola resize"></div>
+    </li>
+    <li>
+        <p id="hover-text">6.Kalau teks ini dihover jadi 1.5x lipat nya</p>
+    </li>
+    <li>
+        <p class="push-down">7.Nge skew(dijadiin kek jajargejang)thdp sb-x:(note:24 deg skew ke kiri,-24 skew ke kanan</p>
+        <div class="palette push-down" id="skew-x"></div>
+    </li>
+    <li>
+        <p class="push-down">8.Nge skew thdp sb:Y(y>0 entar dari kiri ke kanan turun,y kurang dari0 dari kiri ke kanan naik)</p>
+        <div class="palette push-down" id="skew-y"></div>
+    </li>
+    <li class="push-down">
+        <p>Ngegambar bulan sabit(offset-x 25px,offset-y 10 px, blur dan spread radius 0</p>
+        <div class="palette" id="crescent"></div>
+    </li>
+    <li class="push-down">
+        <p>Ngegambar hati(::before:ngegambar sebelum si elemen.::after:menggambar setelah si elemen(derajaat rotasi sama kek diagaram kartesius)</p>
+        <div id="heart"></div>
+    </li>
+    <li class="push-down">
+        <p>Bikin animasi skuy</p>
+        <div id="anim-rect"></div>
+    </li>
+    <li class="push-down">
+        <p>Hover Animation:</p>
+        <div id="warna-warni"></div>
+    </li>
+    <li class="push-down">
+        <p>Buat nge lock state tearkhir habis animasi pakai animation-fill-mode:forwards;</p>
+        <div id="warna-warni-lock"></div>      
+    </li>
+    <li class="push-down">
+        <p>Div nya gerak gerak nih kalau dideketin</p>
+        <div id="gerak-gerak"></div>
+    </li>
+    <li class="push-down">
+        <p>Wah..bolanya menghilang</p>
+        <div class="ball colorful" id="ilang"></div>
+    </li>
+    <li class="push-down-m">
+        <p>Infinite loop</p>
+        <div class="ball colorful" id="infinite-ilang"></div>
+    </li>
+    <li class="push-down-l">
+        <p>Jantung berdebar-debar</p>
+        <div id="heart-beat"></div>
+    </li>
+    <li class="push-down-l">
+        <p>Kecepatan kilau yang berbeda</p>
+        <div class="basic-ball" id="twinkle-1"></div>
+        <div class="basic-ball" id="twinkle-2"></div>
+    </li>
+    <li class="push-down-l">
+        <p>Tiga buah bintang yg kecepatannya dibedakan oleh animation-duration</p>
+        <div class="basic-ball" id="bintang-1"></div>
+        <div class="basic-ball" id="bintang-2"></div>
+        <div class="basic-ball" id="bintang-3"></div>
+    </li>
+    <li class="push-down-l">
+        <p>animation-timing-function:ease(lambat-cepet-lambat),ease-out(cepet-lambat),ease-in(lambat-cepeet),linear(constant)</p>
+        <p>Ease:</p>
+        <div class="basic-ball" id="ease"></div>
+        <p>Ease-out:</p>
+        <div class="basic-ball" id="ease-out"></div>
+        <p>Ease-in:</p>
+        <div class="basic-ball" id="ease-in"></div>
+        <p>Linear:</p>
+        <div class="basic-ball" id="linear"></div>
+    </li>
+    <li class="push-down-l">
+        <P>Cubic Bezier curve buat ngatur rate of animation.(ada 4 tittik,p0,p1,p2,p3.P0 dah diset di (0,0),p3 di (1,1)). Tugas kita tinggal masukin koordinat(p1.x,p1.y.p2.x,p2.y). x itu waktu y itu rate of animation</P>
+        <p>Linear:</p>
+        <div class="basic-ball" id="linear-alt"></div>   
+    </li>
+    <li class="push-down-l">
+        <p>Buat simulasiin ease-out. bisa pake bezier cube dengan p1(0,0),p2(0.58,1)</p>
+        <p>Ease-out:</p>
+        <div class="basic-ball" id="ease-out-alt"></div>
+    </li>
+    <li class="push-down-l">
+        <p>Kalau y nya >1,entar pas bagian itu lebih cepet animasinya dibanding yang terakhir</p>
+        <p>Custom:</p>
+        <div class="basic-ball" id="custom-movt"></div>
+    </li>
+    <li class="push-down-l">
+        <p>alt di img penting terutama pas gambar gak ke load atau buat yg visually impaired</p>
+        <img src="#" alt="Ini Gambar">
+    </li>
+    <li class="push-down-l">
+        <p>Buat gambar yang dekorasi doang,alt nya bisa diisi pake string kosong</p>
+        <img src="yagoo.png" alt="">
+    </li>
+</ol>
+<a href="#ease">
+<footer class="push-down-l">
+    <p>Next</p>
+    <div id="next"></div>
+</footer>
+</a>
+</body>

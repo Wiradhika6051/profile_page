@@ -1,0 +1,412 @@
+#back-button{
+    position: relative;
+    background-color: blue;
+    color:orange;
+    padding: 20px;
+    border:3px solid black;
+}
+#back-button:hover{
+    background-color:pink;
+    color:black;
+    padding:20px;
+    border:3px solid gray;
+}
+#hsl-s-and-l{
+    position: relative;
+    top:10px;
+    background-color: hsl(180,80%,25%);
+    color: white;
+}
+#linear-gradient{
+    background: linear-gradient(35deg,red,blue);
+    border-radius: 10px;
+}
+.palette{
+    position: relative;
+    height: 80px;
+    width: 80px;
+    border-radius: 20px;
+    background-color: tomato;
+}
+#repeating-linear-pattern{
+    background: repeating-linear-gradient(
+        20deg,
+        red 0px,
+        blue 40px,
+        purple 40px,
+        yellow 80px
+    );
+}
+#texture-pattern{
+    background: url("https://cdn-media-1.freecodecamp.org/imgr/MJAkxbh.png");
+}
+.bola {
+    background-color:blue;
+    border-radius: 50%;
+}
+.resize{
+    top:50px;
+    transform: scale(2);
+
+}
+#hover-text{
+    position: relative;
+    top:100px;
+}
+#hover-text:hover{
+    transform:scale(1.5);
+}
+#skew-x{
+    transform: skewX(24deg);
+}
+#skew-x:hover{
+    transform:skewX(-24deg);
+}
+.push-down{
+    position:relative;
+    top:100px;
+}
+#skew-y{
+    transform: skewY(20deg);
+}
+#skew-y:hover{
+    transform: skewY(-20deg);
+}
+#crescent{
+    background-color:red;
+    border-radius: 50%;
+}
+#crescent:hover{
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: 25px 10px 0 0 darkgreen;
+}
+#heart{
+    background-color: pink;
+    width:50px;
+    height:50px;
+    transform: rotate(-45deg);
+    position: relative;
+    margin:auto;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+#heart::before{
+    background-color: pink;
+    border-radius: 50%;
+    content:"";
+    width:50px;
+    height: 50px;
+    position: absolute;
+    left:0;
+    top:-25px;
+}
+#heart::after{
+    background-color: pink;
+    border-radius: 50%;
+    content:"";
+    width:50px;
+    height:50px;
+    position: absolute;
+    right:-25px
+}
+#anim-rect{
+    width:200px;
+    height:50px;
+    background-color: black;
+    border-radius: 30%;
+    animation-name:rainbow;
+    animation-duration: 5s;
+}
+@keyframes rainbow{
+    0%{
+        background: red;
+    }
+    25%{
+        background: orange;
+    }
+    50%{
+        background: yellow;
+    }
+    75%{
+        background: green;
+    }
+    100%{
+        background: purple;
+    }
+}
+#warna-warni{
+    background: purple;
+    width:100px;
+    height:50px;
+}
+#warna-warni:hover{
+    animation-name:warna-warni;
+    animation-duration:500ms;
+}
+#warna-warni-lock{
+    animation-name:warna-warni;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+    width:100px;
+    height:50px;
+}
+@keyframes warna-warni{
+    0%{
+        background: rebeccapurple;
+    }
+    50%{
+        background:blue;
+    }
+    100%{
+        background:red;
+    }
+}
+#gerak-gerak{
+    background: brown;
+    width:100px;
+    height:100px;
+}
+#gerak-gerak:hover{
+    animation-name:gerak;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+    position: relative;
+}
+@keyframes gerak {
+    0%{
+        background: cadetblue;
+        top:0px;
+        left:0px;
+    }
+    50%{
+        background: coral;
+        top:20px;
+        left:20px;
+    }
+    100%{
+        background: cyan;
+        top:0px;
+        left:0px;
+    }
+}
+/* Versi baru dari class ball */
+.ball{
+    background-color:red;
+    border-radius: 50%;
+    width:50px;
+    height:50px;
+}
+#ilang{
+    animation-name:fade;
+    animation-duration: 1s;
+}
+.colorful{
+    position: absolute;
+    background:linear-gradient(20deg,red,purple) ;
+}
+.push-down-m{
+    position:relative;
+    top:200px;
+}
+.push-down-l{
+    position:relative;
+    top:300px;
+}
+#infinite-ilang{
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes fade {
+    0%{
+        left:0%;
+        opacity:1.0;
+    }
+    10%{
+        left:15%;
+        opacity:0.75;
+    }
+    25%{
+        left:30%;
+        opacity:0.5;
+    }
+    50%{
+        left:45%;
+        opacity: 0.25;
+    }
+    75%{
+        left:60%;
+        opacity:0.125;
+    }
+    100%{
+        left:75%;
+        opacity:0.1;
+    }
+}
+#heart-beat{
+    background-color: pink;
+    width:50px;
+    height:50px;
+    transform: rotate(-45deg);
+    position: relative;
+    margin:auto;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation-name: beat;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+#heart-beat::before{
+    background-color: pink;
+    border-radius: 50%;
+    content:"";
+    width:50px;
+    height: 50px;
+    position: absolute;
+    left:0;
+    top:-25px;
+}
+#heart-beat::after{
+    background-color: pink;
+    border-radius: 50%;
+    content:"";
+    width:50px;
+    height:50px;
+    position: absolute;
+    right:-25px
+}
+@keyframes beat {
+    0%{
+        transform: scale(1) rotate(-45deg);
+    }
+    50%{
+        transform: scale(0.6) rotate(-45deg);
+    }
+}
+.basic-ball{
+    width: 50px;
+    height: 50px;
+    margin:30px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+#twinkle-1{
+    animation-name:twinkle-1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#twinkle-2{
+    animation-name:twinkle-2;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#bintang-1{
+    animation-name:twinkle-1;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+#bintang-2{
+    animation-name:twinkle-1;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+#bintang-3{
+    animation-name:twinkle-1;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+@keyframes twinkle-1 {
+    20%{
+        opacity:0.5;
+        transform: scale(0.5);
+    }
+}
+@keyframes twinkle-2 {
+    50%{
+        opacity:0.5;
+        transform: scale(0.5);
+    }
+}
+
+#ease{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease ;
+}
+#ease-out{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-out ;
+}
+#ease-out-alt{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:cubic-bezier(0,0,0.58,1) ;
+}
+#ease-in{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:ease-in ;
+}
+#linear{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear ;
+}
+#linear-alt{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:cubic-bezier(0.25,0.25,0.75,0.75);
+}
+#custom-movt{
+    position: relative;
+    animation-name:mantul;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function:cubic-bezier(0.311,0.441,0.444,1.469);
+}
+@keyframes mantul {
+    0%{
+        left:0px;
+    }
+    50%{
+        left:249px;
+    }
+    100%{
+        left:0px;
+    }
+}
+footer{
+    position:relative;
+    text-align: center;
+    background-color:turquoise;
+    width:100px;
+    height: 50px;
+    padding-top: 10px;
+}
+#next{
+    position: absolute;
+    left:80px;
+    bottom: -1px;;
+    background-color:turquoise;
+    width:70px;
+    height:70px;
+    transform: rotate(45deg);
+}
