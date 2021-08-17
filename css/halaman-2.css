@@ -1,0 +1,20 @@
+.himitsu{
+    position: absolute;
+    left:-10000px;
+    width:0;
+    height: 0;
+    overflow: hidden;
+    top:auto
+}
+#tes-tabindex{
+    color:white;
+}
+#tes-tabindex:focus{
+    color:black;
+}
+/* Untuk device yg lebih kecil dari 700 px*/
+@media (max-height:700px){
+    #respon1{
+        background-color:violet;
+    }
+}

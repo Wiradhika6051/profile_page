@@ -39,5 +39,95 @@
                 <a href="#testo">Test</a>
             </nav>
         </li>
+        <li>
+            <p>Footer buat nampilin copyright dsb di bawah layar</p>
+            <footer>&copy;Cover Corp 2020</footer>
+        </li>
+        <li>
+            <p>Buat nampilin audio terutama untuk screen reader</p>
+            <audio controls><!--Controls biar ada tombol las dan stop-->
+                <source src="https://s3.amazonaws.com/freecodecamp/screen-reader.mp3" type="audio/mpeg">
+            </audio>
+        </li>
+        <li>
+            <p>Buat aksesibilitas dan kemudahan caption terutama untuk yang difabel, gambar/tabel dijadiin di tag figure</p>
+            <figure>
+                <img src="#" alt="Bola ditendang">
+                <br>
+                <figcaption>Ada bola yang ditendang manusia</figcaption><!--Caption dan konteks gambar-->
+            </figure>
+        </li>
+        <li>
+            <p>Biar form muda dibaca sama screen reader, teks di sebelum input dikasih label biar jelas ini untuk siapa</p>
+            <form>
+                <label for="name">Jenengmu Sopo le?</label>
+                <input type="text" id="text" name="text">
+            </form>
+        </li>
+        <li>
+            <p>Untuk radio button,biar enak dilihat digroupin jadi 1 fieldset dan judulnya dikasih legend</p>
+            <fieldset>
+                <legend>Pendidikan terakhir:</legend>
+                <input type="radio" id="non" name="pendidikan" value="non">
+                <label for="non">Tidak Bersekolah/ tidak lulus SD</label><br>
+                <input type="radio" id="sd" name="pendidikan" value="sd">
+                <label for="sd">SD</label><br>
+                <input type="radio" id="smp" name="pendidikan" value="smp">
+                <label for="smp">SMP</label><br>
+                <input type="radio" id="sma" name="pendidikan" value="sma">
+                <label for="sma">SMA/SMK</label><br>
+                <input type="radio" id="s1" name="pendidikan" value="s1">
+                <label for="sma">S-1</label><br>
+                <input type="radio" id="s-2" name="pendidikan" value="s-2">
+                <label for="sma">S-2</label><br>
+                <input type="radio" id="s-3" name="pendidikan" value="s-3">
+                <label for="sma">S-3</label><br>
+            </fieldset>
+        </li>
+        <li>
+            <p>Buat input tanggal:</p>
+            <label for="tanggal">Masukkan tanggal:</label>
+            <input type="date" id="tanggal" name="tanggal">
+            <input type="submit" id="submit-btn" value="Submit Tanggal"><!--Tombol Submit-->
+        </li>
+        <li>
+            <p>Buat ngebantu screen reader agar jelas ini tanggak berapa</p>
+            <header>Indonesia merdeka di <time datetime="1945-08-17">hari ini tahun 1945</time></header>
+        </li>
+        <li>
+            <p>Buat ngehide konten yang hanya dibaca oleh screen reader:</p>
+            <p class="himitsu">Ini rahasia loh?cuma yang pake screen reader doang yang ngebaca </p>
+        </li>
+        <li>
+            <p>Kontras background dan warna yang disarankan 4.5:1 untuk normal text. Buat ngecek bisa ke web <a href="https://webaim.org/resources/contrastchecker/">ini</a>. Nilai rasio ini dilihat dari luminositas relatof,jadi bisa dimanipulasi pake hsl()</p>
+        </li>
+        <li>
+            <p>Untuk ngebantu yg colorblind, jangan kasih warna background sama tulisan yang bersebelahan hue nya</p>
+        </li>
+        <li>
+            <p>Buat ngebantu yang pake screen reader, tempat buat naro anchor link kudu informatif. Misal : klik untuk ||a|| informasi tentang bateradi||/a||</p>
+        </li>
+        <li>
+            <p>Buat elemen yang informatif bisa pake shortcut biar gampang. Misal: ketik 'p' untuk kembali ke halaman awal</p>
+            <p>Buat firefox pake alt+shift+[KEY]</p>
+            <p>Buat opera sebelum versi 15:shift+esc+[KEY}</p>
+            <p>Buat edge,ie,chrome,safari,opera 15+:alt+[KEY]</p>
+            <a href='main.html' accesskey='p'>kembali ke awal</a>
+        </li>
+        <li>
+            <p>bisa pake atribute tabindex agar si elemen bisa pake pseudo class focus. kalau nilainya 0 berarti bisa fokus</p>
+            <p>kalau -1 berarti bisa difokusin tapi gak bisa dicapai keyboard</p>
+            <p tabindex="0" id="tes-tabindex">APA LIHAT LIHAT?</p>
+        </li>
+        <li>
+            <p>atribut tabindex bisa menunjukkan prioritas elemen mana yg di hightlight kalau kita pencet TAB. Polanya dari 1->2->dst</p>
+            <p>Defaultnya iyalah elemen paling atas</p>
+            <p tabindex="2">Ku pertama</p>
+            <p tabindex="1">Tapi ku dulu nu pertama muncul di tab</p>
+        </li>
+        <li>
+            <p>media query berguna biar jadi responsif</p>
+            <p id="respon1">Aku responsif lo!!?</p>
+        </li>
     </ol>
 </body>
