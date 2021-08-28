@@ -19,7 +19,7 @@ footer{
     height: 50px;
     padding-top: 10px;
 }
-#next{
+.next{
     position: absolute;
     left:80px;
     bottom: -1px;;
@@ -28,7 +28,35 @@ footer{
     height:70px;
     transform: rotate(45deg);
 }
+#back-btn{
+    position: relative;
+    width:70px;
+    height:70px;
+    background-color:turquoise;
+    transform: rotate(-45deg);
+    left:20px;
+    top:10px;
+}
 .push-down-xs{
     position:relative;
     top:20px;
+}
+#flex-footer{
+    display:flex;
+    flex-direction:row;
+    height:70px;
+    width:200px;
+}
+a footer{
+    top:15px;
+}
+.bottom-nav{
+    display:flex;
+    flex-direction:row;
+    height:70px;
+    width:400px;
+}
+#mod-2{
+    right:10px;
+    top:10px;
 }
