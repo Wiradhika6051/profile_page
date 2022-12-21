@@ -1,0 +1,16 @@
+table{
+    border: 1px solid black;
+}
+td{
+    width: 3vw;
+    height: 3vw;
+    border: 1px solid black;
+}
+
+.flag{
+    background-color:blue;
+}
+
+.revealed{
+    
+}
