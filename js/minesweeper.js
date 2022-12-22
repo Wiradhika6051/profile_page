@@ -151,7 +151,18 @@ function finish(event, cell) {
         //nge hold lebih dari 1 detik set flag
         setFlag(cell)
         console.log("assss");
-        MAP[i_index][j_index].timestamp = curTimestamp
+        if(cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1){
+            score++
+            revealed++
+        }
+        else if(!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1){
+            score--
+            revealed--
+        }
+        else if(!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb !== -1){
+            revealed--
+        }
+        checkWin()
         return
     }
     MAP[i_index][j_index].timestamp = curTimestamp
@@ -171,6 +182,10 @@ function finish(event, cell) {
     }
     cell.classList.add("revealed")
     //cek apakah menang
+    checkWin()
+}
+
+function checkWin(){
     if(win()){
         finish = true;
         alert("anda menang!")
@@ -179,7 +194,6 @@ function finish(event, cell) {
         <button onclick="restart()">Mainkan Ulang</button>
     `
     }
-
 }
 
 function win(){
@@ -193,11 +207,9 @@ function setFlag(cell) {
     j_index = cell_id[1]
     if (cell.classList.contains("flag")) {
         cell.classList.remove("flag")
-        revealed--;
     }
     else {
         cell.classList.add("flag")
-        revealed++;
     }
 }
 

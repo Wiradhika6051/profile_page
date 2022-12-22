@@ -1,7 +1,5 @@
 # Minesweeper
-**v.0.1**
-Earliest Playable Version
+**v.0.2 build 1**
+Tweaking Algorithm
 Feature:
-- Functional Minesweeper Game Without CSS
-- Ability to restart when win or lose
-- Dynamic grid size
+- Fix Score Calculation Algorithm when a bomb unflagged
