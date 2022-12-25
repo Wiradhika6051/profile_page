@@ -5,6 +5,7 @@ const parentContainer = document.querySelector("body")
 const gameDiv = document.querySelector("#game")
 const splashDiv = document.querySelector("#splash")
 let MAP = []
+const BOMB_MAP = []
 
 const RIGHT_CLICK = 3
 const HOLD_DELAY = 500
@@ -62,10 +63,19 @@ function updateNeighbor(i, j, size) {
 function generateBombMap(size) {
     let bombCount = document.querySelector("#bombCount").value
     for (counter = 0; counter < bombCount; counter++) {
-        do {
-            i_index = Math.floor(Math.random() * size)
-            j_index = Math.floor(Math.random() * size)
-        } while (MAP[i_index][j_index].numBomb !== 0)
+        // do {
+        //     i_index = Math.floor(Math.random() * size)
+        //     j_index = Math.floor(Math.random() * size)
+        // } while (MAP[i_index][j_index].numBomb !== 0)
+        let choosed_plot_idx = Math.floor(Math.random() * BOMB_MAP.length-1)
+        if(choosed_plot_idx<0){
+            choosed_plot_idx = 0
+        }
+        let choosed_plot = BOMB_MAP[choosed_plot_idx]
+        let i_index = choosed_plot[0]
+        let j_index = choosed_plot[1]
+        BOMB_MAP.splice(choosed_plot_idx,1)
+
         MAP[i_index][j_index].numBomb = -1 //-1 berarti ada bomb
         updateNeighbor(i_index, j_index, size)
     }
@@ -80,6 +90,7 @@ function initiateMap(size) {
                 numBomb: 0,
                 timestamp: -1, // kalau -1 berarti gak aktif timestampnya
             }
+            BOMB_MAP.push([i,j])
         }
     }
 }
