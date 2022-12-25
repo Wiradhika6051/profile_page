@@ -92,7 +92,7 @@ function generateBoard(size) {
     for (i = 0; i < size; i++) {
         html += '<tr>'
         for (j = 0; j < size; j++) {
-            html += `<td id='${i}${j}' onmousedown='start(event,this)' onmouseup='finish(event,this)'></td>`
+            html += `<td id='${i}${j}' onmousedown='start(this)' onmouseup='finish(this)'></td>`
         }
         html += '</tr>'
     }
@@ -115,7 +115,7 @@ function startGame(){
 
 
 
-function start(event, cell) {
+function start( cell) {
     //event.preventDefault()
     //selain itu
     console.log("asu")
@@ -132,7 +132,7 @@ function start(event, cell) {
 
 }
 
-function finish(event, cell) {
+function finish( cell) {
     //event.preventDefault()
     if (isFinish) {
         //kalau misalnya finish gak bisa ngapa ngapain
