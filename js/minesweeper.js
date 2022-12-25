@@ -8,7 +8,7 @@ let MAP = []
 const BOMB_MAP = []
 
 const RIGHT_CLICK = 3
-const HOLD_DELAY = 500
+const HOLD_DELAY = 300
 
 let score = 0
 
