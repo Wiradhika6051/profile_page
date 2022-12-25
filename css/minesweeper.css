@@ -12,4 +12,28 @@ td{
 }
 footer{
     font-weight: bold;
+    text-align: center;
+    margin-top: 5vh;
+}
+#inputSegment{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 50%;
+}
+
+#game{
+    margin: auto;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#splash{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
