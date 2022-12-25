@@ -170,9 +170,12 @@ function finish( cell) {
             score--
             revealed--
         }
-        else if(!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb !== -1){
-            revealed--
-        }
+        // else if(!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb !== -1){
+        //     revealed--
+        // }
+        // else if(cell.classList.contains("flag") && MAP[i_index][j_index].numBomb !== -1){
+        //     revealed--
+        // }
         checkWin()
         return
     }
