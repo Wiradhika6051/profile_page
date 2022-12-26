@@ -7,3 +7,4 @@ Feature:
 - Make input field smaller
 - Make version number bigger
 - Change closed tile to grey and opened to white
+- Center revealed tile text
