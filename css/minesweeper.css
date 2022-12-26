@@ -19,9 +19,15 @@ footer{
     display: flex;
     flex-direction: column;
     margin: auto;
-    width: 50%;
+    width: 20%;
 }
-
+label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3vh;
+}
+input{
+}
 #game{
     margin: auto;
 }
