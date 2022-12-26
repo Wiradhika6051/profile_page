@@ -99,7 +99,7 @@ function initiateMap(size) {
 function generateBoard(size) {
     initiateMap(size)
     generateBombMap(size)
-    html = '<table>'
+    html = '<table cellspacing="0">'
     for (i = 0; i < size; i++) {
         html += '<tr>'
         for (j = 0; j < size; j++) {
@@ -191,6 +191,7 @@ function finish( cell) {
     }
     else {
         cell.innerHTML = MAP[i_index][j_index].numBomb
+        cell.classList.add("open")
         score++;
         revealed++;
     }

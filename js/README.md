@@ -6,3 +6,4 @@ Feature:
 - Revamped UI to look more centered
 - Make input field smaller
 - Make version number bigger
+- Change closed tile to grey and opened to white
