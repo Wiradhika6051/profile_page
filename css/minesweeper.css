@@ -14,7 +14,7 @@ td{
 }
 
 .flag{
-    background-color:blue;
+    /* background-color:blue; */
 }
 footer{
     font-weight: bold;
@@ -51,4 +51,17 @@ body{
 }
 .open{
     background-color:white;
+}
+
+img{
+    width: 87%;
+    height: 87%;
+    pointer-events: none;
+    user-select: none;
+    user-drag:none;
+}
+
+.bomb{
+    width:102%;
+    height:89%;
 }

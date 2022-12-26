@@ -8,3 +8,4 @@ Feature:
 - Make version number bigger
 - Change closed tile to grey and opened to white
 - Center revealed tile text
+- Change the cell to look similar to the original minesweeper

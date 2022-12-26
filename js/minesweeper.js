@@ -186,7 +186,8 @@ function finish( cell) {
         return
     }
     else if (MAP[i_index][j_index].numBomb === -1) {
-        cell.style.background = "red"
+        // cell.style.background = "red"
+        cell.innerHTML = '<img class="bomb" src="image/bomb.jpg" draggable="false" ondragstart="return false">'
         gameover()
     }
     else {
@@ -222,9 +223,11 @@ function setFlag(cell) {
     j_index = cell_id[1]
     if (cell.classList.contains("flag")) {
         cell.classList.remove("flag")
+        cell.innerHTML = ''
     }
     else {
         cell.classList.add("flag")
+        cell.innerHTML = '<img src="image/flag.jpg" draggable="false" ondragstart="return false">'
     }
 }
 
