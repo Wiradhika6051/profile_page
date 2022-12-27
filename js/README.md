@@ -10,3 +10,4 @@ Feature:
 - Center revealed tile text
 - Change the cell to look similar to the original minesweeper
 - Add background to game
+- Make game looks more focused

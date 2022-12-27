@@ -1,9 +1,12 @@
 <html>
-    <head>
-        <title>Minesweeper</title>
-    </head>
-    <body>
-        <h1>Minesweeper</h1>
+
+<head>
+    <title>Minesweeper</title>
+</head>
+
+<body>
+    <h1>Minesweeper</h1>
+    <div id="main">
         <div id="inputSegment">
             <label for="size">Pilih Ukuran Papan:
                 <input type="number" id="sizeInput">
@@ -15,11 +18,12 @@
         </div>
         <div id="game"></div>
         <div id="splash"></div>
+    </div>
 
+    <script src="js/minesweeper.js"></script>
+    <footer>V.0.3 (dev)</footer>
 
-        <script src="js/minesweeper.js"></script>
-        <footer>V.0.3 (dev)</footer>
-        
-    </body>
-    <link rel="stylesheet" href="./css/minesweeper.css">
+</body>
+<link rel="stylesheet" href="./css/minesweeper.css">
+
 </html>
