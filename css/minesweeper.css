@@ -13,9 +13,6 @@ td{
     /* box-shadow: 1.5px 1.5px rgb(128,128,128); */
 }
 
-.flag{
-    /* background-color:blue; */
-}
 footer{
     font-weight: bold;
     text-align: center;
@@ -80,10 +77,10 @@ body{
     background-color:green;
     min-width:20%;
     max-width: 100%;
-    padding: 4vw 4vh;
+    padding: 4.5vw 4.5vh;
     color:white;
     border: 2px solid white;
-    border-radius: 10%;
+    border-radius: 9%;
 }
 
 h1{

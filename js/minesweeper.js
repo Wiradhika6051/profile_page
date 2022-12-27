@@ -9,6 +9,7 @@ const BOMB_MAP = []
 
 const RIGHT_CLICK = 3
 const HOLD_DELAY = 300
+const MAX_TILESIZE = 40
 
 let score = 0
 
@@ -67,14 +68,14 @@ function generateBombMap(size) {
         //     i_index = Math.floor(Math.random() * size)
         //     j_index = Math.floor(Math.random() * size)
         // } while (MAP[i_index][j_index].numBomb !== 0)
-        let choosed_plot_idx = Math.floor(Math.random() * BOMB_MAP.length-1)
-        if(choosed_plot_idx<0){
+        let choosed_plot_idx = Math.floor(Math.random() * BOMB_MAP.length - 1)
+        if (choosed_plot_idx < 0) {
             choosed_plot_idx = 0
         }
         let choosed_plot = BOMB_MAP[choosed_plot_idx]
         let i_index = choosed_plot[0]
         let j_index = choosed_plot[1]
-        BOMB_MAP.splice(choosed_plot_idx,1)
+        BOMB_MAP.splice(choosed_plot_idx, 1)
 
         MAP[i_index][j_index].numBomb = -1 //-1 berarti ada bomb
         updateNeighbor(i_index, j_index, size)
@@ -90,7 +91,7 @@ function initiateMap(size) {
                 numBomb: 0,
                 timestamp: -1, // kalau -1 berarti gak aktif timestampnya
             }
-            BOMB_MAP.push([i,j])
+            BOMB_MAP.push([i, j])
         }
     }
 }
@@ -117,7 +118,7 @@ function generateBoard(size) {
 
 
 //Event Handler
-function startGame(){
+function startGame() {
     console.log(MAP)
     console.log(isFinish)
     let size = document.querySelector("#sizeInput").value
@@ -127,7 +128,7 @@ function startGame(){
 
 
 
-function start( cell) {
+function start(cell) {
     console.log("asu")
     cell_id = cell.id
     i_index = cell_id[0]
@@ -136,7 +137,7 @@ function start( cell) {
 
 }
 
-function finish( cell) {
+function finish(cell) {
     //event.preventDefault()
     if (isFinish) {
         //kalau misalnya finish gak bisa ngapa ngapain
@@ -155,11 +156,11 @@ function finish( cell) {
         //nge hold lebih dari 1 detik set flag
         setFlag(cell)
         console.log("assss");
-        if(cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1){
+        if (cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1) {
             score++
             revealed++
         }
-        else if(!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1){
+        else if (!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1) {
             score--
             revealed--
         }
@@ -174,7 +175,7 @@ function finish( cell) {
     }
     MAP[i_index][j_index].timestamp = curTimestamp
     //else berarti dia nekan ini
-    if(cell.classList.contains("flag")){
+    if (cell.classList.contains("flag")) {
         //lagi di flag jangan di trendang
         return
     }
@@ -194,8 +195,8 @@ function finish( cell) {
     checkWin()
 }
 
-function checkWin(){
-    if(win()){
+function checkWin() {
+    if (win()) {
         finish = true;
         alert("anda menang!")
         splashDiv.innerHTML = `
@@ -205,9 +206,9 @@ function checkWin(){
     }
 }
 
-function win(){
+function win() {
     console.log(revealed)
-    return revealed===(MAP.length*MAP.length)
+    return revealed === (MAP.length * MAP.length)
 }
 function setFlag(cell) {
     console.log("anyinggg")
@@ -235,4 +236,33 @@ function gameover() {
 
 function restart() {
     location.reload()
+}
+
+function validateBomb(input) {
+    input.value = Number(input.value)
+    input.value = Math.round(input.value)
+    if (input.value <= 0) {
+        input.value = 0
+    }
+    inputTile = document.querySelector("#sizeInput")
+    tileSize = Math.round(inputTile.value * inputTile.value)
+    if (input.value > tileSize) {
+        input.value = tileSize;
+    }
+}
+
+function validateTile(input) {
+    input.value = Number(input.value)
+    input.value = Math.round(input.value)
+    if (input.value <= 1) {
+        input.value = 1
+    }
+    if (input.value > MAX_TILESIZE) {
+        input.value = MAX_TILESIZE
+    }
+    //cek sebelah
+    bombSize = document.querySelector("#bombCount").value
+    if(bombSize>(input.value*input.value)){
+        document.querySelector("#bombCount").value = input.value*input.value
+    }
 }

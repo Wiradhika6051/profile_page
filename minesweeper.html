@@ -10,10 +10,10 @@
         <form id="inputSegment">
             <label for="size">Pilih Ukuran Papan:
             </label>
-            <input type="number" id="sizeInput" required>
+            <input type="number" id="sizeInput" required min="1" max="40" onchange="validateTile(this)">
             <label for="bombCount">Berapa banyak bom yang ada:
             </label>
-            <input type="number" id="bombCount" required>
+            <input type="number" id="bombCount" required min="0" onchange="validateBomb(this)">
             <button id="startButton" onclick="startGame()">Mulai</button>
         </form>
         <div id="game"></div>
