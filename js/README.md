@@ -8,3 +8,4 @@ Feature:
 - Add limit for bomb in which 0<= bomb <= (size*size)
 - Prevent starting if one of the column is not filled (and cannot be 0)
 - Move restart button on top
+- Rename "score akhir" to "Skor Akhir"

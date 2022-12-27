@@ -205,7 +205,7 @@ function checkWin() {
         finish = true;
         alert("anda menang!")
         splashDiv.innerHTML = `
-        <h1>score akhir: ${score}</h1>
+        <h1>Skor Akhir: ${score}</h1>
         <button onclick="restart()">Mainkan Ulang</button>
     `
     }
@@ -234,7 +234,7 @@ function gameover() {
     alert("Kau kalah!")
     finish = true
     splashDiv.innerHTML = `
-        <h1>score akhir: ${score}</h1>
+        <h1>Skor Akhir: ${score}</h1>
         <button onclick="restart()" id="restartButton">Mainkan Ulang</button>
     `
 }
