@@ -110,7 +110,7 @@ function generateBoard(size) {
     }
     html += '</table>'
     gameDiv.innerHTML = html
-    inputSegment.innerHTML = ""
+    inputSegment.innerHTML = '<button onclick="restart()" id="restartButton">Mulai Ulang</button>'
     console.log(MAP)
 }
 
@@ -128,7 +128,6 @@ function startGame() {
     if(bomb<0 || bomb>(size*size)){
         return;
     }
-    splashDiv.innerHTML = '<button onclick="restart()" id="restartButton">Mulai Ulang</button>'
     generateBoard(size)
 }
 

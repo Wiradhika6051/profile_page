@@ -91,6 +91,7 @@ h1{
     width:8vw;
     height: 3vh;
     position: relative;
+    margin-bottom:3vh;
 }
 
 input[type="number"]{
