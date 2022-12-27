@@ -1,13 +1,6 @@
 # Minesweeper
-**v.0.3**
-UI Update
+**v.0.4**
+UX Update
 Feature:
-- Version number is bold
-- Revamped UI to look more centered
-- Make input field smaller
-- Make version number bigger
-- Change closed tile to grey and opened to white
-- Center revealed tile text
-- Change the cell to look similar to the original minesweeper
-- Add background to game
-- Make game looks more focused
+- Add restart button during play
+- Centered start text

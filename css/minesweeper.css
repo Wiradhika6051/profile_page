@@ -27,6 +27,7 @@ footer{
     display: flex;
     flex-direction: column;
     margin: auto;
+    align-items: center;
     width: 100%;
 }
 label{
@@ -49,6 +50,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top:2vh;
 }
 .open{
     background-color:white;
@@ -76,8 +78,9 @@ body{
     display: flex;
     flex-direction: column;
     background-color:green;
-    width:20%;
-    padding: 2vw 2vh;
+    min-width:20%;
+    max-width: 100%;
+    padding: 4vw 4vh;
     color:white;
     border: 2px solid white;
     border-radius: 10%;
@@ -85,4 +88,22 @@ body{
 
 h1{
     color:white;
+}
+
+#startButton,#restartButton{
+    width:8vw;
+    height: 3vh;
+    position: relative;
+}
+
+input[type="number"]{
+    width:100%;
+    margin: 2vh 0 2vh 0;
+    height: 3vh;
+    font-size: 1.2em;
+    text-align:center;
+}
+label{
+    margin:0;
+    font-size: 1.2em;
 }

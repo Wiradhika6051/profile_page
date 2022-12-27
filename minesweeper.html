@@ -7,21 +7,21 @@
 <body>
     <h1>Minesweeper</h1>
     <div id="main">
-        <div id="inputSegment">
+        <form id="inputSegment">
             <label for="size">Pilih Ukuran Papan:
-                <input type="number" id="sizeInput">
             </label>
+            <input type="number" id="sizeInput" required>
             <label for="bombCount">Berapa banyak bom yang ada:
-                <input type="number" id="bombCount">
             </label>
+            <input type="number" id="bombCount" required>
             <button id="startButton" onclick="startGame()">Mulai</button>
-        </div>
+        </form>
         <div id="game"></div>
         <div id="splash"></div>
     </div>
 
     <script src="js/minesweeper.js"></script>
-    <footer>V.0.3</footer>
+    <footer>V.0.4 (dev)</footer>
 
 </body>
 <link rel="stylesheet" href="./css/minesweeper.css">

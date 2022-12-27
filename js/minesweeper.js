@@ -121,25 +121,18 @@ function startGame(){
     console.log(MAP)
     console.log(isFinish)
     let size = document.querySelector("#sizeInput").value
+    splashDiv.innerHTML = '<button onclick="restart()" id="restartButton">Mulai Ulang</button>'
     generateBoard(size)
 }
 
 
 
 function start( cell) {
-    //event.preventDefault()
-    //selain itu
     console.log("asu")
     cell_id = cell.id
     i_index = cell_id[0]
     j_index = cell_id[1]
     MAP[i_index][j_index].timestamp = new Date()
-    // if(MAP[i_index][j_index].numBomb===-1){
-    //     cell.style.background = "red"
-    // }
-    // else{
-    //     cell.innerHTML = MAP[i_index][j_index].numBomb
-    // }
 
 }
 
@@ -236,22 +229,10 @@ function gameover() {
     finish = true
     splashDiv.innerHTML = `
         <h1>score akhir: ${score}</h1>
-        <button onclick="restart()">Mainkan Ulang</button>
+        <button onclick="restart()" id="restartButton">Mainkan Ulang</button>
     `
 }
 
 function restart() {
-    // inputSegment.innerHTML = `
-    // <label for="size">Pilih Ukuran Papan:</label>
-    // <input type="number" id="sizeInput">
-    // <label for="bombCount">Berapa banyak bom yang ada:</label>
-    // <input type="number" id="bombCount">
-    // <button id="startButton" onclick="startGame()">Mulai</button>
-    // `
-    // splashDiv.innerHTML = ''
-    // gameDiv.innerHTML = ''
-    // MAP = []
-    // score = 0
-    // finish = false
     location.reload()
 }
