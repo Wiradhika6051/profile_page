@@ -120,12 +120,12 @@ function generateBoard(size) {
 //Event Handler
 function startGame() {
     let size = document.querySelector("#sizeInput").value
-    if(size<1 || size>40){
+    if (size < 1 || size > 40) {
         return;
     }
     //cek sebelahnya
     let bomb = document.querySelector("#bombCount").value
-    if(bomb<0 || bomb>(size*size)){
+    if (bomb < 0 || bomb > (size * size)) {
         return;
     }
     generateBoard(size)
@@ -208,6 +208,7 @@ function checkWin() {
         <h1>Skor Akhir: ${score}</h1>
         <button onclick="restart()">Mainkan Ulang</button>
     `
+        inputSegment.innerHTML = ''
     }
 }
 
@@ -237,6 +238,7 @@ function gameover() {
         <h1>Skor Akhir: ${score}</h1>
         <button onclick="restart()" id="restartButton">Mainkan Ulang</button>
     `
+    inputSegment.innerHTML = ''
 }
 
 function restart() {
@@ -250,7 +252,7 @@ function validateBomb(input) {
         input.value = 0
     }
     inputTile = document.querySelector("#sizeInput")
-    tileSize = Math.round(inputTile.value * inputTile.value)-1
+    tileSize = Math.round(inputTile.value * inputTile.value) - 1
     if (input.value > tileSize) {
         input.value = tileSize;
     }
@@ -267,7 +269,7 @@ function validateTile(input) {
     }
     //cek sebelah
     bombSize = document.querySelector("#bombCount").value
-    if(bombSize>((input.value*input.value)-1)){
-        document.querySelector("#bombCount").value = (input.value*input.value)-1
+    if (bombSize > ((input.value * input.value) - 1)) {
+        document.querySelector("#bombCount").value = (input.value * input.value) - 1
     }
 }
