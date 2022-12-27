@@ -119,9 +119,15 @@ function generateBoard(size) {
 
 //Event Handler
 function startGame() {
-    console.log(MAP)
-    console.log(isFinish)
     let size = document.querySelector("#sizeInput").value
+    if(size<1 || size>40){
+        return;
+    }
+    //cek sebelahnya
+    let bomb = document.querySelector("#bombCount").value
+    if(bomb<0 || bomb>(size*size)){
+        return;
+    }
     splashDiv.innerHTML = '<button onclick="restart()" id="restartButton">Mulai Ulang</button>'
     generateBoard(size)
 }
