@@ -250,7 +250,7 @@ function validateBomb(input) {
         input.value = 0
     }
     inputTile = document.querySelector("#sizeInput")
-    tileSize = Math.round(inputTile.value * inputTile.value)
+    tileSize = Math.round(inputTile.value * inputTile.value)-1
     if (input.value > tileSize) {
         input.value = tileSize;
     }
@@ -267,7 +267,7 @@ function validateTile(input) {
     }
     //cek sebelah
     bombSize = document.querySelector("#bombCount").value
-    if(bombSize>(input.value*input.value)){
-        document.querySelector("#bombCount").value = input.value*input.value
+    if(bombSize>((input.value*input.value)-1)){
+        document.querySelector("#bombCount").value = (input.value*input.value)-1
     }
 }
