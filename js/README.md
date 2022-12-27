@@ -9,3 +9,4 @@ Feature:
 - Change closed tile to grey and opened to white
 - Center revealed tile text
 - Change the cell to look similar to the original minesweeper
+- Add background to game

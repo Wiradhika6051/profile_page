@@ -65,3 +65,8 @@ img{
     width:102%;
     height:89%;
 }
+
+body{
+    background-color: darkgreen;
+    color:black;
+}
