@@ -87,11 +87,18 @@ h1{
     color:white;
 }
 
-#startButton,#restartButton{
+#startButton{
     width:8vw;
     height: 3vh;
     position: relative;
     margin-bottom:3vh;
+}
+#restartButton{
+    width:8vw;
+    height: 3.5vh;
+    position: relative;
+    margin-bottom:2vh;
+    margin-top:2.4vh;
 }
 
 input[type="number"]{
