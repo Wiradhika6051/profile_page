@@ -122,7 +122,6 @@ function generateBoard(size) {
     </div>
     </div>
     `
-    console.log(MAP)
     setTimeout(function updateTime() {
         let timeText = document.querySelector("#timeText")
         if(timeText===null || timeText===undefined){
@@ -153,7 +152,6 @@ function startGame() {
 
 
 function start(cell) {
-    console.log("asu")
     cell_id = cell.id
     i_index = cell_id[0]
     j_index = cell_id[1]
@@ -162,7 +160,6 @@ function start(cell) {
 }
 
 function finish(cell) {
-    //event.preventDefault()
     if (isFinish) {
         //kalau misalnya finish gak bisa ngapa ngapain
         return
@@ -179,7 +176,6 @@ function finish(cell) {
     if (curTimestamp - MAP[i_index][j_index].timestamp > HOLD_DELAY) {
         //nge hold lebih dari 1 detik set flag
         setFlag(cell)
-        console.log("assss");
         if (cell.classList.contains("flag") && MAP[i_index][j_index].numBomb === -1) {
             score++
             revealed++
@@ -229,8 +225,6 @@ function checkWin() {
 function getCell(i,j){
     pattern = `${i}${j}`
     cell = document.getElementById(pattern)
-    console.log(pattern)
-    console.log(cell)
     return cell
 }
 function revealOthers(i, j) {
@@ -242,7 +236,6 @@ function revealOthers(i, j) {
         //atas
         if (i > 0) {
             if (MAP[i - 1][j].numBomb !==-1 ) {
-                console.log("atas")
                 cell = getCell(i - 1,j)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i-1][j].numBomb
@@ -253,9 +246,7 @@ function revealOthers(i, j) {
                 }
             }
             //kanan atas
-            console.log(MAP[i-1])
             if (j < size - 1 &&  MAP[i - 1][j + 1].numBomb !== -1) {
-                console.log("kanan atas")
                 cell = getCell(i - 1,j+1)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i-1][j+1].numBomb
@@ -269,7 +260,6 @@ function revealOthers(i, j) {
         //bawah
         if (i < size - 1) {
             if (MAP[i+1][j].numBomb !==-1) {
-                console.log("bawah")
                 cell = getCell(i + 1,j)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i+1][j].numBomb
@@ -281,7 +271,6 @@ function revealOthers(i, j) {
             }
             //kanan bawah
             if (j < size - 1 && MAP[i + 1][j + 1].numBomb !== -1) {
-                console.log("bawah kanan")
                 cell = getCell(i + 1,j+1)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i+1][j+1].numBomb
@@ -294,7 +283,6 @@ function revealOthers(i, j) {
         }
         //kanan
         if (j < size - 1 && MAP[i][j + 1].numBomb !== -1) {
-            console.log("kanan")
             cell = getCell(i ,j+1)
             if(!cell.classList.contains("open")){
                 cell.innerHTML = MAP[i][j+1].numBomb
@@ -307,7 +295,6 @@ function revealOthers(i, j) {
         //kiri
         if (j > 0) {
             if ( MAP[i][j - 1].numBomb !== -1) {
-                console.log("kiri")
                 cell = getCell(i ,j-1)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i][j-1].numBomb
@@ -319,7 +306,6 @@ function revealOthers(i, j) {
             }
             //kiri atas
             if (i > 0 && MAP[i - 1][j - 1].numBomb !== -1) {
-                console.log("krii atas")
                 cell = getCell(i-1 ,j-1)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i-1][j-1].numBomb
@@ -331,7 +317,6 @@ function revealOthers(i, j) {
             }
             //kiri bawah
             if (i < size - 1 && MAP[i + 1][j - 1].numBomb !== -1) {
-                console.log("kiri bawah")
                 cell = getCell(i+1 ,j-1)
                 if(!cell.classList.contains("open")){
                     cell.innerHTML = MAP[i+1][j-1].numBomb
@@ -349,11 +334,9 @@ function revealOthers(i, j) {
 }
 
 function win() {
-    console.log(revealed)
     return revealed === (MAP.length * MAP.length)
 }
 function setFlag(cell) {
-    console.log("anyinggg")
     cell_id = cell.id
     i_index = cell_id[0]
     j_index = cell_id[1]
