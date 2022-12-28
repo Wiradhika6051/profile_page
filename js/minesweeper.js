@@ -17,6 +17,7 @@ let revealed = 0
 
 let isFinish = false
 
+let time=0
 
 function updateNeighbor(i, j, size) {
     //atas
@@ -110,8 +111,20 @@ function generateBoard(size) {
     }
     html += '</table>'
     gameDiv.innerHTML = html
-    inputSegment.innerHTML = '<button onclick="restart()" id="restartButton">Mulai Ulang</button>'
+    inputSegment.innerHTML = `
+    <div id="topbar">
+    <div id="containerTimer">
+    <img src="image/timer.png" id="timer">
+    <p id="timeText">${time}</p>
+    </div>
+    <button onclick="restart()" id="restartButton">Mulai Ulang</button>
+    </div>
+    `
     console.log(MAP)
+    setTimeout(function updateTime(){
+        document.querySelector("#timeText").textContent = ++time;
+        setTimeout(updateTime,1000)
+    },1000)
 }
 
 

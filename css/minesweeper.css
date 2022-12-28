@@ -105,3 +105,27 @@ label{
     margin:0;
     font-size: 1.2em;
 }
+
+#topbar{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-between;
+    width:100%;
+}
+
+#timer{
+    width:3vw;
+    height: 3vw;
+}
+
+#containerTimer{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+#timeText{
+    display:inline;
+    font-size: 1.4em;
+    margin:1.4vh 0;
+}

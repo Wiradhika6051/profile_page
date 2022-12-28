@@ -10,3 +10,4 @@ Feature:
 - Move restart button on top
 - Rename "score akhir" to "Skor Akhir"
 - Remove top restart button when win/lose
+- Add timer
