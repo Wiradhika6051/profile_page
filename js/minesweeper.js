@@ -13,12 +13,13 @@ const MAX_TILESIZE = 40
 
 let score = 0
 let bomb = 0;
+let size = 0;
 
 let revealed = 0
 
 let isFinish = false
 
-let time=0
+let time = 0
 
 function updateNeighbor(i, j, size) {
     //atas
@@ -66,10 +67,6 @@ function updateNeighbor(i, j, size) {
 function generateBombMap(size) {
     let bombCount = document.querySelector("#bombCount").value
     for (counter = 0; counter < bombCount; counter++) {
-        // do {
-        //     i_index = Math.floor(Math.random() * size)
-        //     j_index = Math.floor(Math.random() * size)
-        // } while (MAP[i_index][j_index].numBomb !== 0)
         let choosed_plot_idx = Math.floor(Math.random() * BOMB_MAP.length - 1)
         if (choosed_plot_idx < 0) {
             choosed_plot_idx = 0
@@ -126,10 +123,14 @@ function generateBoard(size) {
     </div>
     `
     console.log(MAP)
-    setTimeout(function updateTime(){
-        document.querySelector("#timeText").textContent = ++time;
-        setTimeout(updateTime,1000)
-    },1000)
+    setTimeout(function updateTime() {
+        let timeText = document.querySelector("#timeText")
+        if(timeText===null || timeText===undefined){
+            return;
+        }
+        timeText.textContent = ++time;
+        setTimeout(updateTime, 1000)
+    }, 1000)
 }
 
 
@@ -137,7 +138,7 @@ function generateBoard(size) {
 
 //Event Handler
 function startGame() {
-    let size = document.querySelector("#sizeInput").value
+    size = document.querySelector("#sizeInput").value
     if (size < 1 || size > 40) {
         return;
     }
@@ -187,12 +188,6 @@ function finish(cell) {
             score--
             revealed--
         }
-        // else if(!cell.classList.contains("flag") && MAP[i_index][j_index].numBomb !== -1){
-        //     revealed--
-        // }
-        // else if(cell.classList.contains("flag") && MAP[i_index][j_index].numBomb !== -1){
-        //     revealed--
-        // }
         checkWin()
         return
     }
@@ -203,13 +198,13 @@ function finish(cell) {
         return
     }
     else if (MAP[i_index][j_index].numBomb === -1) {
-        // cell.style.background = "red"
         cell.innerHTML = '<img class="bomb" src="image/bomb.jpg" draggable="false" ondragstart="return false">'
         gameover()
     }
     else {
         cell.innerHTML = MAP[i_index][j_index].numBomb
         cell.classList.add("open")
+        revealOthers(i_index, j_index)
         score++;
         revealed++;
     }
@@ -228,6 +223,128 @@ function checkWin() {
         <button onclick="restart()">Mainkan Ulang</button>
     `
         inputSegment.innerHTML = ``
+    }
+}
+
+function getCell(i,j){
+    pattern = `${i}${j}`
+    cell = document.getElementById(pattern)
+    console.log(pattern)
+    console.log(cell)
+    return cell
+}
+function revealOthers(i, j) {
+    i = Number(i)
+    j = Number(j)
+    const checkedTile = []
+    if (MAP[i][j].numBomb === 0) {
+        //cek tetangganya
+        //atas
+        if (i > 0) {
+            if (MAP[i - 1][j].numBomb !==-1 ) {
+                console.log("atas")
+                cell = getCell(i - 1,j)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i-1][j].numBomb
+                    revealed++
+                    checkedTile.push([i-1,j])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+            //kanan atas
+            console.log(MAP[i-1])
+            if (j < size - 1 &&  MAP[i - 1][j + 1].numBomb !== -1) {
+                console.log("kanan atas")
+                cell = getCell(i - 1,j+1)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i-1][j+1].numBomb
+                    revealed++
+                    checkedTile.push([i-1,j+1])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+        }
+        //bawah
+        if (i < size - 1) {
+            if (MAP[i+1][j].numBomb !==-1) {
+                console.log("bawah")
+                cell = getCell(i + 1,j)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i+1][j].numBomb
+                    revealed++
+                    checkedTile.push([i+1,j])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+            //kanan bawah
+            if (j < size - 1 && MAP[i + 1][j + 1].numBomb !== -1) {
+                console.log("bawah kanan")
+                cell = getCell(i + 1,j+1)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i+1][j+1].numBomb
+                    revealed++
+                    checkedTile.push([i+1,j+1])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+        }
+        //kanan
+        if (j < size - 1 && MAP[i][j + 1].numBomb !== -1) {
+            console.log("kanan")
+            cell = getCell(i ,j+1)
+            if(!cell.classList.contains("open")){
+                cell.innerHTML = MAP[i][j+1].numBomb
+                revealed++
+                checkedTile.push([i,j+1])
+                cell.classList.add("open")
+                cell.classList.add("revealed")
+            }
+        }
+        //kiri
+        if (j > 0) {
+            if ( MAP[i][j - 1].numBomb !== -1) {
+                console.log("kiri")
+                cell = getCell(i ,j-1)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i][j-1].numBomb
+                    revealed++
+                    checkedTile.push([i,j-1])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+            //kiri atas
+            if (i > 0 && MAP[i - 1][j - 1].numBomb !== -1) {
+                console.log("krii atas")
+                cell = getCell(i-1 ,j-1)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i-1][j-1].numBomb
+                    revealed++
+                    checkedTile.push([i-1,j-1])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+            //kiri bawah
+            if (i < size - 1 && MAP[i + 1][j - 1].numBomb !== -1) {
+                console.log("kiri bawah")
+                cell = getCell(i+1 ,j-1)
+                if(!cell.classList.contains("open")){
+                    cell.innerHTML = MAP[i+1][j-1].numBomb
+                    revealed++
+                    checkedTile.push([i+1,j-1])
+                    cell.classList.add("open")
+                    cell.classList.add("revealed")
+                }
+            }
+        }
+        checkedTile.forEach((e)=>{
+            revealOthers(e[0],e[1])
+        })
     }
 }
 
