@@ -224,9 +224,10 @@ function checkWin() {
         alert("anda menang!")
         splashDiv.innerHTML = `
         <h1>Skor Akhir: ${score}</h1>
+        <h1>Waktu Bermain: ${time}</h1>
         <button onclick="restart()">Mainkan Ulang</button>
     `
-        inputSegment.innerHTML = ''
+        inputSegment.innerHTML = ``
     }
 }
 
@@ -256,6 +257,7 @@ function gameover() {
     finish = true
     splashDiv.innerHTML = `
         <h1>Skor Akhir: ${score}</h1>
+        <h1>Waktu Bermain: ${time}</h1>
         <button onclick="restart()" id="restartButton">Mainkan Ulang</button>
     `
     inputSegment.innerHTML = ''
