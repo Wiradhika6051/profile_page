@@ -12,6 +12,7 @@ const HOLD_DELAY = 300
 const MAX_TILESIZE = 40
 
 let score = 0
+let bomb = 0;
 
 let revealed = 0
 
@@ -113,11 +114,15 @@ function generateBoard(size) {
     gameDiv.innerHTML = html
     inputSegment.innerHTML = `
     <div id="topbar">
-    <div id="containerTimer">
-    <img src="image/timer.png" id="timer">
-    <p id="timeText">${time}</p>
+    <div class="container">
+    <img src="image/timer.png" class="icon-top">
+    <p id="timeText" class="top-text">${time}</p>
     </div>
     <button onclick="restart()" id="restartButton">Mulai Ulang</button>
+    <div class="container">
+    <img src="image/remaining-flag.jpg" class="icon-top">
+    <p id="flagText" class="top-text">${bomb}</p>
+    </div>
     </div>
     `
     console.log(MAP)
@@ -137,7 +142,7 @@ function startGame() {
         return;
     }
     //cek sebelahnya
-    let bomb = document.querySelector("#bombCount").value
+    bomb = document.querySelector("#bombCount").value
     if (bomb < 0 || bomb > (size * size)) {
         return;
     }
@@ -237,10 +242,12 @@ function setFlag(cell) {
     if (cell.classList.contains("flag")) {
         cell.classList.remove("flag")
         cell.innerHTML = ''
+        document.querySelector("#flagText").innerHTML = ++bomb;
     }
     else {
         cell.classList.add("flag")
         cell.innerHTML = '<img src="image/flag.jpg" draggable="false" ondragstart="return false">'
+        document.querySelector("#flagText").innerHTML = --bomb;
     }
 }
 

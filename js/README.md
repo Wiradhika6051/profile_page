@@ -11,3 +11,4 @@ Feature:
 - Rename "score akhir" to "Skor Akhir"
 - Remove top restart button when win/lose
 - Add timer
+- Add indicator of remaining flag

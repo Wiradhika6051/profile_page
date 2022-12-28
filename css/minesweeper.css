@@ -114,17 +114,17 @@ label{
     width:100%;
 }
 
-#timer{
+.icon-top{
     width:3vw;
     height: 3vw;
 }
 
-#containerTimer{
+.container{
     display: flex;
     flex-direction: row;
     text-align: center;
 }
-#timeText{
+.top-text{
     display:inline;
     font-size: 1.4em;
     margin:1.4vh 0;
