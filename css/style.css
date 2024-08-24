@@ -24,10 +24,40 @@ header{
     background: #2e7bcf;
     border-bottom: solid 1px #275da1;
     font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#tabs{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    width: 50%;
+    height: 20vh;
+    padding-right:5vw;
+}
+#tabs a:hover{
+    background: #1a5fa7;
+    color:#ffffff;
+}
+
+#tabs a{
+    text-align: center;
+    display: flex;
+    padding: 0 3vw;
+}
+#tabs a div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.3em;
 }
 
 #intro {
-    text-align: center;
+    padding-left:2vw;
+    text-align: left;
 }
 #link{
     position: relative;
@@ -43,8 +73,12 @@ header{
     background-color: palegoldenrod;
     padding: 10px;
 }
-#intro > a{
+a{
     text-decoration: none;
+}
+#intro a {
+    color: rgb(239, 227, 227);
+    height:20vh;
 }
 #intro > a > h1{
     color: white;
