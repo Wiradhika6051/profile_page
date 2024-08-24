@@ -46,13 +46,16 @@ header{
 #tabs a{
     text-align: center;
     display: flex;
-    padding: 0 3vw;
+    padding: 0 2.5vw;
 }
 #tabs a div{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
     font-size: 1.3em;
+}
+#tabs a div p{
+    margin-left:1vw;
 }
 
 #intro {
