@@ -126,3 +126,8 @@ footer{
     align-items: space-between;
     gap:.3vw;
 }
+
+.contact-box:hover{
+    color:palegoldenrod;
+    background-color: rgb(85, 26, 139);
+}
