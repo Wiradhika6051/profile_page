@@ -133,6 +133,14 @@ footer{
 }
 
 section{
-    margin: 0 2vw;
+    margin: 0 2vw 5vh 2vw;
+    padding:0 2vw;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: left;
+    background-color: wheat;
+    border-radius: .5%;
+}
+
+.left-align{
+    align-items:flex-start;
 }
