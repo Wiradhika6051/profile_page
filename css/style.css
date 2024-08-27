@@ -131,3 +131,8 @@ footer{
     color:palegoldenrod;
     background-color: rgb(85, 26, 139);
 }
+
+section{
+    margin: 0 2vw;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
