@@ -24,6 +24,8 @@ h1{
     flex-direction: column;
     justify-content:space-between;
     padding: 2vh 1vw;
+}
+.project p{
     color: #6227A5;
 }
 header{
@@ -74,10 +76,14 @@ header{
     top:30px;
 }
 .small-box{
-    background-color: orchid;
-    color: #665ca3;
+    /* background-color: orchid; */
+    /* color: #665ca3; */
+    color:black;
     padding: 2vh;
     margin:0;
+}
+.small-box:hover{
+    color:blue;
 }
 .contact-box{
     background-color: palegoldenrod;
@@ -159,7 +165,8 @@ section{
 
 .action{
     display:flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    justify-content: flex-end;
 }
 
 .desc h2{
