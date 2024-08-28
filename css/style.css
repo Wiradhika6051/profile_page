@@ -17,12 +17,14 @@ h1{
 }
 .project {
     background-color: aquamarine;
-    width:25%;
-    height: 200px;
-    margin: 10px;
-    display:inline-table;
-    padding: 10px;
-    color: #7a31ce;
+    margin: 1vh 1vw;
+    width: 28vw;
+    height: 35vh;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    padding: 2vh 1vw;
+    color: #6227A5;
 }
 header{
     background: #2e7bcf;
@@ -74,7 +76,8 @@ header{
 .small-box{
     background-color: orchid;
     color: #665ca3;
-    padding: 10px;
+    padding: 2vh;
+    margin:0;
 }
 .contact-box{
     background-color: palegoldenrod;
@@ -144,4 +147,21 @@ section{
 
 .left-align{
     align-items:flex-start;
+}
+
+#work{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin:0;
+}
+
+.action{
+    display:flex;
+    flex-direction: row-reverse;
+}
+
+.desc h2{
+    margin-top: 0;
 }
