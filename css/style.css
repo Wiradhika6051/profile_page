@@ -166,9 +166,34 @@ section{
 .action{
     display:flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .desc h2{
     margin-top: 0;
+}
+
+.tags{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: .8vw;
+}
+
+.tag{
+    background-color: rgb(201, 211, 221);
+    color: black;
+    margin-right: .8vw;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: .8vh .6vw;
+    border-radius: 10%;
+    border: 1.4px solid black;
+}
+
+.tag-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
