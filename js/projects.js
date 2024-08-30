@@ -62,10 +62,21 @@ const ACTION_TEXT = {
   "play": "Play",
 }
 
+function escapeHTML(text) {
+  return text
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;')
+      .replace(/\//g, '&#x2F;');
+}
+
+
 const boxes = projects.map((project) => `<div class="project">
         <div class="desc">
           <h2>${project.name}</h2>
-        ${project.desc.map((desc)=>`<p>${desc}</p>`).join("")}
+        ${project.desc.map((desc)=>`<p>${escapeHTML(desc).replace(/\$b\{(.*?)\}/g,"<b>$1</b>")}</p>`).join("")}
         </div>
         <div class="action">
           <div class="tags">
@@ -90,8 +101,10 @@ const boxes = projects.map((project) => `<div class="project">
           </div>
           <div>${Object.keys(project.links).map((key)=>`
             <a class="small-box" href="${project.links[key]}" title="${ACTION_TEXT[key]}">
-              >${ICONS[key]}
+              ${ICONS[key]}
             </a>`).join("")}
           </div>
         </div>
       </div>`);
+// Tambahkan ke website
+document.querySelector("#work").innerHTML = boxes.join("");
