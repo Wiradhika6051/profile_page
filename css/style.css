@@ -191,9 +191,34 @@ section{
     border-radius: 10%;
     border: 1.4px solid black;
 }
+.tag:hover{
+    background-color: rgb(224, 229, 233);
+    color:rgb(21, 20, 20);
+    cursor:pointer;
+}
 
 .tag-list{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+#selectedTags{
+    display: none;
+    text-align: left;
+    width: 95vw;
+    flex-direction: row;
+}
+
+.show{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding:.5vh .5vw;
+    border-radius: 10%;
+    gap: .1vw;
+}
+
+.show p{
+    margin:0;
 }
