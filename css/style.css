@@ -204,7 +204,7 @@ section{
 }
 
 #selectedTags{
-    display: none;
+    display: flex;
     text-align: left;
     width: 95vw;
     flex-direction: row;
@@ -221,4 +221,9 @@ section{
 
 .show p{
     margin:0;
+}
+
+.add-tag{
+    width: 10vw;
+    text-align: center;
 }
