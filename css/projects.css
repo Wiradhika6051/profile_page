@@ -8,10 +8,30 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  width: 96vw;
 }
 
 #work>p{
   font-size: 1.5em;
   text-align: center;
   color: black;
+}
+
+.add-tag{
+  /* width: 20vw; */
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .5vw;
+}
+.add-tag > p{
+  margin:0 0;
+}
+
+#selectedTags{
+  display: flex;
+  text-align: left;
+  /* width: 95vw; */
+  flex-direction: row;
 }

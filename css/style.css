@@ -203,27 +203,15 @@ section{
     justify-content: space-around;
 }
 
-#selectedTags{
-    display: flex;
-    text-align: left;
-    width: 95vw;
-    flex-direction: row;
-}
-
 .show{
     display: flex;
     flex-direction: row;
     align-items: center;
     padding:.5vh .5vw;
     border-radius: 10%;
-    gap: .1vw;
+    gap: .5vw;
 }
 
 .show p{
     margin:0;
-}
-
-.add-tag{
-    width: 10vw;
-    text-align: center;
 }
