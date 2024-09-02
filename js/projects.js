@@ -1,7 +1,9 @@
-import projects from "../data/projects.json" with { type: "json" };
+import data from "../data/projects.json" with { type: "json" };
 
+const {projects, tags} = data;
 const showTag = document.querySelector("#selectedTags");
 const selected_tags = new Set();
+const tagInput = document.querySelector("#tagInput");
 const ICONS = {
   "download": `<svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,6 +127,8 @@ function renderProject(projects){
   tag.addEventListener("click",addTag)
 })
 }
+// render tag dropdown
+renderTagDropdown();
 // Tambahkan ke website
 renderProject(projects);
 // handle tag
@@ -160,4 +164,8 @@ function addTag(e){
   document.querySelectorAll(".show").forEach((tag)=>{
     tag.addEventListener("click",removeTag);
   })
+}
+function renderTagDropdown(){
+  const AllTagHTML = `<ul>${tags.map((tag)=>`<li class="tag-click">${tag}</li>`).join('')}</ul>`
+  tagInput.innerHTML = AllTagHTML;
 }

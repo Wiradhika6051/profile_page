@@ -203,15 +203,6 @@ section{
     justify-content: space-around;
 }
 
-.show{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding:.5vh .5vw;
-    border-radius: 10%;
-    gap: .5vw;
-}
-
 .show p{
     margin:0;
 }
