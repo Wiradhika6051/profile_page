@@ -1,0 +1,31 @@
+.blog-link{
+  width:90vw;
+  margin: 0 5vw;
+  background-color: wheat;
+  padding: 1.5vh 2vw;
+  border: 2px solid #4D001A;
+  border-radius: 12px;
+}
+#blogTitle{
+  font-size: 2.5em;
+}
+.blog-link h3{
+  font-size: 2em
+}
+.blog-link p{
+  font-size: 1.2em;
+}
+.date{
+  color: gray;
+}
+#blogs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.blog-link:visited, .blog-link:link{
+  text-decoration: none;
+  color: #5e0422;
+}

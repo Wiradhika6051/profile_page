@@ -12,13 +12,12 @@ function renderBlogList(blogs){
     <div class="blog">
       <div class="blog-header">
         <h3>${blog.title}</h3>
-        <p>${blog.date}</p>
+        <p class="date">${blog.date}</p>
       </div>
       <div class="blog-desc">
         <p>${blog.desc}</p>
       </div>
     </div>
-  </a>
   `);
   blogsRoot.innerHTML = blogList.join("");
 }
