@@ -1,0 +1,36 @@
+#date{
+  color:rgb(82, 77, 77);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 1.3em;
+}
+main{
+  align-items: flex-start;
+  text-align: left;
+  
+}
+main h3{
+  font-size:3.5em;
+  margin-bottom: 1vh;
+  margin-top:6vh;
+}
+#date,h3{
+  padding: 0 2vw;
+}
+
+main{
+  margin: 0 2vw 5vh 2vw;
+  padding:0 2vw;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-align: left;
+  background-color: wheat;
+  border-radius: 15px;
+  width:91vw;
+}
+section p{
+  padding: 0;
+  margin: 0;
+}
+section{
+  margin: 2vh 2vw 5vh 2vw;
+  padding:0;
+}
