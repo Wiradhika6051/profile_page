@@ -9,7 +9,7 @@ renderBlogList(blogs);
 function renderBlogList(blogs){
   const options = {day:'2-digit','month':'long','year':'numeric'};
   const blogList = blogs.map((blog)=>`
-  <a href="../blogs/${blog.content_path}" class="blog-link">
+  <a href="./blogs/${blog.content_path}" class="blog-link">
     <div class="blog">
       <div class="blog-header">
         <h3>${blog.title}</h3>
