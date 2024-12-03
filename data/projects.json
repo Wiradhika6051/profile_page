@@ -98,6 +98,16 @@
       "links": {
         "gitlab": "https://gitlab.informatika.org/anugrah_fawwaz/ta-static-code-analysis"
       }
+    },
+    {
+      "name": "Copypasta",
+      "desc": [
+        "Template filler developed using vanilla $b{Javascript} and $b{HTML}."
+      ],
+      "tags": ["Website","Tool"],
+      "links": {
+        "play": "copypasta.html"
+      }
     }
   ]
 }
