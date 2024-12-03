@@ -1,5 +1,6 @@
 [
   {
+    "id":0,
     "name": "Chat GPT Game",
     "description": "Template for Prompt for personal ChatGPT game",
     "text": "This is information related to {0} as in {1}. Update to {2}. Update to {2} with randomized outcome, whether progress, stalled, regress, postponed, cancelled, new law, breakthrough, etc. Consider {2} developments, leadership dynamics, and policies. If need to show statistic, show in table. \n {3} \n Also here's the agenda of current prime minister, prime minister {4}. Update prime minister's agenda status with information in this section if it affect agenda. If it's not affect a agenda, don't change and don't show the agenda in response. Otherwise, show the changed agenda in response \n Cabinet name: {5} \n {6}",
