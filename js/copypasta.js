@@ -6,8 +6,10 @@ const detailRoot = document.querySelector("#detail")
 renderCopypastaList(copypasta)
 
 function showDetail(id){
-  console.log(id)
-  console.log(copypasta.filter(c=>c.id===id))
+  const c = copypasta.filter(c=>c.id===id)[0]
+  console.log(c)
+  const detail = `<div class="detail-box">${c.text}</div>`
+  detailRoot.innerHTML = detail
 }
 
 function renderCopypastaList(copypasta){
