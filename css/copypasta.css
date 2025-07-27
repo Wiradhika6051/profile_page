@@ -1,0 +1,17 @@
+.detail-box{
+    border: 3px solid rgb(13, 51, 38);
+    background-color: aquamarine;
+    margin: 0 1vw 5vh 1vw;
+    padding: 2%;
+    border-radius: 5%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5%
+}
+#template{
+    flex-grow: 2;
+}
+#replace{
+    flex-grow: 1;
+}

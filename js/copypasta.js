@@ -2,14 +2,25 @@ import copypasta from "../data/copypasta.json" with {type:"json"}
 
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
-
+let isDetailActive = false;
 renderCopypastaList(copypasta)
 
 function showDetail(id){
-  const c = copypasta.filter(c=>c.id===id)[0]
-  console.log(c)
-  const detail = `<div class="detail-box">${c.text}</div>`
-  detailRoot.innerHTML = detail
+  isDetailActive = !isDetailActive;
+  if(isDetailActive){
+    detailRoot.innerHTML = ""
+  }
+  else{
+    const c = copypasta.filter(c=>c.id===id)[0]
+    const paramInputHTML = c.parameters.map((p)=>`<div class="param-input"><p>${p}</p><input type="text"></div>`)
+    const detail = `
+    <div class="detail-box">
+      <div id='template'>${c.text}</div>
+      <div id='replace'>${paramInputHTML.join('')}</div>
+    </div>`
+    detailRoot.innerHTML = detail
+  }
+
 }
 
 function renderCopypastaList(copypasta){
