@@ -13,9 +13,10 @@ function showDetail(id){
   else{
     const c = copypasta.filter(c=>c.id===id)[0]
     const paramInputHTML = c.parameters.map((p)=>`<div class="param-input"><p>${p}</p><input type="text"></div>`)
+    const text = c.text.split("\n").map(c=>`<p>${c}</p>`).join('')
     const detail = `
     <div class="detail-box">
-      <div id='template'>${c.text}</div>
+      <div id='template'>${text}</div>
       <div id='replace'>${paramInputHTML.join('')}</div>
     </div>`
     detailRoot.innerHTML = detail
