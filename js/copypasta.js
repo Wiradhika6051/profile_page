@@ -3,17 +3,44 @@ import copypasta from "../data/copypasta.json" with {type:"json"}
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
 let isDetailActive = false;
+const idMapping = new Map();
 renderCopypastaList(copypasta)
+detailRoot.addEventListener("input",updateTemplate)
+function updateTemplate(e){
+  if(e.target.tagName==="INPUT"){
+    const idx = e.target.dataset.index
+    // dapatkan new value
+    const templateTexts = document.querySelectorAll(".template-text")
+    console.log(e.srcElement.value)
+    console.log(idMapping.get(idx))
+    let val = e.srcElement.value
+    if(e.srcElement.value===''){
+      val = idx
+    }
+    templateTexts.forEach((element)=>{
+      element.textContent = element.textContent.replace(idMapping.get(idx),`{${val}}`)
+    })
+    console.log(templateTexts[0])
+    idMapping.set(idx,`{${val}}`)
+  }
+}
+
 
 function showDetail(id){
-  isDetailActive = !isDetailActive;
   if(isDetailActive){
     detailRoot.innerHTML = ""
   }
   else{
+    //reset mapping
+    idMapping.clear()
+    // cari data
     const c = copypasta.filter(c=>c.id===id)[0]
-    const paramInputHTML = c.parameters.map((p)=>`<div class="param-input"><p>${p}</p><input type="text"></div>`)
-    const text = c.text.split("\n").map(c=>`<p>${c}</p>`).join('')
+    // buat mapping
+    for(let i=0;i<c.parameters.length;i++){
+      idMapping.set(i.toString(),`{${i}}`)
+    }
+    const paramInputHTML = c.parameters.map((p,i)=>`<div class="param-input"><p>${p}</p><input type="text" data-index=${i}></div>`)    
+    const text = c.text.split("\n").map(c=>`<p class="template-text">${c}</p>`).join('')
     const detail = `
     <div class="detail-box">
       <div id='template'>${text}</div>
@@ -21,11 +48,10 @@ function showDetail(id){
     </div>`
     detailRoot.innerHTML = detail
   }
-
+  isDetailActive = !isDetailActive;
 }
 
 function renderCopypastaList(copypasta){
-  console.log(copypasta)
   const copypastaList = copypasta.map((c)=>`<div class="project copypasta-info"  data-id=${c.id}>
         <div class="desc copypasta-box">
           <h2>${c.name}</h2>
