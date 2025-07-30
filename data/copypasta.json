@@ -13,5 +13,14 @@
       "Cabinet Name",
       "Agenda"
     ]
+  },
+  {
+    "id":1,
+    "name": "Wangy Wangy",
+    "description": "Wangy wangy copypasta, for you who want to express your love for fictional character",
+    "text": "{0} {0} {0} ❤️ ❤️ ❤️ WANGI WANGI WANGI WANGI HU HA HU HA HU HA, aaaah baunya rambut {0} wangi aku mau nyiumin aroma wanginya {0} AAAAAAAAH ~ Rambutnya.... aaah rambutnya juga pengen aku elus-elus ~~~~ AAAAAH {0} keluar pertama kali di anime juga manis ❤️ ❤️ ❤️ banget AAAAAAAAH {0} AAAAA LUCCUUUUUUUUUUUUUUU............{0} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️apa ? {0} itu gak nyata ? Cuma HALU katamu ? nggak, ngak ngak ngak ngak NGAAAAAAAAK GUA GAK PERCAYA ITU DIA NYATA NGAAAAAAAAAAAAAAAAAK PEDULI BANGSAAAAAT !! GUA GAK PEDULI SAMA KENYATAAN POKOKNYA GAK PEDULI. ❤️ ❤️ ❤️ {0} gw ...{0} di laptop ngeliatin gw, {0} .. kamu percaya sama aku ? aaaaaaaaaaah syukur {0} aku gak mau merelakan {0} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH GUA MASIH PUNYA {0} SENDIRI PUN NGGAK SAMA AAAAAAAAAAAAAAH",
+    "parameters": [
+      "Character"
+    ]
   }
 ]

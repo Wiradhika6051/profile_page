@@ -5,6 +5,7 @@ const detailRoot = document.querySelector("#detail")
 let isDetailActive = false;
 const idMapping = new Map();
 let currentCopypasta = null;
+let currentId = null
 renderCopypastaList(copypasta)
 detailRoot.addEventListener("input",updateTemplate)
 function updateTemplate(e){
@@ -32,8 +33,10 @@ function updateTemplate(e){
 
 
 function showDetail(id){
-  if(isDetailActive){
+  if(isDetailActive && currentId==id){
     detailRoot.innerHTML = ""
+    currentId = null
+    isDetailActive = false;
   }
   else{
     //reset mapping
@@ -58,8 +61,9 @@ function showDetail(id){
       <div id='replace'>${paramInputHTML.join('')}</div>
     </div>`
     detailRoot.innerHTML = detail
+    currentId = id;
+    isDetailActive = true
   }
-  isDetailActive = !isDetailActive;
 }
 
 function renderCopypastaList(copypasta){
