@@ -15,3 +15,9 @@
 #replace{
     flex-grow: 1;
 }
+.replaced-word{
+    font-weight: bold;
+}
+.empty{
+    color:red;
+}

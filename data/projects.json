@@ -78,17 +78,6 @@
       }
     },
     {
-      "name": "Webtune",
-      "desc": [
-        "Website to listen to song akin to Spotify as part of $b{IF3110 - Web based Application Development} class project.",
-        "Developed using $b{PHP}, $b{React.Js}, $b{Chakra UI},$b{Express.Js},$b{PostgreSQL}, and $b{JAX-WS}."
-      ],
-      "tags": ["Website"],
-      "links": {
-        "gitlab": "https://gitlab.informatika.org/IF3110-2022-K02-02-05"
-      }
-    },
-    {
       "name": "SCA Tool",
       "desc": [
         "$b{Static Code Analysis Tool} to detect Broken Access Control Vulnerability in Python web application.",
