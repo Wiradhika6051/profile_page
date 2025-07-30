@@ -22,5 +22,12 @@
     "parameters": [
       "Character"
     ]
+  },
+    {
+    "id":2,
+    "name": "Bilamana Ada Investigasi",
+    "description": "For you that are in group chat with your unhinged friend that discuss sensitive or legally questionable topic",
+    "text": "Bilamana ada investigasi oleh kepolisian, Badan Intelijen Negara, Atau entitas lain serupa, saya tidak bertanggung jawab atas konten grup atau komunitas ini. Saya tidak tahu menahu siapa anggota komunitas ini dan saya telah ditambahkan oleh pihak ketiga tanpa persetujuan dari saya.",
+    "parameters": []
   }
 ]

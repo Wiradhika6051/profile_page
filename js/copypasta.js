@@ -58,7 +58,7 @@ function showDetail(id){
     const detail = `
     <div class="detail-box">
       <div id='template'>${text}</div>
-      <div id='replace'>${paramInputHTML.join('')}</div>
+      <div id='replace'>${paramInputHTML.length>0 ? paramInputHTML.join('') : ""}</div>
     </div>`
     detailRoot.innerHTML = detail
     currentId = id;

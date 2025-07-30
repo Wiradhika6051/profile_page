@@ -10,14 +10,18 @@
     gap: 5%
 }
 #template{
-    flex-grow: 2;
+    flex: 0 0 80%;
+    font-size: 1.1rem;
 }
 #replace{
-    flex-grow: 1;
+    flex: 0 0 20%;
 }
 .replaced-word{
     font-weight: bold;
 }
 .empty{
     color:red;
+}
+#copypasta{
+    display:flex;
 }
