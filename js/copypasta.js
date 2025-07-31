@@ -110,7 +110,7 @@ function showDetail(id){
 // Render copypasta list
 function renderCopypastaList(copypasta){
   copypastaRoot.innerHTML = copypasta.map((c)=>`
-    <div class="project copypasta-info"  data-id=${c.id}>
+    <div class="copypasta-info"  data-id=${c.id}>
       <div class="desc copypasta-box">
         <h2>${c.name}</h2>
         <p>${c.description}</p>

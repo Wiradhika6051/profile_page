@@ -34,6 +34,8 @@
 }
 #copypasta{
     display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 
@@ -71,6 +73,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.copypasta-box h2{
+    text-align: center;
+}
 
 .param-input{
     display: flex;
@@ -82,4 +87,28 @@
     box-sizing: border-box;
     padding: 0.5rem;
     width: 14vw;
+}
+
+.copypasta-info{
+    background-color: aquamarine;
+    margin: 1vh 1vw;
+    width: 27vw;
+    height: 35vh;
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    padding: 2vh 1.5vw;
+}
+.copypasta-info p{
+    color: #6227A5;
+}
+
+@media(max-width:600px){
+    #copypasta{
+        flex-direction: column;
+        align-items: center;
+    }
+    .copypasta-info{
+        width: 80vw;
+    }
 }
