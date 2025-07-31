@@ -29,6 +29,7 @@
 }
 #copypasta{
     display:flex;
+    justify-content: space-around;
 }
 
 #toast-container{
@@ -57,4 +58,11 @@
     10% {opacity: 1; transform: translateY(0);}
     90% {opacity: 1;}
     100% {opacity: 0;transform: translateY(-10px);}
+}
+.copypasta-box{
+    overflow: hidden;
+}
+.copypasta-box > p {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
