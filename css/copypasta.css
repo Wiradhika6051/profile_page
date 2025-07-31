@@ -12,6 +12,11 @@
 #template{
     flex: 0 0 80%;
     font-size: 1.1rem;
+    padding: 1%;
+    border-radius: 10px;
+}
+#template:hover{
+    background-color: rgb(106, 234, 191);
 }
 #replace{
     flex: 0 0 20%;

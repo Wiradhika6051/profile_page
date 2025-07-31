@@ -31,6 +31,11 @@ function updateTemplate(e){
   }
 }
 
+function copyText(e){
+  navigator.clipboard.writeText(e.srcElement.innerText)
+  alert("Teks berhasil disalin!")
+}
+
 
 function showDetail(id){
   if(isDetailActive && currentId==id){
@@ -61,6 +66,7 @@ function showDetail(id){
       <div id='replace'>${paramInputHTML.length>0 ? paramInputHTML.join('') : ""}</div>
     </div>`
     detailRoot.innerHTML = detail
+    document.querySelector("#template").addEventListener("click",copyText)
     currentId = id;
     isDetailActive = true
   }
