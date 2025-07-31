@@ -8,6 +8,17 @@ let currentCopypasta = null;
 let currentId = null
 renderCopypastaList(copypasta)
 detailRoot.addEventListener("input",updateTemplate)
+
+function showToast(message,duration= 3000){
+  const toast = document.createElement("div")
+  toast.className = 'toast'
+  toast.textContent = message
+  document.getElementById("toast-container").appendChild(toast)
+  setTimeout(()=>{
+    toast.remove()
+  },duration)
+}
+
 function updateTemplate(e){
   if(e.target.tagName==="INPUT"){
     const idx = e.target.dataset.index
@@ -33,7 +44,7 @@ function updateTemplate(e){
 
 function copyText(e){
   navigator.clipboard.writeText(e.srcElement.innerText)
-  alert("Teks berhasil disalin!")
+  showToast("Teks berhasil disalin!")
 }
 
 

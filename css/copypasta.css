@@ -30,3 +30,31 @@
 #copypasta{
     display:flex;
 }
+
+#toast-container{
+    position: fixed;
+    top:1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: 9999;
+}
+
+.toast{
+    background-color: aquamarine;
+    animation: fadeInOut 3s forwards;
+    color:black;
+    padding: 1rem 1.5rem;
+    border: 5px solid rgb(56, 156, 56);
+    border-radius: 8px;
+    font-family: sans-serif;
+    box-shadow: 0 4px 10px rgb(0, 0, 0, 0.2);
+}
+
+@keyframes fadeInOut {
+    0%{opacity: 0;transform: translateY(-10px);}
+    10% {opacity: 1; transform: translateY(0);}
+    90% {opacity: 1;}
+    100% {opacity: 0;transform: translateY(-10px);}
+}
