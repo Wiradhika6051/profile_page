@@ -111,4 +111,10 @@
     .copypasta-info{
         width: 80vw;
     }
+    .detail-box{
+        flex-direction: column;
+    }
+    .param-input input{
+        width: 42vw;
+    }
 }
