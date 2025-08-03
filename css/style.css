@@ -115,6 +115,7 @@ main{
 main h3{
     font-size: 1.7em;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
 }
 
 #profileImage > img{
@@ -205,4 +206,24 @@ section{
 
 .show p{
     margin:0;
+}
+
+@media(max-width:810px) {
+    #profileImage > img{
+        width: 45vw;
+        height: 45vw;
+    }
+    header{
+        flex-direction: column;
+    }
+    header a{
+        width: 100vw;
+        text-align: center;
+    }
+    #tabs{
+        justify-content: center;
+        width: 50%;
+        height: 20vh;
+        padding-right:5vw;
+    }
 }
