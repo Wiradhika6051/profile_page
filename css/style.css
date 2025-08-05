@@ -136,7 +136,7 @@ footer{
     display: flex;
     flex-direction: row;
     align-items: space-between;
-    gap:.3vw;
+    gap:.4vw;
 }
 
 .contact-box:hover{
@@ -208,7 +208,7 @@ section{
     margin:0;
 }
 
-@media(max-width:810px) {
+@media(min-width:500px), (max-width:810px) {
     #profileImage > img{
         width: 45vw;
         height: 45vw;
@@ -225,5 +225,24 @@ section{
         width: 50%;
         height: 20vh;
         padding-right:5vw;
+    }
+}
+
+@media(max-width:500px){
+    #tabs{
+        flex-direction: column;
+        height: 50vh;
+        width:100vw;
+        padding:0;
+        margin:0;
+        justify-content: center;
+        text-align: center;
+    }
+    #intro{
+        gap:1vh;
+    }
+    #tabs a{
+        justify-content: space-around;
+        padding: 0;
     }
 }

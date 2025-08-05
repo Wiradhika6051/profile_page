@@ -1,0 +1,7 @@
+- responsive ultra small home
+- responsive about page
+- responsive projects page
+- responsive blogs page
+- responsive copypasta detail ultra small
+- sort project by date
+- show image of project
