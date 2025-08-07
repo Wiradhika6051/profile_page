@@ -10,9 +10,19 @@ li::marker{
   padding-right: 10vw;
 }
 
+section p{
+  margin-left: 1vw;
+}
+
+@media(min-width:500px) and (max-width:810px) {
+  section p{
+    margin-left: 2vw;
+  }
+}
+
 @media(max-width:500px){
   section p{
-    font-size: .95rem;
+    margin-left: 2vw;
   }
   main{
     margin-top:1vh;

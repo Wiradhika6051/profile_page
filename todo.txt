@@ -1,4 +1,3 @@
-- responsive about page
 - responsive projects page
 - responsive blogs page
 - responsive copypasta detail ultra small
