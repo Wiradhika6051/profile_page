@@ -240,6 +240,14 @@ section{
 }
 
 @media(max-width:500px){
+    header{
+        width: 98vw;
+        padding-left: 2vw;
+    }
+    a.icon{
+        width: 100vw;
+        left: 0vw;
+    }
     #tabs{
         display: none;
         flex-direction: column;
@@ -253,7 +261,8 @@ section{
         top:100%;
         background-color: #2e7bcf;
         z-index: 10;
-        top:26vh
+        top:26vh;
+        left:0vw;
     }
     #intro{
         gap:1vh;
@@ -297,5 +306,8 @@ section{
     main{
         position: relative;
         top:2vh;
+    }
+    footer{
+        width: 100vw;
     }
 }
