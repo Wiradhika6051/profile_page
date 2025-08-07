@@ -1,6 +1,13 @@
 section{
   margin: 0 2vw 5vh 2vw;
-  padding:0 2vw;
+}
+li{
+  margin-bottom: 2vh;
+  list-style-type: square;
+}
+
+li::marker{
+  padding-right: 10vw;
 }
 
 @media(max-width:500px){
