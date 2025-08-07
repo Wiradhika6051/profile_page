@@ -152,7 +152,7 @@ section{
     text-align: left;
     background-color: wheat;
     border-radius: .5%;
-    width:91vw;
+    width:92vw;
 }
 
 .left-align{
@@ -211,13 +211,17 @@ section{
     margin:0;
 }
 
-@media(min-width:500px), (max-width:810px) {
+@media(min-width:500px) and (max-width:810px) {
     #profileImage > img{
         width: 45vw;
         height: 45vw;
     }
     header{
         flex-direction: column;
+        width: 100vw;
+    }
+    #intro{
+        padding-left: 0;
     }
     header a{
         width: 100vw;
@@ -229,6 +233,9 @@ section{
         width: 50%;
         height: 20vh;
         padding-right:5vw;
+    }
+    footer{
+        width: 100vw;
     }
 }
 
