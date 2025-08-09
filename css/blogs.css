@@ -1,5 +1,5 @@
 .blog-link{
-  width:90vw;
+  width:85vw;
   margin: 0 5vw;
   background-color: wheat;
   padding: 1.5vh 2vw;
@@ -10,7 +10,7 @@
   font-size: 2.5em;
 }
 .blog-link h3{
-  font-size: 2em
+  font-size: 2em;
 }
 .blog-link p{
   font-size: 1.2em;
@@ -22,10 +22,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .blog-link:visited, .blog-link:link{
   text-decoration: none;
   color: #5e0422;
+}
+@media(min-width:500px) and (max-width:810px){
+}
+@media(max-width:500px){
 }

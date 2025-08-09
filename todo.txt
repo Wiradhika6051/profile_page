@@ -3,3 +3,4 @@
 - responsive copypasta detail ultra small
 - sort project by date
 - show image of project
+- bug kalo dari super small ke kegdean jadi ketutup kalau sambil buka menu tab
