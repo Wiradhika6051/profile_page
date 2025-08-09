@@ -18,13 +18,13 @@ main h3{
 }
 
 main{
-  margin: 0 2vw 5vh 2vw;
+  margin: 0 3vw 5vh 3vw;
   padding:0 2vw;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   text-align: left;
   background-color: wheat;
   border-radius: 15px;
-  width:91vw;
+  width:90vw;
 }
 section p{
   padding: 0;
@@ -32,5 +32,6 @@ section p{
 }
 section{
   margin: 2vh 2vw 5vh 2vw;
-  padding:0;
+  /* padding-left: 2vw; */
+  width: 90vw;
 }
