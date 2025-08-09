@@ -12,6 +12,7 @@ main h3{
   font-size:3.5em;
   margin-bottom: 1vh;
   margin-top:6vh;
+  text-align: left;
 }
 #date,h3{
   padding: 0 2vw;
@@ -28,10 +29,16 @@ main{
 }
 section p{
   padding: 0;
-  margin: 0;
+  margin: 0vh;
 }
 section{
   margin: 2vh 2vw 5vh 2vw;
   /* padding-left: 2vw; */
   width: 90vw;
+}
+
+@media (max-width:500px){
+  main{
+    margin-top:5vh;
+  }
 }
