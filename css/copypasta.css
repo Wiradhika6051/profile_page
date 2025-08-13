@@ -115,7 +115,7 @@
         flex-direction: column;
     }
     .param-input input{
-        width: 42vw;
+        width: 100vw;
     }
 }
 @media (min-width: 500px) and (max-width: 810px) {

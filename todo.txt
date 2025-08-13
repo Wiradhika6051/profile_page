@@ -1,4 +1,3 @@
 - responsive projects page
-- responsive copypasta detail ultra small
 - sort project by date
 - show image of project
