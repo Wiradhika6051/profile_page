@@ -118,3 +118,10 @@
         width: 42vw;
     }
 }
+@media (min-width: 500px) and (max-width: 810px) {
+    header a {
+        width: 100vw;
+        text-align: left;
+        padding-left: 2vw;
+    }
+}
