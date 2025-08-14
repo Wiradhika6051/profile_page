@@ -17,6 +17,7 @@
         "$b{Android} application to search root of quadratic equation.",
         "Developed using $b{Kotlin}."
       ],
+      "date":"2020-08-17T17:00:00.000Z",
       "tags": ["Mobile", "Android"],
       "links": {
         "download": "https://drive.google.com/drive/u/0/folders/16nw8v_fq1OBZySge9PfFzs782JRXRxBY",
@@ -29,6 +30,7 @@
         "$b{GUI}-based program to simulate oven as $b{KU1102 - Introduction to Computation class project}.",
         "Developed using $b{Python}."
       ],
+      "date":"2020-11-30T17:00:00.000Z",
       "tags": ["GUI", "Dekstop"],
       "links": {
         "github": "https://github.com/Wiradhika6051/Oven-Pintar"
@@ -39,6 +41,7 @@
       "desc": [
         "Minesweeper game developed using $b{HTML},$b{CSS}, and $b{Javascript}."
       ],
+      "date":"2022-10-28T17:00:00.000Z",
       "tags": ["Website", "Game"],
       "links": {
         "play": "minesweeper.html"
@@ -50,6 +53,7 @@
         "$b{Ruby on Rails Website} to do encryption and decryption using various classical cipher such as Caesar Cipher and Viginere CipherWebsite.",
         "I developed it with my friend as part of $b{IF4020 - Cryptography} class project."
       ],
+      "date":"2024-02-14T17:00:00.000Z",
       "tags": ["Website"],
       "links": {
         "github": "https://github.com/chryes220/Tugas1-Kriptografi"
@@ -61,6 +65,7 @@
         "Application to help women during menstruation as part of $b{Bangkit Capstone Project}.",
         "I develop the $b{backend side} using $b{Express.Js}, $b{Typescript}, and $b{Firestore} as database."
       ],
+      "date":"2023-10-27T17:00:00.000Z",
       "tags": ["API"],
       "links": {
         "github": "https://github.com/Wiradhika6051/Feminicare/tree/CC"
@@ -72,6 +77,7 @@
         "Website to listen to song akin to Spotify as part of $b{IF3110 - Web based Application Development} class project.",
         "Developed using $b{PHP}, $b{React.Js}, $b{Chakra UI},$b{Express.Js},$b{PostgreSQL}, and $b{JAX-WS}."
       ],
+      "date":"2022-11-11T17:00:00.000Z",
       "tags": ["Website"],
       "links": {
         "gitlab": "https://gitlab.informatika.org/IF3110-2022-K02-02-05"
@@ -83,6 +89,7 @@
         "$b{Static Code Analysis Tool} to detect Broken Access Control Vulnerability in Python web application.",
         "Developed with $b{Python} as part of my $b{final project}."
       ],
+      "date":"2024-05-13T17:00:00.000Z",
       "tags": ["CLI", "Tool"],
       "links": {
         "gitlab": "https://gitlab.informatika.org/anugrah_fawwaz/ta-static-code-analysis"
@@ -93,6 +100,7 @@
       "desc": [
         "Template filler developed using vanilla $b{Javascript} and $b{HTML}."
       ],
+      "date":"2024-12-02T17:00:00.000Z",
       "tags": ["Website","Tool"],
       "links": {
         "browse": "copypasta.html"
