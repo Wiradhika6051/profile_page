@@ -217,6 +217,10 @@ section{
 }
 
 @media(max-width:500px){
+    #profileImage > img{
+        width: 60vw;
+        height: 60vw;
+    }
     header{
         width: 98vw;
         padding-left: 2vw;

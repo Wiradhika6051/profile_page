@@ -1,3 +1,2 @@
-- responsive projects page
 - sort project by date
 - show image of project
