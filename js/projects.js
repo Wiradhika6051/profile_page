@@ -86,16 +86,34 @@ function escapeHTML(text) {
       .replace(/'/g, '&#39;')
       .replace(/\//g, '&#x2F;');
 }
+function formatDescription(desc) {
+  return `<p>${escapeHTML(desc).replace(/\$b\{(.*?)\}/g, "<b>$1</b>")}</p>`;
+}
+
+function formatTags(tags) {
+  return tags.map(tag => `<div class="tag tag-click">${escapeHTML(tag)}</div>`).join('');
+}
+
+function formatLinks(links) {
+  return Object.entries(links)
+    .map(([key, url]) => `
+      <a class="small-box" href="${url}" title="${ACTION_TEXT[key]}">
+        ${ICONS[key]}
+      </a>`)
+    .join('');
+}
 function renderProject(projects){
-  if(projects.length==0){
+  const workSection = document.querySelector("#work");
+  if(!projects.length){
     // gak ada project
-    document.querySelector("#work").innerHTML = "<p>No Project Found</p>";
+    workSection.innerHTML = "<p>No Project Found</p>";
     return
   }
-  const boxes =  projects.map((project) => `<div class="project">
+  const boxesHTML =  projects.map((project) => `
+      <div class="project">
         <div class="desc">
-          <h2>${project.name}</h2>
-        ${project.desc.map((desc)=>`<p>${escapeHTML(desc).replace(/\$b\{(.*?)\}/g,"<b>$1</b>")}</p>`).join("")}
+          <h2>${escapeHTML(project.name)}</h2>
+        ${project.desc.map(formatDescription).join("")}
         </div>
         <div class="action">
           <div class="tags">
@@ -115,61 +133,69 @@ function renderProject(projects){
               />
             </svg>
             <div class="tag-list">
-            ${project.tags.map((tag)=>`<div class="tag tag-click">${escapeHTML(tag)}</div>`).join("")}
+            ${formatTags(project.tags)}
             </div>
           </div>
-          <div>${Object.keys(project.links).map((key)=>`
-            <a class="small-box" href="${project.links[key]}" title="${ACTION_TEXT[key]}">
-              ${ICONS[key]}
-            </a>`).join("")}
+          <div>${formatLinks(project.links)}
           </div>
         </div>
-      </div>`);
-  document.querySelector("#work").innerHTML = boxes.join("");
+      </div>`).join("");
+  workSection.innerHTML = boxesHTML;
   // listener tag diklik
   document.querySelectorAll(".tag-click").forEach((tag)=>{
   tag.addEventListener("click",addTag)
 })
 }
-// render tag dropdown
-renderTagDropdown();
-// Tambahkan ke website
-renderProject(projects);
 // handle tag
 function removeTag(e){
-  console.log(e.target.textContent)
   // disanitasi buat hilangin whitespace
-  selected_tags.delete(e.target.textContent.trim());
-  console.log(selected_tags)
-  if(selected_tags.size==0){
+  const tag = e.target.textContent.trim();
+  selected_tags.delete(tag);
+
+  if(!selected_tags.size){
     showTag.innerHTML = "";
     showTag.style.display = 'none';
     renderProject(projects);
   }
   else{
-    const filteredProject = projects.filter((project)=>selected_tags.intersection(new Set(project.tags)).size!=0);
-    renderProject(filteredProject);
-    showTag.innerHTML = [...selected_tags].map((tag)=>`<div class='tag show'>${ICONS['x-close']}<p>${escapeHTML(tag)}</p></div>`).join(" ");
-    // add listener
-    document.querySelectorAll(".show , .close-i").forEach((tag)=>{
-    tag.addEventListener("click",removeTag);
-  })
+    const filtered = filterProjectsByTags();
+    renderProject(filtered);
   }
+  updateSelectedTagsUI();
+}
+
+function filterProjectsByTags() {
+  return projects.filter(project =>
+    selected_tags.intersection(new Set(project.tags)).size !== 0
+  );
 }
 function addTag(e){
-  const tag = e.target.textContent;
+  const tag = e.target.textContent.trim();
   selected_tags.add(tag);
-  showTag.style.display = 'flex';
-  showTag.innerHTML = [...selected_tags].map((tag)=>`<div class='tag show'>${ICONS['x-close']}<p>${escapeHTML(tag)}</p></div>`).join(" ");
-  // update list
-  const filteredProject = projects.filter((project)=>selected_tags.intersection(new Set(project.tags)).size!=0);
-  renderProject(filteredProject);
-  // add listener
-  document.querySelectorAll(".show").forEach((tag)=>{
-    tag.addEventListener("click",removeTag);
-  })
+
+  const filtered = filterProjectsByTags();
+  renderProject(filtered);
+  updateSelectedTagsUI();
 }
+
+function updateSelectedTagsUI() {
+  showTag.style.display = selected_tags.size ? 'flex' : 'none';
+  showTag.innerHTML = [...selected_tags]
+    .map(tag => `<div class="tag show">${ICONS['x-close']}<p>${escapeHTML(tag)}</p></div>`)
+    .join(" ");
+
+  document.querySelectorAll(".show, .close-i").forEach(el => {
+    el.addEventListener("click", removeTag);
+  });
+}
+
 function renderTagDropdown(){
   const AllTagHTML = `<ul>${tags.map((tag)=>`<li class="tag-click">${tag}</li>`).join('')}</ul>`
   tagInput.innerHTML = AllTagHTML;
 }
+
+// Initial rendering
+// render tag dropdown
+renderTagDropdown();
+// Tambahkan ke website
+renderProject(projects);
