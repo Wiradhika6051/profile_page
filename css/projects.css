@@ -121,6 +121,9 @@
   #addTagTotal{
     margin-left: .5vw;
   }
+  .tag-dropdown li{
+    width: 17.2vw;
+  }
 }
 
 @media(max-width:500px){
@@ -129,5 +132,14 @@
   }
   #addTagTotal{
     margin-left: 2.5vw;
+  }
+
+}
+@media(max-width:450px){
+  .add-tag{
+    width: 25vw;
+  }
+  .tag-dropdown li{
+    width: 24.2vw;
   }
 }
