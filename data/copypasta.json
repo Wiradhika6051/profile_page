@@ -34,7 +34,7 @@
     "id":3,
     "name": "LLM Narration Development",
     "description": "To make sure the LLM develop the narration based on overly detailed idea and not just continuing after it",
-    "text": "Please continue and expand the narration based on this detail:\n {0}",
+    "text": "Please continue and expand the narration based on this detail:\n {0} \n (To be continue)",
     "parameters": [
       "Detail"
     ]
