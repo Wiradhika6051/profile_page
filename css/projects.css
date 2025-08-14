@@ -114,12 +114,20 @@
     align-items: left;
 }
 
-@media(max-width:500px){
-
-}
-
 @media(max-width:800px){
   .add-tag{
     width: 18vw;
+  }
+  #addTagTotal{
+    margin-left: .5vw;
+  }
+}
+
+@media(max-width:500px){
+  #work{
+    flex-direction: column;
+  }
+  #addTagTotal{
+    margin-left: 2.5vw;
   }
 }
