@@ -9,6 +9,8 @@
   flex-direction: row;
   justify-content: flex-start;
   width: 96vw;
+  flex-wrap: wrap;
+  /* margin-left: 2.5vw; */
 }
 
 #work>p{
@@ -36,6 +38,8 @@
   text-align: left;
   /* width: 95vw; */
   flex-direction: row;
+  flex-wrap: wrap;
+  /* margin-left: 2.5vw; */
 }
 
 .show{
@@ -118,9 +122,9 @@
   .add-tag{
     width: 18vw;
   }
-  #addTagTotal{
+  /* #addTagTotal{
     margin-left: .5vw;
-  }
+  } */
   .tag-dropdown li{
     width: 17.2vw;
   }
@@ -131,7 +135,7 @@
     flex-direction: column;
     align-items: center;;
   }
-  #addTagTotal{
+  #tagsList{
     margin-left: 2.5vw;
   }
   .project{
