@@ -18,11 +18,12 @@
 }
 
 .add-tag{
-  width: 5vw;
+  width: 10vw;
   text-align: center;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: .5vw;
 }
 
@@ -61,7 +62,7 @@
   padding: 0;
 }
 .tag-dropdown li{
-  width: 4vw;
+  width: 9.2vw;
   padding: 12px 1vw;
   border: 1px solid black;
   cursor: pointer;
@@ -77,4 +78,8 @@
 .tag-dropdown li:hover{
   background-color: #ede3e3;
   color:rgb(17, 16, 16);
+}
+
+.action{
+  flex-direction: row;
 }
