@@ -113,3 +113,13 @@
     justify-content: flex-start;
     align-items: left;
 }
+
+@media(max-width:500px){
+
+}
+
+@media(max-width:800px){
+  .add-tag{
+    width: 18vw;
+  }
+}
