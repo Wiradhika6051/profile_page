@@ -7,7 +7,9 @@
   border-radius: 12px;
 }
 #blogTitle{
-  font-size: 2.5em;
+  font-size: 3.5em;
+  text-align: center;
+  font-weight:bold;
 }
 .blog-link h3{
   font-size: 2em;
