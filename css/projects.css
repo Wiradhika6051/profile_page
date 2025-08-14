@@ -118,6 +118,10 @@
     align-items: left;
 }
 
+.project-date{
+  font-weight: bold;
+}
+
 @media(max-width:800px){
   .add-tag{
     width: 18vw;

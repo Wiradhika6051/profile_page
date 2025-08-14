@@ -102,6 +102,14 @@ function formatLinks(links) {
       </a>`)
     .join('');
 }
+function formatDate(date_str){
+  // Create a Date object
+  const date = new Date(date_str);
+  return date.toLocaleDateString(undefined, {  
+    month: 'long',  
+    year: 'numeric'  
+  });
+}
 function renderProject(projects){
   const workSection = document.querySelector("#work");
   if(!projects.length){
@@ -114,6 +122,9 @@ function renderProject(projects){
         <div class="desc">
           <h2>${escapeHTML(project.name)}</h2>
         ${project.desc.map(formatDescription).join("")}
+        </div>
+        <div class="project-date">
+          Project Start: ${formatDate(project['date'])}
         </div>
         <div class="action">
           <div class="action-links">
