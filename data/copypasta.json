@@ -29,5 +29,14 @@
     "description": "For you that are in group chat with your unhinged friend that discuss sensitive or legally questionable topic",
     "text": "Bilamana ada investigasi oleh kepolisian, Badan Intelijen Negara, Atau entitas lain serupa, saya tidak bertanggung jawab atas konten grup atau komunitas ini. Saya tidak tahu menahu siapa anggota komunitas ini dan saya telah ditambahkan oleh pihak ketiga tanpa persetujuan dari saya.",
     "parameters": []
+  },
+  {
+    "id":3,
+    "name": "LLM Narration Development",
+    "description": "To make sure the LLM develop the narration based on overly detailed idea and not just continuing after it",
+    "text": "Please continue and expand the narration based on this detail:\n {0}",
+    "parameters": [
+      "Detail"
+    ]
   }
 ]
