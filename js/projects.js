@@ -181,7 +181,7 @@ function addTag(e){
 function updateSelectedTagsUI() {
   showTag.style.display = selected_tags.size ? 'flex' : 'none';
   showTag.innerHTML = [...selected_tags]
-    .map(tag => `<div class="tag show">${ICONS['x-close']}<p>${escapeHTML(tag)}</p></div>`)
+    .map(tag => `<div class="show tag">${ICONS['x-close']}<p>${escapeHTML(tag)}</p></div>`)
     .join(" ");
 
   document.querySelectorAll(".show, .close-i").forEach(el => {

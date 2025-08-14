@@ -44,6 +44,7 @@
   padding:.5vh .5vw;
   border-radius: 10%;
   gap: .5vw;
+  background-color: rgb(229, 236, 247);
 }
 
 .tag-dropdown{
