@@ -116,6 +116,9 @@ function renderProject(projects){
         ${project.desc.map(formatDescription).join("")}
         </div>
         <div class="action">
+          <div class="action-links">
+          ${formatLinks(project.links)}
+          </div >
           <div class="tags">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -135,8 +138,6 @@ function renderProject(projects){
             <div class="tag-list">
             ${formatTags(project.tags)}
             </div>
-          </div>
-          <div>${formatLinks(project.links)}
           </div>
         </div>
       </div>`).join("");

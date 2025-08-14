@@ -47,7 +47,29 @@
   gap: .5vw;
   background-color: rgb(229, 236, 247);
 }
+.project {
+    background-color: aquamarine;
+    margin: 1vh 1vw;
+    width: 28vw;
+    /* height: 35vh; */
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    padding: 2vh 1vw;
+}
+.project p{
+    color: #6227A5;
+}
 
+.desc{
+  /* height: 25vh; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.desc h2{
+    margin-top: 0;
+}
 .tag-dropdown{
   display: none;
   margin:0;
@@ -80,6 +102,14 @@
   color:rgb(17, 16, 16);
 }
 
-.action{
+.action-links{
+  display: flex;
   flex-direction: row;
+}
+
+.action{
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: left;
 }

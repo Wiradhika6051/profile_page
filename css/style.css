@@ -20,19 +20,6 @@ body{
 h1{
     margin-top:0;
 }
-.project {
-    background-color: aquamarine;
-    margin: 1vh 1vw;
-    width: 28vw;
-    height: 35vh;
-    display:flex;
-    flex-direction: column;
-    justify-content:space-between;
-    padding: 2vh 1vw;
-}
-.project p{
-    color: #6227A5;
-}
 header{
     background: #2e7bcf;
     border-bottom: solid 1px #275da1;
@@ -84,7 +71,7 @@ header{
     /* background-color: orchid; */
     /* color: #665ca3; */
     color:black;
-    padding: 2vh;
+    padding: 1.5vh;
     margin:0;
 }
 .small-box:hover{
@@ -167,22 +154,12 @@ section{
     margin:0;
 }
 
-.action{
-    display:flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.desc h2{
-    margin-top: 0;
-}
 
 .tags{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     gap: .8vw;
 }
 
@@ -204,7 +181,7 @@ section{
 .tag-list{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .show p{
