@@ -1,5 +1,7 @@
 import data from "../data/projects.json" with { type: "json" };
+import capitalize from './utils.js'
 
+const SORTABLE_ATTRIBUTES = ['name','date']
 const {projects, tags} = data;
 const showTag = document.querySelector("#selectedTags");
 const selected_tags = new Set();
@@ -206,8 +208,26 @@ function renderTagDropdown(){
   tagInput.innerHTML = AllTagHTML;
 }
 
+function initSorting(){
+  const sortingList = document.getElementById("sortOptions")
+  for(let attr of SORTABLE_ATTRIBUTES){
+    // Kapitalisasi
+    attr = capitalize(attr+" asu")
+    const ascendingNode = document.createElement("li")
+    ascendingNode.textContent = `${attr}↑`;
+    ascendingNode.classList.add('sort-option')
+    sortingList.appendChild(ascendingNode)
+    const descendingNode = document.createElement("li")
+    descendingNode.textContent = `${attr}↓`;
+    descendingNode.classList.add("sort-option")
+    sortingList.appendChild(descendingNode)
+  }
+  sortingList.addEventListener("")
+}
 // Initial rendering
 // render tag dropdown
 renderTagDropdown();
 // Tambahkan ke website
 renderProject(projects);
+// Init sorting
+initSorting();

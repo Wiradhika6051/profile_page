@@ -124,13 +124,13 @@
 
 @media(max-width:800px){
   .add-tag{
-    width: 18vw;
+    width: 19vw;
   }
   /* #addTagTotal{
     margin-left: .5vw;
   } */
   .tag-dropdown li{
-    width: 17.2vw;
+    width: 18.1vw;
   }
 }
 
