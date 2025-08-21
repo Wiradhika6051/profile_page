@@ -212,13 +212,13 @@ function initSorting(){
   const sortingList = document.getElementById("sortOptions")
   for(let attr of SORTABLE_ATTRIBUTES){
     // Kapitalisasi
-    attr = capitalize(attr+" asu")
+    attr = capitalize(attr)
     const ascendingNode = document.createElement("li")
-    ascendingNode.textContent = `${attr}↑`;
+    ascendingNode.textContent = `${attr} ↑`;
     ascendingNode.classList.add('sort-option')
     sortingList.appendChild(ascendingNode)
     const descendingNode = document.createElement("li")
-    descendingNode.textContent = `${attr}↓`;
+    descendingNode.textContent = `${attr} ↓`;
     descendingNode.classList.add("sort-option")
     sortingList.appendChild(descendingNode)
   }
