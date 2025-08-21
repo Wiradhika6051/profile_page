@@ -28,5 +28,5 @@ export default function sortData(datas,mode,renderer){
 }
 
 function setButton(label){
-    document.getElementById("sortButton").innerText = `Sort: ${label}`;
+    document.getElementById("sortText").innerText = `Sort: ${label}`;
 }

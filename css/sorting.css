@@ -17,7 +17,12 @@
 
 }
 #sortButton{
-  width: 11.6vw;
+  width: 12.6vw;
+  height: 3vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 #sortOptions{
   list-style-type: none;
@@ -25,7 +30,7 @@
   text-align: center;
 }
 .sort-option{
-  width: 10.8vw;
+  width: 11.8vw;
   margin:0;
   padding: 12px 1vw;
   background-color: #f9f9f9;
@@ -49,46 +54,46 @@
 
 @media (min-width: 700px) and (max-width: 810px){
   #sortButton{
-    width: 14vw;
+    width: 14.5vw;
   }
   .sort-option{
-    width: 13.2vw;
+    width: 13.7vw;
   }
 }
 
 @media (min-width: 600px) and (max-width: 700px){
   #sortButton{
-    width: 16vw;
+    width: 16.9vw;
     margin-right: 1.1vw;
   }
   .sort-option{
-    width: 15.2vw;
+    width: 16.1vw;
   }
 }
 @media (min-width: 500px) and (max-width: 600px){
   #sortButton{
-    width: 18.7vw;
+    width: 20.5vw;
     margin-right: 1.2vw;
   }
   .sort-option{
-    width: 17.9vw;
+    width: 19.7vw;
   }
 }
 @media (min-width: 400px) and (max-width: 500px){
   #sortButton{
-    width: 23.4vw;
+    width: 25.5vw;
     margin-right: 2.8vw;
   }
   .sort-option{
-    width: 22.6vw;
+    width: 24.7vw;
   }  
 }
 @media (max-width: 400px){
   #sortButton{
-    width: 30.7vw;
+    width: 39vw;
     margin-right: 3vw;
   }
   .sort-option{
-    width: 29.9vw;
+    width: 38.2vw;
   }  
 }
