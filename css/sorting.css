@@ -20,7 +20,6 @@
   width: 11.6vw;
 }
 #sortOptions{
-  width: 10.6vw;
   list-style-type: none;
   padding-inline-start: 0;
   text-align: center;
@@ -46,4 +45,50 @@
   align-items: flex-end;
   justify-content: flex-end;
   width: 100vw;
+}
+
+@media (min-width: 700px) and (max-width: 810px){
+  #sortButton{
+    width: 14vw;
+  }
+  .sort-option{
+    width: 13.2vw;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 700px){
+  #sortButton{
+    width: 16vw;
+    margin-right: 1.1vw;
+  }
+  .sort-option{
+    width: 15.2vw;
+  }
+}
+@media (min-width: 500px) and (max-width: 600px){
+  #sortButton{
+    width: 18.7vw;
+    margin-right: 1.2vw;
+  }
+  .sort-option{
+    width: 17.9vw;
+  }
+}
+@media (min-width: 400px) and (max-width: 500px){
+  #sortButton{
+    width: 23.4vw;
+    margin-right: 2.8vw;
+  }
+  .sort-option{
+    width: 22.6vw;
+  }  
+}
+@media (max-width: 400px){
+  #sortButton{
+    width: 30.7vw;
+    margin-right: 3vw;
+  }
+  .sort-option{
+    width: 29.9vw;
+  }  
 }
