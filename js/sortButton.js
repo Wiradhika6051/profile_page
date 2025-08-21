@@ -1,14 +1,7 @@
 
 // Sorting modes
-const sortModes = [
-    {key: "name", order: "asc", label: "Name ↑"},
-  { key: "name", order: "desc", label: "Name ↓" },
-  { key: "date", order: "asc", label: "Date ↑" },
-  { key: "date", order: "desc", label: "Date ↓" }
-]
 
-function sortData(datas,modeIdx,attribute){
-    const mode = sortModes[modeIdx]
+export default function sortData(datas,mode){
     datas.sort((a,b)=>{
         let valA = a[mode.key]
         let valB = b[mode.key]
@@ -27,10 +20,13 @@ function sortData(datas,modeIdx,attribute){
         // sisanya berarti sama
         return 0;
     })
-    renderList();
-    document.getElementById("sortButton").innerText = `Sort: ${mode.label}`;
+    // renderList();
+    setButton(mode.label)
 }
 
+function setButton(label){
+    document.getElementById("sortButton").innerText = `Sort: ${label}`;
+}
 
 function renderList() {
 //   const list = document.getElementById("dataList");
@@ -42,11 +38,9 @@ function renderList() {
 //   });
 }
 
-document.getElementById("sortButton").addEventListener("click", () => {
-    // TODO: check tipe sort
-  currentModeIndex = (currentModeIndex + 1) % sortModes.length;
-  sortData();
-});
-
-// Initial render
-sortData();
+// document.getElementById("sortButton").addEventListener("click", (e) => {
+//     // TODO: check tipe sort
+// //   currentModeIndex = (currentModeIndex + 1) % sortModes.length;
+//     console.log(e.srcElement.textContent)
+//     sortData();
+// });

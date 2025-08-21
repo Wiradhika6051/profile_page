@@ -1,7 +1,5 @@
 import data from "../data/projects.json" with { type: "json" };
-import capitalize from './utils.js'
-
-const SORTABLE_ATTRIBUTES = ['name','date']
+import sortData from "./sortButton.js";
 const {projects, tags} = data;
 const showTag = document.querySelector("#selectedTags");
 const selected_tags = new Set();
@@ -78,6 +76,13 @@ const ACTION_TEXT = {
   "play": "Play",
   "browse": "Open Website"
 }
+const SORTING_MODES = {
+  'A → Z': {key: "name", order: "asc",label:'A → Z'},
+  'Z → A': { key: "name", order: "desc",label:'Z → A'},
+  'Oldest': { key: "date", order: "asc",label:'Oldest'},
+  'Latest': { key: "date", order: "desc",label:'Latest'}
+}
+const DEFAULT_SORT = "Latest"
 
 function escapeHTML(text) {
   return text
@@ -210,19 +215,18 @@ function renderTagDropdown(){
 
 function initSorting(){
   const sortingList = document.getElementById("sortOptions")
-  for(let attr of SORTABLE_ATTRIBUTES){
+  for(let option in SORTING_MODES){
     // Kapitalisasi
-    attr = capitalize(attr)
-    const ascendingNode = document.createElement("li")
-    ascendingNode.textContent = `${attr} ↑`;
-    ascendingNode.classList.add('sort-option')
-    sortingList.appendChild(ascendingNode)
-    const descendingNode = document.createElement("li")
-    descendingNode.textContent = `${attr} ↓`;
-    descendingNode.classList.add("sort-option")
-    sortingList.appendChild(descendingNode)
+    const node = document.createElement("li")
+    node.textContent = option;
+    node.classList.add('sort-option')
+    sortingList.appendChild(node)
   }
-  sortingList.addEventListener("")
+  sortData(projects,SORTING_MODES[DEFAULT_SORT])
+  sortingList.addEventListener("click",(e)=>{
+    const option = e.srcElement.textContent
+    sortData(projects,SORTING_MODES[option])
+  })
 }
 // Initial rendering
 // render tag dropdown
