@@ -17,16 +17,16 @@
 
 }
 #sortButton{
-  width: 10vw;
+  width: 11.6vw;
 }
 #sortOptions{
-  width: 9vw;
+  width: 10.6vw;
   list-style-type: none;
   padding-inline-start: 0;
   text-align: center;
 }
 .sort-option{
-  width: 9.2vw;
+  width: 10.8vw;
   margin:0;
   padding: 12px 1vw;
   background-color: #f9f9f9;
