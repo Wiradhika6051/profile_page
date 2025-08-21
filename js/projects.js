@@ -222,10 +222,10 @@ function initSorting(){
     node.classList.add('sort-option')
     sortingList.appendChild(node)
   }
-  sortData(projects,SORTING_MODES[DEFAULT_SORT])
+  sortData(projects,SORTING_MODES[DEFAULT_SORT],renderProject)
   sortingList.addEventListener("click",(e)=>{
     const option = e.srcElement.textContent
-    sortData(projects,SORTING_MODES[option])
+    sortData(projects,SORTING_MODES[option],renderProject)
   })
 }
 // Initial rendering
