@@ -2,7 +2,6 @@
 // Sorting modes
 
 export default function sortData(datas,mode,renderer){
-    console.log(datas)
     datas.sort((a,b)=>{
         let valA = a[mode.key]
         let valB = b[mode.key]
@@ -21,12 +20,13 @@ export default function sortData(datas,mode,renderer){
         // sisanya berarti sama
         return 0;
     })
-    console.log(datas)
-    setButton(mode.label)
+    updateUI(mode.label)
     // render ulang label
     renderer(datas)
 }
 
-function setButton(label){
+function updateUI(label){
+    // Close dropdown
+    // Update button label
     document.getElementById("sortText").innerText = `Sort: ${label}`;
 }

@@ -10,11 +10,14 @@
 #sortFilter:hover #sortOptions{
   display: block;
 }
+/* if force-closed → override hover */
+#sortFilter.force-hide:hover #sortOptions {
+  display: none;
+}
 #sortFilter{
   /* width: 96vw; */
   margin-right: 1.3vw;
   margin-top: 1vh;
-
 }
 #sortButton{
   width: 12.6vw;

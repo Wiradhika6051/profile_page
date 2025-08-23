@@ -4,6 +4,8 @@ const {projects, tags} = data;
 const showTag = document.querySelector("#selectedTags");
 const selected_tags = new Set();
 const tagInput = document.querySelector("#tagInput");
+const sortingList = document.getElementById("sortOptions")
+const sortFilter = document.querySelector("#sortFilter")
 const ICONS = {
   "download": `<svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +216,15 @@ function renderTagDropdown(){
 }
 
 function initSorting(){
-  const sortingList = document.getElementById("sortOptions")
+  renderSortOptions()
+  sortData(projects,SORTING_MODES[DEFAULT_SORT],onSortChangedHandler)
+  sortingList.addEventListener("click",(e)=>{
+    const option = e.srcElement.textContent
+    sortData(projects,SORTING_MODES[option],onSortChangedHandler)
+  })
+}
+function renderSortOptions(){
+  sortingList.innerHTML = ""
   for(let option in SORTING_MODES){
     // Kapitalisasi
     const node = document.createElement("li")
@@ -222,12 +232,24 @@ function initSorting(){
     node.classList.add('sort-option')
     sortingList.appendChild(node)
   }
-  sortData(projects,SORTING_MODES[DEFAULT_SORT],renderProject)
-  sortingList.addEventListener("click",(e)=>{
-    const option = e.srcElement.textContent
-    sortData(projects,SORTING_MODES[option],renderProject)
-  })
 }
+function onSortChangedHandler(projects){
+  renderProject(projects)
+}
+// Add event listnener
+
+sortFilter.addEventListener("click",()=>{
+  // toggle force-hide class
+  if (sortFilter.classList.contains("force-hide")) {
+    sortFilter.classList.remove("force-hide");
+  } else {
+    sortFilter.classList.add("force-hide");
+  }
+})
+// Reset forceHide variable on mouse leave
+sortFilter.addEventListener("mouseleave",()=>{
+  sortFilter.classList.remove("force-hide");
+})
 // Initial rendering
 // render tag dropdown
 renderTagDropdown();

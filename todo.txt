@@ -1,5 +1,2 @@
-- sort project by date
-> functionality
-> responsiveness
 - show image of project
 - change copypasta input to textarea
