@@ -30,7 +30,8 @@ function showToast(message,duration= 3000){
 // oninput in parameter
 function handleParameterUpdate(e){
   const target = e.target
-  if(target.tagName!=="INPUT") return;
+  console.log(target.tagName)
+  if(target.tagName!=="TEXTAREA") return;
 
   const idx = e.target.dataset.index
   // dapatkan template string {idx}
@@ -83,7 +84,7 @@ function showDetail(id){
   const paramInputs = currentCopypasta.parameters.map((p,i)=>
     `<div class="param-input">
         <p>${p}</p>
-        <input type="text" data-index=${i}>
+        <textarea data-index=${i} rows="3"></textarea>
     </div>
   `).join('')    
 
