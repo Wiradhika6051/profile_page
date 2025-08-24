@@ -83,10 +83,11 @@
     width: 100%;
 }
 
-.param-input input{
+.param-input textarea{
     box-sizing: border-box;
     padding: 0.5rem;
     width: 16vw;
+    resize: none;
 }
 
 .copypasta-info{
@@ -114,7 +115,7 @@
     .detail-box{
         flex-direction: column;
     }
-    .param-input input{
+    .param-input textarea{
         width: 100vw;
     }
 }

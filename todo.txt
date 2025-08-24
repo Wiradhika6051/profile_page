@@ -1,2 +1,1 @@
 - show image of project
-- change copypasta input to textarea
