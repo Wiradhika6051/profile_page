@@ -1,7 +1,7 @@
 
 // Sorting modes
 
-export default function sortData(datas,mode,renderer){
+export default function sortData(datas,mode,label,renderer){
     datas.sort((a,b)=>{
         let valA = a[mode.key]
         let valB = b[mode.key]
@@ -20,7 +20,7 @@ export default function sortData(datas,mode,renderer){
         // sisanya berarti sama
         return 0;
     })
-    updateUI(mode.label)
+    updateUI(label)
     // render ulang label
     renderer(datas)
 }

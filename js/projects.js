@@ -79,10 +79,10 @@ const ACTION_TEXT = {
   "browse": "Open Website"
 }
 const SORTING_MODES = {
-  'A → Z': {key: "name", order: "asc",label:'A → Z'},
-  'Z → A': { key: "name", order: "desc",label:'Z → A'},
-  'Oldest': { key: "date", order: "asc",label:'Oldest'},
-  'Latest': { key: "date", order: "desc",label:'Latest'}
+  'A → Z': {key: "name", order: "asc"},
+  'Z → A': { key: "name", order: "desc"},
+  'Oldest': { key: "date", order: "asc"},
+  'Latest': { key: "date", order: "desc"}
 }
 const DEFAULT_SORT = "Latest"
 
@@ -217,10 +217,10 @@ function renderTagDropdown(){
 
 function initSorting(){
   renderSortOptions()
-  sortData(projects,SORTING_MODES[DEFAULT_SORT],onSortChangedHandler)
+  sortData(projects,SORTING_MODES[DEFAULT_SORT],DEFAULT_SORT,onSortChangedHandler)
   sortingList.addEventListener("click",(e)=>{
     const option = e.srcElement.textContent
-    sortData(projects,SORTING_MODES[option],onSortChangedHandler)
+    sortData(projects,SORTING_MODES[option],option,onSortChangedHandler)
   })
 }
 function renderSortOptions(){

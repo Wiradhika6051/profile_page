@@ -1,1 +1,8 @@
 - show image of project
+- refactor blogs
+- refactor copypast
+- refactor minesweeper
+- refactor navbar
+- refactor projects
+- refactor sortButton
+- refactor utils
