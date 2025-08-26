@@ -121,6 +121,15 @@
 .project-date{
   font-weight: bold;
 }
+.image-viewer{
+  display: none;
+}
+.show-image{
+  display: block;
+}
+.image-viewer-button{
+  cursor: pointer;
+}
 
 @media(max-width:800px){
   .add-tag{

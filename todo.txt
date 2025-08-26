@@ -1,4 +1,8 @@
 - show image of project
+> if the screen size is big, wide to 100%, and show the image on left, also cool animation
+> if the screen size is smol, place it below
+> possibly next/back button
+> smalle thumbnail ala wikia/steam to see all the image
 - refactor blogs
 - refactor copypast
 - refactor minesweeper
