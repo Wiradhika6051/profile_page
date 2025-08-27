@@ -7,5 +7,4 @@
 - refactor minesweeper
 - refactor navbar
 - refactor projects
-- refactor sortButton
 - refactor utils
