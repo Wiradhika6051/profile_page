@@ -122,6 +122,7 @@
   font-weight: bold;
 }
 .image-viewer{
+  text-align: center;
   display: none;
 }
 .show-image{
