@@ -30,7 +30,6 @@ function showToast(message,duration= 3000){
 // oninput in parameter
 function handleParameterUpdate(e){
   const target = e.target
-  console.log(target.tagName)
   if(target.tagName!=="TEXTAREA") return;
 
   const idx = e.target.dataset.index

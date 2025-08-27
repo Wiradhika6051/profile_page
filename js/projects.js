@@ -133,9 +133,9 @@ function renderProject(projects){
     workSection.innerHTML = "<p>No Project Found</p>";
     return
   }
-  const boxesHTML =  projects.map((project) => `
-    <div class="project">
-      <div class="image-viewer">
+  const boxesHTML =  projects.map((project,idx) => `
+    <div class="project" data-index=${idx}>
+      <div class="image-viewer" data-index=${idx}>
         <img src="../image/flag.jpg"/>
       </div>
       <div class="content">
@@ -149,7 +149,7 @@ function renderProject(projects){
         <div class="action">
           <div class="action-links">
             ${formatLinks(project.links)}
-            <div class="small-box image-viewer-button">
+            <div class="small-box image-viewer-button" data-index=${idx} title="See Images">
               ${ICONS["image-open"]}
             </div>
           </div >
@@ -188,12 +188,9 @@ function renderProject(projects){
 }
 // show pictures
 function showPictures(e){
-  document.querySelectorAll(".image-viewer").forEach((viewer)=>{
-    viewer.classList.toggle("show-image")
-  })
-  document.querySelectorAll(".project").forEach((node)=>{
-      node.classList.toggle("full-display")
-  })
+  const idx = e.currentTarget.dataset.index
+  document.querySelector(`.image-viewer[data-index="${idx}"]`).classList.toggle("show-image")
+  document.querySelector(`.project[data-index="${idx}"]`).classList.toggle("full-display")
 }
 // handle tag
 function removeTag(e){
