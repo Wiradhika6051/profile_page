@@ -135,7 +135,9 @@ function renderProject(projects){
   }
   const boxesHTML =  projects.map((project) => `
     <div class="project">
-      <div class="image-viewer"></div>
+      <div class="image-viewer">
+        <img src="../image/flag.jpg"/>
+      </div>
       <div class="content">
         <div class="desc">
           <h2>${escapeHTML(project.name)}</h2>
@@ -188,6 +190,9 @@ function renderProject(projects){
 function showPictures(e){
   document.querySelectorAll(".image-viewer").forEach((viewer)=>{
     viewer.classList.toggle("show-image")
+  })
+  document.querySelectorAll(".project").forEach((node)=>{
+      node.classList.toggle("full-display")
   })
 }
 // handle tag

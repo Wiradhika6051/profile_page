@@ -130,6 +130,9 @@
 .image-viewer-button{
   cursor: pointer;
 }
+.full-display{
+  width: 100vw;
+}
 
 @media(max-width:800px){
   .add-tag{
@@ -152,7 +155,7 @@
     margin-left: 2.5vw;
   }
   .project{
-    width: 90vw;;
+    width: 90vw;
   }
 }
 @media(max-width:450px){
