@@ -1,7 +1,9 @@
 import copypasta from "../data/copypasta.json" with {type:"json"}
+
 // DOM
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
+const toastContainer = document.getElementById("toast-container")
 
 // State
 let isDetailActive = false;
@@ -19,8 +21,7 @@ function showToast(message,duration= 3000){
   const toast = document.createElement("div")
   toast.className = 'toast'
   toast.textContent = message
-
-  document.getElementById("toast-container").appendChild(toast)
+  toastContainer.appendChild(toast)
 
   setTimeout(()=>{
     toast.remove()
@@ -33,8 +34,9 @@ function handleParameterUpdate(e){
   if(target.tagName!=="TEXTAREA") return;
 
   const idx = e.target.dataset.index
-  // dapatkan template string {idx}
-  const replacedTexts = [...document.querySelectorAll(".replaced-word")]
+  // dapatkan template string idx
+  const replacedTexts = document.querySelectorAll(`.replaced-word[data-index="${idx}"]`)
+
   let val = e.srcElement.value
   let isEmpty = val===''
 
@@ -43,7 +45,6 @@ function handleParameterUpdate(e){
   }
 
   replacedTexts
-    .filter((e)=>e.dataset.index===idx)
     .forEach((element)=>{
       element.textContent = element.textContent.replace(idMapping.get(idx),val)
       element.classList.toggle('empty',isEmpty)
@@ -59,52 +60,64 @@ function copyText(e){
   showToast("Teks berhasil disalin!")
 }
 
-// Show detail panel
-function showDetail(id){
-  if(isDetailActive && currentId==id){
+// resetDetail
+function resetDetail(){
     detailRoot.innerHTML = ""
     currentId = null
     isDetailActive = false;
+}
+
+// Show detail panel
+function showDetail(id){
+  if(isDetailActive && currentId==id){
+    resetDetail()
     return;
   }
 
   // Reset
-  idMapping.clear()
   currentCopypasta = copypasta.find(c=>c.id===id)
   currentId = id;
   isDetailActive = true
 
-  // Map initial parameters
-  for(let i=0;i<currentCopypasta.parameters.length;i++){
-    idMapping.set(i.toString(),currentCopypasta.parameters[i])
-  }
+  // Reset and map initial parameters
+  idMapping.clear()
+  currentCopypasta.parameters.forEach((p,i)=>idMapping.set(i.toString(),p))
 
   // Create input fields
-  const paramInputs = currentCopypasta.parameters.map((p,i)=>
-    `<div class="param-input">
-        <p>${p}</p>
-        <textarea data-index=${i} rows="3"></textarea>
-    </div>
-  `).join('')    
+  const paramInputs = buildParamsInputTemplate(currentCopypasta.parameters)
 
   // Fill the template detail
-  const text = currentCopypasta.text
-    .split("\n")
-    .map(c=>`<p class="template-text">${c}</p>`)
-    .join("")
-    .replace(/(?<!\\)\{[^{}]+\}/g,(match)=>{
-    const idx = match.slice(1,-1)
-    return `<span class="replaced-word empty" data-index=${idx}>${currentCopypasta.parameters[idx]}</span>`
-  })
+  const textTemplate = buildTemplateTexts(currentCopypasta)
 
   // Render detail panel
   detailRoot.innerHTML = `
     <div class="detail-box">
-      <div id='template'>${text}</div>
+      <div id='template'>${textTemplate}</div>
       <div id='replace'>${paramInputs}</div>
     </div>`
 
   document.querySelector("#template").addEventListener("click",copyText)
+}
+
+// Build params input template
+function buildParamsInputTemplate(params){
+  return params.map((p,i)=>
+    `<div class="param-input">
+        <p>${p}</p>
+        <textarea data-index=${i} rows="3"></textarea>
+    </div>
+  `).join('')   
+}
+
+// Build templaye texts
+function buildTemplateTexts(c){
+  return c.text
+    .split("\n")
+    .map(line=>`<p class="template-text">${line}</p>`)
+    .join("")
+    .replace(/(?<!\\)\{(\d+)\}/g,(_,idx)=>{
+    return `<span class="replaced-word empty" data-index=${idx}>${c.parameters[idx]}</span>`
+  })
 }
 
 // Render copypasta list
@@ -118,10 +131,10 @@ function renderCopypastaList(copypasta){
     </div>
   `).join("")
 
-  document.querySelectorAll(".copypasta-info").forEach((c)=>{
-    c.addEventListener("click",()=>{
-      const id= parseInt(c.getAttribute("data-id"),10)
-      showDetail(id)
-    })
+  // Event Delegation
+  copypastaRoot.addEventListener("click",(e)=>{
+    const copypasta = e.target.closest(".copypasta-info")
+    if(!copypasta)return
+    showDetail(parseInt(copypasta.dataset.id,10))
   })
-  }
+}

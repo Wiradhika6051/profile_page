@@ -3,7 +3,6 @@
 > possibly next/back button
 > smalle thumbnail ala wikia/steam to see all the image
 - refactor blogs
-- refactor copypast
 - refactor minesweeper
 - refactor projects
 - refactor utils

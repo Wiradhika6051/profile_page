@@ -99,6 +99,7 @@
     flex-direction: column;
     justify-content:space-between;
     padding: 2vh 1.5vw;
+    cursor: pointer;
 }
 .copypasta-info p{
     color: #6227A5;
