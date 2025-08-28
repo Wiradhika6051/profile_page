@@ -1,6 +1,7 @@
-function showTabs(){
-    const tabs = document.getElementById("tabs")
-    const bar = document.querySelector("a.icon")
+const tabs = document.getElementById("tabs");
+const bar = document.querySelector("a.icon");
+
+function toggleTabs(){
     if(tabs.style.display==='flex'){
         tabs.style.display= 'none'
     }
@@ -11,18 +12,13 @@ function showTabs(){
 }
 
 document.addEventListener("click",function(event){
-    const tabs = document.getElementById("tabs")
-    const bar = document.querySelector("a.icon")
-
     if(bar.classList.contains("open") && !tabs.contains(event.target) && !bar.contains(event.target)){
         // selain tab dan bar tapi dropdown kebuka
-        showTabs()
+        toggleTabs()
     }
 })
 
 window.addEventListener("resize",function(event){
-    const tabs = document.getElementById("tabs")
-    const bar = document.querySelector("a.icon")
     if (window.innerWidth>500){
         if(bar.classList.contains("open")){
             bar.classList.remove("open")

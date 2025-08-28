@@ -5,6 +5,5 @@
 - refactor blogs
 - refactor copypast
 - refactor minesweeper
-- refactor navbar
 - refactor projects
 - refactor utils
