@@ -1,8 +1,18 @@
 - show image of project
 > wide to 100%, and show the image on top, also cool animation
 > possibly next/back button
-> smalle thumbnail ala wikia/steam to see all the image
-- refactor blogs
+> smaller thumbnail ala wikia/steam to see all the image
 - refactor minesweeper
 - refactor projects
 - refactor utils
+
+
+FUTURE PLAN
+1. turn copypasta to allow custom one
+> first phase store in localstorage
+> then add copy option
+> further on move to dedicated DB
+2. turn blogs into CMS
+> add edit
+> add comment
+3. Tunr project design into steam like UI
