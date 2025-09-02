@@ -2,7 +2,7 @@
 > wide to 100%, and show the image on top, also cool animation
 > possibly next/back button
 > smaller thumbnail ala wikia/steam to see all the image
-- refactor minesweeper
+- responsive minesweeper
 - refactor projects
 - refactor utils
 
