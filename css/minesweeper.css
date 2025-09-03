@@ -34,6 +34,15 @@ label{
     margin-bottom: 3vh;
 }
 
+.revealed{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    pointer-events: none;
+    -webkit-user-drag:none;
+}
 #game{
     margin: auto;
     width:80%
@@ -60,7 +69,7 @@ img{
     height: 87%;
     pointer-events: none;
     user-select: none;
-    user-drag:none;
+    -webkit-user-drag: none;
 }
 
 .bomb{

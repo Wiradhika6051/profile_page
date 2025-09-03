@@ -17,6 +17,7 @@
 5. fix not show all empty cell bug
 6. Fix when you win/lose, the tile can still be clicked
 7. give visual feedback on mobile user to tap flag
+8. Make revealed tiles not draggable
 FUTURE PLAN
 1. turn copypasta to allow custom one
 > first phase store in localstorage
@@ -26,3 +27,5 @@ FUTURE PLAN
 > add edit
 > add comment
 3. Tunr project design into steam like UI
+4. MInesweeper (V.1.2)
+> show all bomb
