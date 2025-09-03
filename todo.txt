@@ -1,24 +1,19 @@
 - show image of project
 > wide to 100%, and show the image on top, also cool animation
-> possibly next/back button
-> smaller thumbnail ala wikia/steam to see all the image
-- limit tile size based on screen width
-- fix not show all empty cell bug
-- give visual feedback on mobile user to tap flag
 - responsive minesweeper
-- refactor projects
-- refactor utils
 
-- add minesweeper changeloc
+
+- add minesweeper changelog
 1. Refactor source code.
 2. responsiveness
 3. Change control method. For dekstop, use left click to open tile and right click to place flag. For mobile, hold/tap for short time to reveal flag and hold for long time to place flag.
-4. limit tile size based on screen width
-5. fix not show all empty cell bug
-6. Fix when you win/lose, the tile can still be clicked
-7. give visual feedback on mobile user to tap flag
-8. Make revealed tiles not draggable
+4. Fix when you win/lose, the tile can still be clicked
+5. Make revealed tiles not draggable
+6. Tile size is static regardless of screen size
 FUTURE PLAN
+0. Refactoring
+- refactor projects
+- refactor utils
 1. turn copypasta to allow custom one
 > first phase store in localstorage
 > then add copy option
@@ -27,5 +22,10 @@ FUTURE PLAN
 > add edit
 > add comment
 3. Tunr project design into steam like UI
-4. MInesweeper (V.1.2)
+> smaller thumbnail ala wikia/steam to see all the image
+> multi image
+> possibly next/back button
+4. Minesweeper (V.1.2)
 > show all bomb
+> give visual feedback on mobile user to tap flag
+> make more than 40x40 tilesize

@@ -70,7 +70,7 @@ class Minesweeper {
     }
     // ===== UI =====
     renderBoard() {
-        let html = '<table cellspacing="0">';
+        let html = '<div class="table-wrapper"><table cellspacing="0">';
         for (let i = 0; i < this.size; i++) {
             html += '<tr>';
             for (let j = 0; j < this.size; j++) {
@@ -78,7 +78,7 @@ class Minesweeper {
             }
             html += '</tr>';
         }
-        html += '</table>';
+        html += '</table></div>';
         this.gameDiv.innerHTML = html;
 
         this.renderTopBar();
