@@ -4,18 +4,19 @@
 > smaller thumbnail ala wikia/steam to see all the image
 - limit tile size based on screen width
 - fix not show all empty cell bug
-- fix you win bug alert after you finish
+- give visual feedback on mobile user to tap flag
 - responsive minesweeper
 - refactor projects
 - refactor utils
 
 - add minesweeper changeloc
-1. refactor code
+1. Refactor source code.
 2. responsiveness
-3. chaneg control to right and left click instead of hold if it not mobile device
+3. Change control method. For dekstop, use left click to open tile and right click to place flag. For mobile, hold/tap for short time to reveal flag and hold for long time to place flag.
 4. limit tile size based on screen width
 5. fix not show all empty cell bug
-6. fix you win bug alert after you finish
+6. Fix when you win/lose, the tile can still be clicked
+7. give visual feedback on mobile user to tap flag
 FUTURE PLAN
 1. turn copypasta to allow custom one
 > first phase store in localstorage

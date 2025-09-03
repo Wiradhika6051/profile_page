@@ -115,10 +115,12 @@ class Minesweeper {
                 }else{
                     // Dekstop device, use normal click
                     cell.addEventListener("click",()=>{
+                        if(this.isFinished)return
                         this.reveal(i, j, cell)
                         this.checkWin();
                     }) //left click
                     cell.addEventListener("contextmenu",(e)=>{
+                        if(this.isFinished)return
                         e.preventDefault() //prevent browser context menu
                         this.toggleFlag(cell);
                         this.checkWin();
