@@ -2,11 +2,15 @@
 > wide to 100%, and show the image on top, also cool animation
 > possibly next/back button
 > smaller thumbnail ala wikia/steam to see all the image
+- chaneg control to right and left click instead of hold if it not mobile device
 - responsive minesweeper
 - refactor projects
 - refactor utils
 
-
+- add minesweeper changeloc
+1. refactor code
+2. responsiveness
+3. chaneg control to right and left click instead of hold if it not mobile device
 FUTURE PLAN
 1. turn copypasta to allow custom one
 > first phase store in localstorage

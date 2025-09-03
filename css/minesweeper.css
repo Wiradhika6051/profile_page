@@ -89,8 +89,8 @@ h1{
 }
 
 #startButton{
-    width:8vw;
-    height: 3vh;
+    width:35%;
+    height: 4vh;
     position: relative;
     margin-bottom:3vh;
 }
@@ -137,3 +137,10 @@ label{
     font-size: 1.4em;
     margin:1.4vh 0;
 }
+
+/* @media(max-width:500px){
+  #startButton{
+    width: 35%;
+    height: 4vh;
+  }
+} */
