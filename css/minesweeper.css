@@ -95,7 +95,7 @@ h1{
     margin-bottom:3vh;
 }
 #restartButton{
-    width:8vw;
+    width:min(35vw,50);
     height: 3.5vh;
     position: relative;
     margin-bottom:2vh;
@@ -138,9 +138,8 @@ label{
     margin:1.4vh 0;
 }
 
-/* @media(max-width:500px){
-  #startButton{
-    width: 35%;
-    height: 4vh;
-  }
-} */
+@media(max-width:500px){
+    #main{
+        width:80%;
+    }
+}
