@@ -2,7 +2,9 @@
 > wide to 100%, and show the image on top, also cool animation
 > possibly next/back button
 > smaller thumbnail ala wikia/steam to see all the image
-- chaneg control to right and left click instead of hold if it not mobile device
+- limit tile size based on screen width
+- fix not show all empty cell bug
+- fix you win bug alert after you finish
 - responsive minesweeper
 - refactor projects
 - refactor utils
@@ -11,6 +13,9 @@
 1. refactor code
 2. responsiveness
 3. chaneg control to right and left click instead of hold if it not mobile device
+4. limit tile size based on screen width
+5. fix not show all empty cell bug
+6. fix you win bug alert after you finish
 FUTURE PLAN
 1. turn copypasta to allow custom one
 > first phase store in localstorage

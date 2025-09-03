@@ -19,6 +19,9 @@ class Minesweeper {
         this.isFinished = false;
         this.timerId = null;
 
+        // Handle mobile
+        this.isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
         this.gameDiv = document.querySelector("#game");
         this.splashDiv = document.querySelector("#splash");
         this.inputSegment = document.querySelector("#inputSegment");
@@ -103,13 +106,29 @@ class Minesweeper {
         for (let i = 0; i < this.size; i++) {
             for (let j = 0; j < this.size; j++) {
                 const cell = this.getCell(i, j);
-                cell.addEventListener("mousedown", () => {
-                    this.map[i][j].timestamp = new Date();
-                });
-                cell.addEventListener("mouseup", () => this.handleClick(i, j, cell));
+                if (this.isTouch){
+                    // Mobile devices, use hold logic
+                    cell.addEventListener("touchstart", () => {
+                        this.map[i][j].timestamp = new Date();
+                    }); // mulai tekan
+                    cell.addEventListener("touchend", () => this.handleTouch(i, j, cell)); // lepas tekan
+                }else{
+                    // Dekstop device, use normal click
+                    cell.addEventListener("click",()=>{
+                        this.reveal(i, j, cell)
+                        this.checkWin();
+                    }) //left click
+                    cell.addEventListener("contextmenu",(e)=>{
+                        e.preventDefault() //prevent browser context menu
+                        this.toggleFlag(cell);
+                        this.checkWin();
+                    }) // right click
+                }
+
             }
         }
     }
+
     startTimer() {
         this.timerId = setInterval(() => {
             if (this.isFinished) return;
@@ -120,18 +139,19 @@ class Minesweeper {
     }
 
     // ===== GAMEPLAY =====
-    handleClick(i, j, cell) {
+    handleTouch(i, j, cell) {
         if (this.isFinished || cell.classList.contains("revealed")) return;
 
         const held = new Date() - this.map[i][j].timestamp > HOLD_DELAY;
         //nge hold lebih dari 1 detik set flag
         if (held) {
-            this.toggleFlag(cell);
+            this.toggleFlag(cell); // long press -> set flag
         } else {
-            this.reveal(i, j, cell);
+            this.reveal(i, j, cell); // short press -> open tile
         }
         this.checkWin();
     }
+
     toggleFlag( cell) {
         if (cell.classList.contains("flag")) {
             cell.classList.remove("flag");

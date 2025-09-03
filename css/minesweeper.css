@@ -36,6 +36,7 @@ label{
 
 #game{
     margin: auto;
+    width:80%
 }
 
 body{
@@ -138,8 +139,8 @@ label{
     margin:1.4vh 0;
 }
 
-@media(max-width:500px){
+/* @media(max-width:500px){
     #main{
         width:80%;
     }
-}
+} */
