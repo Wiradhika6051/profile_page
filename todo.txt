@@ -1,6 +1,3 @@
-- show image of project
-> show full image, maybe only 2, just for thumbnail
-
 FUTURE PLAN
 0. Refactoring
 - refactor projects
@@ -17,6 +14,7 @@ FUTURE PLAN
 > multi image
 > possibly next/back button
 > wide to 100%, and show the image on top, also cool animation
+> change no image logo to svg?
 4. Minesweeper (V.1.2)
 > show all bomb
 > give visual feedback on mobile user to tap flag

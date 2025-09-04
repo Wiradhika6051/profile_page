@@ -135,8 +135,8 @@ function renderProject(projects){
   }
   const boxesHTML =  projects.map((project,idx) => `
     <div class="project" data-index=${idx}>
-      <div class="image-viewer" data-index=${idx}>
-        <img src="../image/flag.jpg"/>
+      <div class="image-viewer show-image" data-index=${idx}>
+        <img src="../image/no-thumbnail.png"/>
       </div>
       <div class="content">
         <div class="desc">
@@ -190,7 +190,7 @@ function renderProject(projects){
 function showPictures(e){
   const idx = e.currentTarget.dataset.index
   document.querySelector(`.image-viewer[data-index="${idx}"]`).classList.toggle("show-image")
-  document.querySelector(`.project[data-index="${idx}"]`).classList.toggle("full-display")
+  // document.querySelector(`.project[data-index="${idx}"]`).classList.toggle("full-display")
 }
 // handle tag
 function removeTag(e){
