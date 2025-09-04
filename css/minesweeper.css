@@ -24,8 +24,12 @@ td{
     vertical-align: middle;
     /* box-shadow: 1.5px 1.5px rgb(128,128,128); */
 }
-
 footer{
+    display: flex;
+    flex-direction: column;;
+    align-items: center;;
+}
+footer > p{
     font-weight: bold;
     text-align: center;
     margin-top: 5vh;
@@ -115,6 +119,28 @@ h1{
     height: 4vh;
     position: relative;
     margin-bottom:3vh;
+}
+
+#changelogButton{
+    width:100px;
+    height: 4vh;
+    position: relative;
+    margin-bottom:3vh;    
+}
+#changelog{
+    display: none;
+    color:white;
+    width:98vw;
+
+}
+#changelog.show-changelog{
+    display:block;
+}
+#changelog h3, #changelog li{
+    margin-left:2vw;
+}
+#changelog h3{
+    text-align: center;;
 }
 #restartButton{
     width:min(35vw,50);

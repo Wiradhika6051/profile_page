@@ -2,6 +2,9 @@
 const HOLD_DELAY = 300
 const MAX_TILESIZE = 40
 
+// Element
+const changelogButton = document.getElementById("changelogButton")
+const changelog = document.getElementById("changelog")
 
 class Minesweeper {
     constructor(size, bombCount) {
@@ -277,3 +280,8 @@ function validateTile(input) {
         bombInput.value = maxBombs;
     } 
 }
+
+// Listener ketika changelog button ditekan
+changelogButton.addEventListener("click",()=>{
+    changelog.classList.toggle("show-changelog")
+})

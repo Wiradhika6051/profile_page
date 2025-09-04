@@ -1,14 +1,6 @@
 - show image of project
-> wide to 100%, and show the image on top, also cool animation
-- add chanegloc for minesweeper
+> show full image, maybe only 2, just for thumbnail
 
-- add minesweeper changelog
-1. Refactor source code.
-2. Make minesweeper responsive to screen size
-3. Change control method. For dekstop, use left click to open tile and right click to place flag. For mobile, hold/tap for short time to reveal flag and hold for long time to place flag.
-4. Fix when you win/lose, the tile can still be clicked
-5. Make revealed tiles not draggable
-6. Tile size is static regardless of screen size
 FUTURE PLAN
 0. Refactoring
 - refactor projects
@@ -24,6 +16,7 @@ FUTURE PLAN
 > smaller thumbnail ala wikia/steam to see all the image
 > multi image
 > possibly next/back button
+> wide to 100%, and show the image on top, also cool animation
 4. Minesweeper (V.1.2)
 > show all bomb
 > give visual feedback on mobile user to tap flag
