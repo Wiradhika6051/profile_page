@@ -89,12 +89,12 @@ class Minesweeper {
         this.inputSegment.innerHTML = `
             <div id="topbar">
                 <div class="container">
-                    <img src="image/timer.png" class="icon-top">
+                    <img src="image/timer.png">
                     <p id="timeText" class="top-text">${this.time}</p>
                 </div>
                 <button id="restartButton">Mulai Ulang</button>
                 <div class="container">
-                    <img src="image/remaining-flag.jpg" class="icon-top">
+                    <img src="image/remaining-flag.jpg">
                     <p id="flagText" class="top-text">${this.flagsLeft}</p>
                 </div>
             </div>
