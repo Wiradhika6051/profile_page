@@ -127,7 +127,7 @@ function formatDate(date_str){
   });
 }
 function getThumbnail(path){
-  return `../image/${(typeof path === 'string' && path.trim() !== '') ? path : 'no-thumbnail.png'}`
+  return `image/${(typeof path === 'string' && path.trim() !== '') ? path : 'no-thumbnail.png'}`
 }
 function renderProject(projects){
   const workSection = document.querySelector("#work");
