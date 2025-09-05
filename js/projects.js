@@ -126,6 +126,9 @@ function formatDate(date_str){
     year: 'numeric'  
   });
 }
+function getThumbnail(path){
+  return `../image/${(typeof path === 'string' && path.trim() !== '') ? path : 'no-thumbnail.png'}`
+}
 function renderProject(projects){
   const workSection = document.querySelector("#work");
   if(!projects.length){
@@ -136,7 +139,7 @@ function renderProject(projects){
   const boxesHTML =  projects.map((project,idx) => `
     <div class="project" data-index=${idx}>
       <div class="image-viewer show-image" data-index=${idx}>
-        <img src="../image/no-thumbnail.png"/>
+        <img src="${getThumbnail(project.thumbnail)}"/>
       </div>
       <div class="content">
         <div class="desc">

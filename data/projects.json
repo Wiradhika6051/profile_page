@@ -34,7 +34,8 @@
       "tags": ["GUI", "Dekstop"],
       "links": {
         "github": "https://github.com/Wiradhika6051/Oven-Pintar"
-      }
+      },
+      "thumbnail":""
     },
     {
       "name": "Minesweeper",
@@ -45,7 +46,8 @@
       "tags": ["Website", "Game"],
       "links": {
         "play": "minesweeper.html"
-      }
+      },
+      "thumbnail":""
     },
     {
       "name": "Cryptographers",
@@ -57,7 +59,8 @@
       "tags": ["Website"],
       "links": {
         "github": "https://github.com/chryes220/Tugas1-Kriptografi"
-      }
+      },
+      "thumbnail":""
     },
     {
       "name": "Feminacare",
@@ -69,7 +72,8 @@
       "tags": ["API"],
       "links": {
         "github": "https://github.com/Wiradhika6051/Feminicare/tree/CC"
-      }
+      },
+      "thumbnail":""
     },
     {
       "name": "Webtune",
@@ -81,7 +85,8 @@
       "tags": ["Website"],
       "links": {
         "gitlab": "https://gitlab.informatika.org/IF3110-2022-K02-02-05"
-      }
+      },
+      "thumbnail":""
     },
     {
       "name": "SCA Tool",
@@ -93,7 +98,8 @@
       "tags": ["CLI", "Tool"],
       "links": {
         "gitlab": "https://gitlab.informatika.org/anugrah_fawwaz/ta-static-code-analysis"
-      }
+      },
+      "thumbnail":""
     },
     {
       "name": "Copypasta",
@@ -104,7 +110,8 @@
       "tags": ["Website","Tool"],
       "links": {
         "browse": "copypasta.html"
-      }
+      },
+      "thumbnail":""
     }
   ]
 }
