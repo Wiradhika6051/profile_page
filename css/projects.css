@@ -133,6 +133,10 @@
 }
 .show-image img{
   width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: top;
 }
 .image-viewer-button{
   cursor: pointer;
