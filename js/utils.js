@@ -1,3 +1,6 @@
 export default function capitalize(val) {
-    return String(val).split(" ").map((word)=>{return word.charAt(0).toUpperCase() + word.slice(1)}).join(" ");
+    return String(val)
+            .split(/\s+/) // menangani space > 1
+            .map(w => w.charAt(0).toUpperCase() + w.slice(1))
+            .join(" ");
 }
