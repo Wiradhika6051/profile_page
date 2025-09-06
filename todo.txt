@@ -20,3 +20,4 @@ FUTURE PLAN
 > give visual feedback on mobile user to tap flag
 > make more than 40x40 tilesize
 > control map using keyboard to move
+> hide changeloc when playing
