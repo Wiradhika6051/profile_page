@@ -1,4 +1,8 @@
 -thumbnail
+
+
+FUTURE VERSION
+0. refactor
 - refactor project
 
 1. turn copypasta to allow custom one
