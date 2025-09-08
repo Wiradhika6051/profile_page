@@ -1,11 +1,15 @@
 import data from "../data/projects.json" with { type: "json" };
 import sortData from "./sortButton.js";
+
 const {projects, tags} = data;
+
+// Constant
 const showTag = document.querySelector("#selectedTags");
-const selected_tags = new Set();
 const tagInput = document.querySelector("#tagInput");
 const sortingList = document.getElementById("sortOptions")
 const sortFilter = document.querySelector("#sortFilter")
+const selectedTags = new Set();
+
 const ICONS = {
   "download": `<svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -90,18 +94,31 @@ const SORTING_MODES = {
   'Z → A': { key: "name", order: "desc"},
   'Oldest': { key: "date", order: "asc"},
   'Latest': { key: "date", order: "desc"}
-}
-const DEFAULT_SORT = "Latest"
+};
+const DEFAULT_SORT = "Latest";
 
+// Utilities
 function escapeHTML(text) {
   return text
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;')
-      .replace(/\//g, '&#x2F;');
+    .replace(/[&<>"'/]/g, c => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;",
+      "'": "&#39;", "/": "&#x2F;"
+    }[c]))
 }
+
+function formatDate(date_str){
+  // Create a Date object
+  return new Date(date_str).toLocaleDateString(undefined, {  
+    month: 'long',  
+    year: 'numeric'  
+  });
+}
+
+function getThumbnail(path){
+  return `image/${(typeof path === 'string' && path.trim() !== '') ? path : 'no-thumbnail.png'}`
+}
+
+// Rendering Helper
 function formatDescription(desc) {
   return `<p>${escapeHTML(desc).replace(/\$b\{(.*?)\}/g, "<b>$1</b>")}</p>`;
 }
@@ -118,44 +135,25 @@ function formatLinks(links) {
       </a>`)
     .join('');
 }
-function formatDate(date_str){
-  // Create a Date object
-  const date = new Date(date_str);
-  return date.toLocaleDateString(undefined, {  
-    month: 'long',  
-    year: 'numeric'  
-  });
-}
-function getThumbnail(path){
-  return `image/${(typeof path === 'string' && path.trim() !== '') ? path : 'no-thumbnail.png'}`
-}
-function renderProject(projects){
-  const workSection = document.querySelector("#work");
-  if(!projects.length){
-    // gak ada project
-    workSection.innerHTML = "<p>No Project Found</p>";
-    return
-  }
-  const boxesHTML =  projects.map((project,idx) => `
-    <div class="project" data-index=${idx}>
-      <div class="image-viewer show-image" data-index=${idx}>
-        <img src="${getThumbnail(project.thumbnail)}"/>
-      </div>
-      <div class="content">
-        <div class="desc">
-          <h2>${escapeHTML(project.name)}</h2>
+
+function renderProjectCard(project,idx){
+  return `<div class="project" data-index=${idx}>
+    <div class="image-viewer show-image" data-index=${idx}>
+      <img src="${getThumbnail(project.thumbnail)}"/>
+    </div>
+    <div class="content">
+      <div class="desc">
+        <h2>${escapeHTML(project.name)}</h2>
         ${project.desc.map(formatDescription).join("")}
+      </div>
+      <div class="project-date">Project Start: ${formatDate(project.date)}</div>
+      <div class="action">
+        <div class="action-links">
+          ${formatLinks(project.links)}
+          <div class="small-box image-viewer-button" data-index=${idx} title="See Images">
+            ${ICONS["image-open"]}
+          </div>
         </div>
-        <div class="project-date">
-          Project Start: ${formatDate(project['date'])}
-        </div>
-        <div class="action">
-          <div class="action-links">
-            ${formatLinks(project.links)}
-            <div class="small-box image-viewer-button" data-index=${idx} title="See Images">
-              ${ICONS["image-open"]}
-            </div>
-          </div >
           <div class="tags">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -176,71 +174,88 @@ function renderProject(projects){
             ${formatTags(project.tags)}
             </div>
           </div>
-        </div>
       </div>
-    </div>`).join("");
-  workSection.innerHTML = boxesHTML;
+    </div>
+  </div>`;
+}
+
+function renderProjects(projects){
+  const workSection = document.querySelector("#work");
+  if(!projects.length){
+    // gak ada project
+    workSection.innerHTML = "<p>No Project Found</p>";
+    return
+  }
+  workSection.innerHTML = projects.map((project,idx) => renderProjectCard(project,idx)).join("");
+
   // listener tag diklik
   document.querySelectorAll(".tag-click").forEach((tag)=>{
-  tag.addEventListener("click",addTag)
+    tag.addEventListener("click",onTagClick)
+  })
   // Whenever a project clicked, it show image
   document.querySelectorAll(".image-viewer-button").forEach((project)=>{
     project.addEventListener("click",showPictures)
   })
-})
-}
-// show pictures
-function showPictures(e){
-  const idx = e.currentTarget.dataset.index
-  document.querySelector(`.image-viewer[data-index="${idx}"]`).classList.toggle("show-image")
-  // document.querySelector(`.project[data-index="${idx}"]`).classList.toggle("full-display")
-}
-// handle tag
-function removeTag(e){
-  // disanitasi buat hilangin whitespace
-  const tag = e.target.textContent.trim();
-  selected_tags.delete(tag);
-
-  if(!selected_tags.size){
-    showTag.innerHTML = "";
-    showTag.style.display = 'none';
-    renderProject(projects);
-  }
-  else{
-    const filtered = filterProjectsByTags();
-    renderProject(filtered);
-  }
-  updateSelectedTagsUI();
 }
 
-function filterProjectsByTags() {
-  return projects.filter(project =>
-    selected_tags.intersection(new Set(project.tags)).size !== 0
+function renderTagDropdown() {
+  tagInput.innerHTML = `<ul>${tags.map(t => `<li class="tag-click">${t}</li>`).join("")}</ul>`;
+  document.querySelectorAll("#tagInput .tag-click").forEach(tag =>
+    tag.addEventListener("click", onTagClick)
   );
 }
-function addTag(e){
-  const tag = e.target.textContent.trim();
-  selected_tags.add(tag);
 
-  const filtered = filterProjectsByTags();
-  renderProject(filtered);
-  updateSelectedTagsUI();
-}
-
-function updateSelectedTagsUI() {
-  showTag.style.display = selected_tags.size ? 'flex' : 'none';
-  showTag.innerHTML = [...selected_tags]
-    .map(tag => `<div class="show tag">${ICONS['x-close']}<p>${escapeHTML(tag)}</p></div>`)
-    .join(" ");
-
-  document.querySelectorAll(".show, .close-i").forEach(el => {
-    el.addEventListener("click", removeTag);
+function renderSortOptions() {
+  sortingList.innerHTML = "";
+  Object.keys(SORTING_MODES).forEach(option => {
+    const node = document.createElement("li");
+    node.textContent = option;
+    node.classList.add("sort-option");
+    sortingList.appendChild(node);
   });
 }
 
-function renderTagDropdown(){
-  const AllTagHTML = `<ul>${tags.map((tag)=>`<li class="tag-click">${tag}</li>`).join('')}</ul>`
-  tagInput.innerHTML = AllTagHTML;
+// --- Event Handlers ---
+function showPictures(e) {
+  const idx = e.currentTarget.dataset.index;
+  document.querySelector(`.image-viewer[data-index="${idx}"]`)
+    .classList.toggle("show-image");
+}
+
+function onTagClick(e) {
+  selectedTags.add(e.target.textContent.trim());
+  renderProjects(filterProjectsByTags());
+  updateSelectedTagsUI();
+}
+
+function onTagRemove(e) {
+  // disanitasi buat hilangin whitespace
+  const tag = e.target.textContent.trim();
+  selectedTags.delete(tag);
+  if(!selectedTags.size){
+    showTag.innerHTML = "";
+    showTag.style.display = 'none';
+  }
+  renderProjects(selectedTags.size ? filterProjectsByTags() : projects);
+  updateSelectedTagsUI();
+}
+
+function onSortChangedHandler(projects){
+  renderProjects(projects)
+}
+
+function updateSelectedTagsUI() {
+  showTag.style.display = selectedTags.size ? "flex" : "none";
+  showTag.innerHTML = [...selectedTags]
+    .map(t => `<div class="show tag">${ICONS["x-close"]}<p>${escapeHTML(t)}</p></div>`)
+    .join(" ");
+  document.querySelectorAll(".show, .close-i").forEach(el =>
+    el.addEventListener("click", onTagRemove)
+  );
+}
+
+function filterProjectsByTags() {
+  return projects.filter(p => p.tags.some(tag => selectedTags.has(tag)));
 }
 
 function initSorting(){
@@ -248,40 +263,26 @@ function initSorting(){
   sortData(projects,SORTING_MODES[DEFAULT_SORT],DEFAULT_SORT,onSortChangedHandler)
   sortingList.addEventListener("click",(e)=>{
     const option = e.srcElement.textContent
-    sortData(projects,SORTING_MODES[option],option,onSortChangedHandler)
+    if (SORTING_MODES[option]) {
+      sortData(projects,SORTING_MODES[option],option,onSortChangedHandler)
+    }
   })
 }
-function renderSortOptions(){
-  sortingList.innerHTML = ""
-  for(let option in SORTING_MODES){
-    // Kapitalisasi
-    const node = document.createElement("li")
-    node.textContent = option;
-    node.classList.add('sort-option')
-    sortingList.appendChild(node)
-  }
-}
-function onSortChangedHandler(projects){
-  renderProject(projects)
-}
-// Add event listnener
 
-sortFilter.addEventListener("click",()=>{
-  // toggle force-hide class
-  if (sortFilter.classList.contains("force-hide")) {
-    sortFilter.classList.remove("force-hide");
-  } else {
-    sortFilter.classList.add("force-hide");
-  }
-})
+
+// --- Init ---
+sortFilter.addEventListener("click", () =>
+  sortFilter.classList.toggle("force-hide")
+);
 // Reset forceHide variable on mouse leave
-sortFilter.addEventListener("mouseleave",()=>{
-  sortFilter.classList.remove("force-hide");
-})
+sortFilter.addEventListener("mouseleave", () =>
+  sortFilter.classList.remove("force-hide")
+);
+
 // Initial rendering
 // render tag dropdown
 renderTagDropdown();
 // Tambahkan ke website
-renderProject(projects);
+renderProjects(projects);
 // Init sorting
 initSorting();

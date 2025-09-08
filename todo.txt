@@ -2,8 +2,8 @@
 
 
 FUTURE VERSION
-0. refactor
-- refactor project
+0. fix bug
+- sorting while filter is active
 
 1. turn copypasta to allow custom one
 > first phase store in localstorage
