@@ -9,6 +9,7 @@ FUTURE VERSION
 > first phase store in localstorage
 > then add copy option
 > further on move to dedicated DB
+> make multiline input reflect in the output as multiline
 2. turn blogs into CMS
 > add edit
 > add comment
