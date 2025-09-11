@@ -97,6 +97,7 @@ const SORTING_MODES = {
 };
 const DEFAULT_SORT = "Latest";
 
+let selectedOption = DEFAULT_SORT;
 // Utilities
 function escapeHTML(text) {
   return text
@@ -223,8 +224,8 @@ function showPictures(e) {
 }
 
 function onTagClick(e) {
-  selectedTags.add(e.target.textContent.trim());
-  renderProjects(filterProjectsByTags());
+  selectedTags.add(e.target.textContent.trim())
+  sortData(filterProjectsByTags(),SORTING_MODES[selectedOption],selectedOption,onSortChangedHandler)
   updateSelectedTagsUI();
 }
 
@@ -236,7 +237,8 @@ function onTagRemove(e) {
     showTag.innerHTML = "";
     showTag.style.display = 'none';
   }
-  renderProjects(selectedTags.size ? filterProjectsByTags() : projects);
+  const data = selectedTags.size ? filterProjectsByTags() : projects
+  sortData(data,SORTING_MODES[selectedOption],selectedOption,onSortChangedHandler)
   updateSelectedTagsUI();
 }
 
@@ -262,9 +264,10 @@ function initSorting(){
   renderSortOptions()
   sortData(projects,SORTING_MODES[DEFAULT_SORT],DEFAULT_SORT,onSortChangedHandler)
   sortingList.addEventListener("click",(e)=>{
-    const option = e.srcElement.textContent
-    if (SORTING_MODES[option]) {
-      sortData(projects,SORTING_MODES[option],option,onSortChangedHandler)
+    selectedOption = e.srcElement.textContent
+    if (SORTING_MODES[selectedOption]) {
+      const data = selectedTags.size ? filterProjectsByTags() : projects
+      sortData(data,SORTING_MODES[selectedOption],selectedOption,onSortChangedHandler)
     }
   })
 }
