@@ -8,6 +8,7 @@ FUTURE VERSION
 > then add copy option
 > further on move to dedicated DB
 > fix copy not full paer copyed
+> make credit screen
 
 2. turn blogs into CMS
 > add edit
