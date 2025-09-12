@@ -1,5 +1,5 @@
 import copypasta from "../data/copypasta.json" with {type:"json"}
-
+import {escapeHTML} from "./utils.js"
 // DOM
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
@@ -37,25 +37,26 @@ function handleParameterUpdate(e){
   // dapatkan template string idx
   const replacedTexts = document.querySelectorAll(`.replaced-word[data-index="${idx}"]`)
 
-  let val = e.srcElement.value
-  let isEmpty = val===''
+  let vals = e.srcElement.value.split("\n")
+  let isEmpty = vals.length ===0 || (vals.length===1 && vals[0].trim()==="")
 
   if(isEmpty){
-    val = currentCopypasta.parameters[idx]
+    vals = currentCopypasta.parameters[idx].split("\n")
   }
 
+  const joinedVals = safeHTML(vals.join("\n"))
   replacedTexts
     .forEach((element)=>{
-      element.textContent = element.textContent.replace(idMapping.get(idx),val)
+      element.innerHTML = joinedVals
       element.classList.toggle('empty',isEmpty)
     })
 
-  idMapping.set(idx,val)
+  idMapping.set(idx,joinedVals)
 }
 
 // Copy text to clipboard
 function copyText(e){
-  const text = e.srcElement.innerText
+  const text = e.currentTarget.innerText
   navigator.clipboard.writeText(text)
   showToast("Teks berhasil disalin!")
 }
@@ -107,6 +108,10 @@ function buildParamsInputTemplate(params){
         <textarea data-index=${i} rows="3"></textarea>
     </div>
   `).join('')   
+}
+// Sanitize replaced texts
+function safeHTML(text) {
+  return escapeHTML(text).replace(/\n/g, "<br>");
 }
 
 // Build templaye texts
