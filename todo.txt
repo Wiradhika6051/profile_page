@@ -1,9 +1,15 @@
+Copypasta
+V.1.1
+* make multiline input reflect in the output as multiline
+
 FUTURE VERSION
 1. turn copypasta to allow custom one
 > first phase store in localstorage
 > then add copy option
 > further on move to dedicated DB
-> make multiline input reflect in the output as multiline
+> fix copy not full paer copyed
+> make credit screen
+
 2. turn blogs into CMS
 > add edit
 > add comment
