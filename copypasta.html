@@ -11,11 +11,10 @@
       </a>
     </header>
     <div id="customCopypasta">
-      <div class="copypasta-info ] new-copypasta" data-id="-1">
+      <div id="new-copypasta" class="copypasta-info" data-id="-1">
         <div class="desc copypasta-box">
           <h2>Buat Copypasta Sendiri</h2>
           <p>Buat copypasta sesuai keinginanmu di sini!</p>
-
         </div>
       </div>
     </div>
@@ -24,6 +23,18 @@
     </div>
     <div id="copypasta"></div>
     <div id="detail"></div>
+    <div id="modal-overlay">
+      <div id="modal-dialog">
+        <h2>New Copypasta</h2>
+        <input type="text" id="copypasta-name" placeholder="Name" />
+        <textarea id="copypasta-desc" placeholder="Description"></textarea>
+        <div id="modalButton">
+          <button id="modal-cancel">Cancel</button>
+          <button id="modal-submit">Submit</button>
+        </div>
+      </div>
+    </div>
+
     <!-- <script src="js/navbar.js"></script> -->
     <script type="module" src="js/copypasta.js"></script>
     <link rel="stylesheet" href="css/style.css" />

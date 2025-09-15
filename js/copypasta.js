@@ -4,6 +4,10 @@ import {escapeHTML} from "./utils.js"
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
 const toastContainer = document.getElementById("toast-container")
+const newCopypastaCard = document.getElementById("new-copypasta");
+const modalOverlay = document.getElementById("modal-overlay");
+const modalCancel = document.getElementById("modal-cancel");
+const modalSubmit = document.getElementById("modal-submit");
 
 // State
 let isDetailActive = false;
@@ -143,3 +147,18 @@ function renderCopypastaList(copypasta){
     showDetail(parseInt(copypasta.dataset.id,10))
   })
 }
+
+// Add listener
+newCopypastaCard.addEventListener("click",()=>{
+  modalOverlay.style.display = "block";
+  // Focus user on first input
+  document.getElementById("copypasta-name").focus();
+})
+// Tombol cancel
+modalCancel.addEventListener("click",()=>{
+  modalOverlay.style.display = "none";
+})
+// Tombol submit
+modalSubmit.addEventListener("click",()=>{
+  modalOverlay.style.display = "none";
+})
