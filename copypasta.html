@@ -25,9 +25,16 @@
     <div id="detail"></div>
     <div id="modal-overlay">
       <div id="modal-dialog">
-        <h2>New Copypasta</h2>
-        <input type="text" id="copypasta-name" placeholder="Name" />
-        <textarea id="copypasta-desc" placeholder="Description"></textarea>
+        <h1>New Copypasta</h1>
+        <div id="copypastaInputHolder">
+          <p>Name:</p>
+          <input type="text" id="copypasta-name" placeholder="Insert name..." />
+          <p>Description:</p>
+          <input type="text" id="copypasta-desc" placeholder="Insert description..."></textarea>
+          <p>Copypasta Text:</p>
+          <textarea id="copypasta-text" rows="10" placeholder="Fill text..."></textarea>
+          <p>Parameters:</p>
+        </div>
         <div id="modalButton">
           <button id="modal-cancel">Cancel</button>
           <button id="modal-submit">Submit</button>

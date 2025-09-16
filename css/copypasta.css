@@ -180,6 +180,16 @@ hr{
     text-align: right
 }
 
+#modal-dialog h1{
+    text-align: center;
+}
+#copypastaInputHolder p{
+    margin:0;
+}
+#copypastaInputHolder textarea{
+    width: 100%;
+    resize: none;
+}
 
 @media(max-width:700px){
     #copypasta{
