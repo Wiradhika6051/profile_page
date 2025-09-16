@@ -30,10 +30,36 @@
           <p>Name:</p>
           <input type="text" id="copypasta-name" placeholder="Insert name..." />
           <p>Description:</p>
-          <input type="text" id="copypasta-desc" placeholder="Insert description..."></textarea>
+          <input
+            type="text"
+            id="copypasta-desc"
+            placeholder="Insert description..."
+          />
           <p>Copypasta Text:</p>
-          <textarea id="copypasta-text" rows="10" placeholder="Fill text..."></textarea>
+          <textarea
+            id="copypasta-text"
+            rows="10"
+            placeholder="Fill text..."
+          ></textarea>
           <p>Parameters:</p>
+          <div id="newParameters">
+            <div id="addParam" class="new-params">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                class="bi bi-plus-lg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
+                />
+              </svg>
+              Add New
+            </div>
+          </div>
         </div>
         <div id="modalButton">
           <button id="modal-cancel">Cancel</button>

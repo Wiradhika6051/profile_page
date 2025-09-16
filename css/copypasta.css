@@ -191,6 +191,29 @@ hr{
     resize: none;
 }
 
+#newParameters{
+    display: flex;
+    flex-direction: row;
+    margin-top:1vh;
+    flex-wrap: wrap;
+}
+.new-params{
+    border: 1px solid black;
+    margin-right:1vw;
+    padding: 0.5vh 1vw;
+    border-radius: 5px;
+    background-color: rgb(234, 237, 240);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .2vw;
+    margin-bottom: 1vh;
+}
+.new-params:hover{
+    background-color: #fbf6f6;
+}
+
 @media(max-width:700px){
     #copypasta{
         flex-direction: column;
