@@ -11,6 +11,7 @@ const modalCancel = document.getElementById("modal-cancel");
 const modalSubmit = document.getElementById("modal-submit");
 const addParam = document.getElementById("addParam")
 const newParametersList = document.getElementById("newParameters")
+const copypastaText = document.getElementById("copypasta-text")
 
 // State
 let isDetailActive = false;
@@ -152,6 +153,98 @@ function renderCopypastaList(copypasta){
   })
 }
 
+function createCharacter(text){
+    console.log("start")
+    // addParam.textContent = text
+    // addParam.classList.remove("param-input")
+    // newParametersList
+    // insert into character list
+    // const paramHTML = `            
+    //   <div class="new-params param">
+    //     <svg
+    //       class="close-i"
+    //       xmlns="http://www.w3.org/2000/svg"
+    //       width="16"
+    //       height="16"
+    //       fill="currentColor"
+    //       class="bi bi-x-lg"
+    //       viewBox="0 0 16 16"
+    //     >
+    //       <path
+    //         d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+    //       />
+    //     </svg>
+    //     ${capitalize(text)}
+    //   </div>`
+      const paramHTML = `            
+      <div class="new-params param">
+        ${capitalize(text)}
+      </div>`
+    // Create a template element for converting html
+    const template = document.createElement("template");
+    template.innerHTML = paramHTML.trim(); // trim avoids text nodes
+    const node = template.content.firstChild;
+  //   node.addEventListener("click",()=>{
+  //     // literally bunuh node sendiri
+  //     // if(node.parentNode){
+  //     //   node.parentElement.removeChild(node)
+  //     // }
+  //     if(node.classList.contains("param-input"))return;
+  //     isParamInputFinished = false;
+  //     node.classList.add("param-input")
+  //     node.innerHTML = ""
+  //     // Create input
+  //     const input = document.createElement("input");
+  //     input.type = "text";
+  //     node.appendChild(input)
+  //     // focus input
+  //     input.focus()
+  //     // Kalau pencet enter, ketutup
+  //     input.addEventListener("keydown",(e)=>{
+  //       console.log(e.key)
+  //       if (e.key=="Enter" && !isParamInputFinished){
+  //         isParamInputFinished = true;
+  //         const text = input.value || ""
+  //         updateCharacter(node,text)
+  //       }
+  //     })
+  //     // Kalau pencet selain input, jadi ketutup
+  //     //  blur -> lagi gak fokus ke element
+  //     input.addEventListener("blur",()=>{
+  //       if(isParamInputFinished)return;
+  //       isParamInputFinished = true;
+  //       const text = input.value || ""
+  //       updateCharacter(node,text)
+  // })      
+  //   })
+    // insert into params list 
+    const children = newParametersList.children
+    if(children.length>0){
+      // insert second to last
+      newParametersList.insertBefore(node,children[children.length-1])
+    }
+    else{
+      // langsung insert (untuk handle edge case)
+      newParametersList.appendChild(node)
+    }
+    // Reset the add param button
+    // addParam.innerHTML = `
+    //   <svg
+    //     xmlns="http://www.w3.org/2000/svg"
+    //     width="20"
+    //     height="20"
+    //     fill="currentColor"
+    //     class="bi bi-plus-lg"
+    //     viewBox="0 0 16 16"
+    //   >
+    //     <path
+    //       fill-rule="evenodd"
+    //       d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
+    //     />
+    //   </svg>
+    //   Add New`
+}
+
 // Add listener
 newCopypastaCard.addEventListener("click",()=>{
   modalOverlay.style.display = "block";
@@ -168,94 +261,44 @@ modalSubmit.addEventListener("click",()=>{
 })
 
 // Add new param
-addParam.addEventListener("click",()=>{
-  if(addParam.classList.contains("param-input"))return;
-  isParamInputFinished = false;
-  addParam.classList.add("param-input")
-  addParam.innerHTML = ""
-  // Create input
-  const input = document.createElement("input");
-  input.type = "text";
-  addParam.appendChild(input)
-  // focus input
-  input.focus()
-  // Kalau pencat enter, ketutup
-  input.addEventListener("keydown",(e)=>{
-    console.log(e.key)
-    if (e.key=="Enter" && !isParamInputFinished){
-      isParamInputFinished = true;
-      const text = input.value || ""
-      createCharacter(text)
-    }
-  })
-  // Kalau pencet selain input, jadi ketutup
-  //  blur -> lagi gak fokus ke element
-  input.addEventListener("blur",()=>{
-    if(isParamInputFinished)return;
-    isParamInputFinished = true;
-    console.log("hajimari")
-    const text = input.value || ""
-    createCharacter(text)
-  })
-})
+// addParam.addEventListener("click",()=>{
+//   if(addParam.classList.contains("param-input"))return;
+//   isParamInputFinished = false;
+//   addParam.classList.add("param-input")
+//   addParam.innerHTML = ""
+//   // Create input
+//   const input = document.createElement("input");
+//   input.type = "text";
+//   addParam.appendChild(input)
+//   // focus input
+//   input.focus()
+//   // Kalau pencat enter, ketutup
+//   input.addEventListener("keydown",(e)=>{
+//     console.log(e.key)
+//     if (e.key=="Enter" && !isParamInputFinished){
+//       isParamInputFinished = true;
+//       const text = input.value || ""
+//       createCharacter(text)
+//     }
+//   })
+//   // Kalau pencet selain input, jadi ketutup
+//   //  blur -> lagi gak fokus ke element
+//   input.addEventListener("blur",()=>{
+//     if(isParamInputFinished)return;
+//     isParamInputFinished = true;
+//     const text = input.value || ""
+//     createCharacter(text)
+//   })
+// })
 
-function createCharacter(text){
-    console.log("start")
-    // addParam.textContent = text
-    addParam.classList.remove("param-input")
-    // newParametersList
-    // insert into character list
-    const paramHTML = `            
-      <div class="new-params param">
-        <svg
-          class="close-i"
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-x-lg"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
-          />
-        </svg>
-        ${capitalize(text)}
-      </div>`
-    // Create a template element for converting html
-    const template = document.createElement("template");
-    template.innerHTML = paramHTML.trim(); // trim avoids text nodes
-    const node = template.content.firstChild;
-    node.addEventListener("click",()=>{
-      // literally bunuh node sendiri
-      if(node.parentNode){
-        node.parentElement.removeChild(node)
-      }
-    })
-    // insert into params list 
-    const children = newParametersList.children
-    if(children.length>0){
-      // insert second to last
-      newParametersList.insertBefore(node,children[children.length-1])
-    }
-    else{
-      // langsung insert (untuk handle edge case)
-      newParametersList.appendChild(node)
-    }
-    // Reset the add param button
-    addParam.innerHTML = `
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="20"
-        height="20"
-        fill="currentColor"
-        class="bi bi-plus-lg"
-        viewBox="0 0 16 16"
-      >
-        <path
-          fill-rule="evenodd"
-          d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
-        />
-      </svg>
-      Add New`
-}
+copypastaText.addEventListener("input",(e)=>{
+  const text = e.target.value
+  // if it like {0}. process.. if like \{0\}, dont
+  const raw_matches = text.match(/(?<!\\)\{.*?\}/g) || [];
+  const matches = new Set(raw_matches);
+  // create tag
+  newParametersList.innerHTML = ""
+  if(matches){
+    matches.forEach((param)=>createCharacter(param))
+  }
+})
