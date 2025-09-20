@@ -218,15 +218,16 @@ function createCharacter(text){
   // })      
   //   })
     // insert into params list 
-    const children = newParametersList.children
-    if(children.length>0){
-      // insert second to last
-      newParametersList.insertBefore(node,children[children.length-1])
-    }
-    else{
-      // langsung insert (untuk handle edge case)
-      newParametersList.appendChild(node)
-    }
+    // const children = newParametersList.children
+    // if(children.length>0){
+    //   // insert second to last
+    //   newParametersList.insertBefore(node,children[children.length-1])
+    // }
+    // else{
+    //   // langsung insert (untuk handle edge case)
+    //   newParametersList.appendChild(node)
+    // }
+    newParametersList.appendChild(node)
     // Reset the add param button
     // addParam.innerHTML = `
     //   <svg
@@ -294,8 +295,11 @@ modalSubmit.addEventListener("click",()=>{
 copypastaText.addEventListener("input",(e)=>{
   const text = e.target.value
   // if it like {0}. process.. if like \{0\}, dont
-  const raw_matches = text.match(/(?<!\\)\{.*?\}/g) || [];
-  const matches = new Set(raw_matches);
+  const raw_matches = [...text.matchAll(/(?<!\\)\{(.*?)\}/g)].map(m => m[1].toLowerCase());
+  console.log(raw_matches)
+  // const matches = raw_matches.filter((item, index) => raw_matches.indexOf(item) === index);
+  const matches = new Set(raw_matches)
+  console.log(matches)
   // create tag
   newParametersList.innerHTML = ""
   if(matches){

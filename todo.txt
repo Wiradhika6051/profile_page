@@ -9,6 +9,11 @@ FUTURE VERSION
 > further on move to dedicated DB
 > make credit screen
 
+* save copypasta
+* cancel clear all
+* edit copypasta
+* show copypasta
+
 2. turn blogs into CMS
 > add edit
 > add comment
