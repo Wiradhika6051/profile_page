@@ -12,7 +12,8 @@ const modalSubmit = document.getElementById("modal-submit");
 const addParam = document.getElementById("addParam")
 const newParametersList = document.getElementById("newParameters")
 const copypastaText = document.getElementById("copypasta-text")
-
+const copypastaName = document.getElementById("copypasta-name")
+const copypastaDesc = document.getElementById("copypasta-desc")
 // State
 let isDetailActive = false;
 let currentCopypasta = null;
@@ -254,6 +255,12 @@ newCopypastaCard.addEventListener("click",()=>{
 })
 // Tombol cancel
 modalCancel.addEventListener("click",()=>{
+  // Clear input
+  copypastaName.value = ""
+  copypastaDesc.value = ""
+  copypastaText.value = ""
+  newParametersList.innerHTML = ""
+  // hide overlay
   modalOverlay.style.display = "none";
 })
 // Tombol submit
