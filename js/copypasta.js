@@ -18,6 +18,7 @@ const copypastaDesc = document.getElementById("copypasta-desc")
 let isDetailActive = false;
 let currentCopypasta = null;
 let currentId = null
+let matches = new Set()
 let isParamInputFinished = false;
 const idMapping = new Map();
 
@@ -265,6 +266,36 @@ modalCancel.addEventListener("click",()=>{
 })
 // Tombol submit
 modalSubmit.addEventListener("click",()=>{
+  // get the text
+  const text = copypastaText.value
+  const standardized_text = text.replace(/\{(.*?)\}/g,(fullMatch,inner)=>{
+    const substr = inner.toLowerCase()
+    if(matches.has(substr)){
+      return `{${substr}}`
+    }
+    return fullMatch
+  })
+  // get last idx 
+  let lastIdx = parseInt(localStorage.getItem("last_idx") ?? "-1",10) + 1
+  // get copypasta
+  const custom_copypastas = JSON.parse(localStorage.getItem("custom_copypastas") ?? "[]")
+  // make new data
+  const newCopypastaData =     {
+    id:`C${lastIdx}`,
+    name: copypastaName.value,
+    description: copypastaDesc.value,
+    text: standardized_text,
+    parameters: [...matches]
+  }
+  custom_copypastas.push(newCopypastaData)
+  // simpan data
+  localStorage.setItem("last_idx",lastIdx)
+  localStorage.setItem("custom_copypastas",JSON.stringify(custom_copypastas))
+  // clear data
+  copypastaName.value = ""
+  copypastaDesc.value = ""
+  copypastaText.value = ""
+  newParametersList.innerHTML = ""
   modalOverlay.style.display = "none";
 })
 
@@ -305,7 +336,7 @@ copypastaText.addEventListener("input",(e)=>{
   const raw_matches = [...text.matchAll(/(?<!\\)\{(.*?)\}/g)].map(m => m[1].toLowerCase());
   console.log(raw_matches)
   // const matches = raw_matches.filter((item, index) => raw_matches.indexOf(item) === index);
-  const matches = new Set(raw_matches)
+  matches = new Set(raw_matches)
   console.log(matches)
   // create tag
   newParametersList.innerHTML = ""
