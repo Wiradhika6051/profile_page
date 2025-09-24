@@ -11,6 +11,9 @@ FUTURE VERSION
 
 * edit copypasta
 * show copypasta
+* make confirmation of create new copypasta
+* refactor normal copypasta to not based on index
+* fix bug the parameter on custom one not updated
 
 2. turn blogs into CMS
 > add edit

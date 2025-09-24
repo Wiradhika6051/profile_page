@@ -9,7 +9,7 @@ const newCopypastaCard = document.getElementById("new-copypasta");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalCancel = document.getElementById("modal-cancel");
 const modalSubmit = document.getElementById("modal-submit");
-const addParam = document.getElementById("addParam")
+const customCopypastaBox = document.getElementById("customCopypasta")
 const newParametersList = document.getElementById("newParameters")
 const copypastaText = document.getElementById("copypasta-text")
 const copypastaName = document.getElementById("copypasta-name")
@@ -81,7 +81,7 @@ function resetDetail(){
 
 // Show detail panel
 function showDetail(id){
-  if(isDetailActive && currentId==id){
+  if(isDetailActive && currentId===id){
     resetDetail()
     return;
   }
@@ -95,6 +95,41 @@ function showDetail(id){
   idMapping.clear()
   currentCopypasta.parameters.forEach((p,i)=>idMapping.set(i.toString(),p))
 
+  // Create input fields
+  const paramInputs = buildParamsInputTemplate(currentCopypasta.parameters)
+
+  // Fill the template detail
+  const textTemplate = buildTemplateTexts(currentCopypasta)
+
+  // Render detail panel
+  detailRoot.innerHTML = `
+    <div class="detail-box">
+      <div id='template'>${textTemplate}</div>
+      <div id='replace'>${paramInputs}</div>
+    </div>`
+
+  document.querySelector("#template").addEventListener("click",copyText)
+}
+function showCustomDetail(id){
+  if(isDetailActive && currentId===id){
+    resetDetail()
+    return;
+  }
+  const loaded_data = localStorage.getItem("custom_copypastas")
+  if(!loaded_data){
+    return;
+  }
+  // Reset
+  const copypasta = JSON.parse(loaded_data)
+  currentCopypasta = copypasta.find(c=>c.id===id)
+  currentId = copypasta.id;
+  isDetailActive = true
+
+  // Reset and map initial parameters
+  idMapping.clear()
+  console.log(currentCopypasta)
+  currentCopypasta.parameters.forEach((p,i)=>idMapping.set(p,p))
+  console.log(idMapping)
   // Create input fields
   const paramInputs = buildParamsInputTemplate(currentCopypasta.parameters)
 
@@ -146,12 +181,37 @@ function renderCopypastaList(copypasta){
       </div>
     </div>
   `).join("")
-
   // Event Delegation
   copypastaRoot.addEventListener("click",(e)=>{
     const copypasta = e.target.closest(".copypasta-info")
     if(!copypasta)return
     showDetail(parseInt(copypasta.dataset.id,10))
+  })
+  // render custom copypasta
+  const loaded_data = localStorage.getItem("custom_copypastas")
+  if(loaded_data){
+    const customCopypasta = JSON.parse(loaded_data)
+    customCopypasta.forEach((data)=>{  // spawn card
+      const template = document.createElement("template");
+      template.innerHTML = `
+        <div class="copypasta-info custom-copypasta" data-id="${data.id}">
+          <div class="desc copypasta-box">
+            <h2>${data.name}</h2>
+            <p>${data.description}</p>
+          </div>
+        </div>
+      `.trim();
+
+      const node = template.content.firstChild;
+
+      // insert before #new-copypasta
+      customCopypastaBox.insertBefore(node, newCopypastaCard);})
+  }
+  // add event delegation
+  customCopypastaBox.addEventListener("click",(e)=>{
+    const copypasta = e.target.closest(".custom-copypasta")
+    if(!copypasta)return
+    showCustomDetail(copypasta.dataset.id)
   })
 }
 
@@ -271,7 +331,7 @@ modalSubmit.addEventListener("click",()=>{
   const standardized_text = text.replace(/\{(.*?)\}/g,(fullMatch,inner)=>{
     const substr = inner.toLowerCase()
     if(matches.has(substr)){
-      return `{${substr}}`
+      return `{${capitalize(substr)}}`
     }
     return fullMatch
   })
@@ -285,7 +345,7 @@ modalSubmit.addEventListener("click",()=>{
     name: copypastaName.value,
     description: copypastaDesc.value,
     text: standardized_text,
-    parameters: [...matches]
+    parameters: [...matches].map((m)=>capitalize(m))
   }
   custom_copypastas.push(newCopypastaData)
   // simpan data
@@ -297,6 +357,21 @@ modalSubmit.addEventListener("click",()=>{
   copypastaText.value = ""
   newParametersList.innerHTML = ""
   modalOverlay.style.display = "none";
+  // spawn card
+  const template = document.createElement("template");
+  template.innerHTML = `
+    <div class="copypasta-info custom-copypasta" data-id="${newCopypastaData.id}">
+      <div class="desc copypasta-box">
+        <h2>${newCopypastaData.name}</h2>
+        <p>${newCopypastaData.description}</p>
+      </div>
+    </div>
+  `.trim();
+
+  const node = template.content.firstChild;
+
+  // insert before #new-copypasta
+  customCopypastaBox.insertBefore(node, newCopypastaCard);
 })
 
 // Add new param

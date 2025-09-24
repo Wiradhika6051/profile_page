@@ -117,6 +117,7 @@ hr{
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    flex-wrap: wrap;
 }
 #new-copypasta{
     border: 10px solid lightgreen;
