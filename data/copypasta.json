@@ -1,9 +1,9 @@
 [
   {
-    "id":0,
+    "id": 0,
     "name": "Chat GPT Game",
     "description": "Template for Prompt for personal ChatGPT game",
-    "text": "This is information related to {0} as in {1}. Update to {2}. Update to {2} with randomized outcome, whether progress, stalled, regress, postponed, cancelled, new law, breakthrough, etc. Consider {2} developments, leadership dynamics, and policies. If need to show statistic, show in table. \n {3} \n Also here's the agenda of current prime minister, prime minister {4}. Update prime minister's agenda status with information in this section if it affect agenda. If it's not affect a agenda, don't change and don't show the agenda in response. Otherwise, show the changed agenda in response\nCabinet name: {5}\n{6}",
+    "text": "This is information related to {Topic} as in {Start Year}. Update to {End Year}. Update to {End Year} with randomized outcome, whether progress, stalled, regress, postponed, cancelled, new law, breakthrough, etc. Consider {End Year} developments, leadership dynamics, and policies. If need to show statistic, show in table. \n {Issue} \n Also here's the agenda of current prime minister, prime minister {Prime Minister}. Update prime minister's agenda status with information in this section if it affect agenda. If it's not affect a agenda, don't change and don't show the agenda in response. Otherwise, show the changed agenda in response\nCabinet name: {Cabinet Name}\n{Agenda}",
     "parameters": [
       "Topic",
       "Start Year",
@@ -15,28 +15,24 @@
     ]
   },
   {
-    "id":1,
+    "id": 1,
     "name": "Wangy Wangy",
     "description": "Wangy wangy copypasta, for you who want to express your love for fictional character",
-    "text": "{0} {0} {0} ❤️ ❤️ ❤️ WANGI WANGI WANGI WANGI HU HA HU HA HU HA, aaaah baunya rambut {0} wangi aku mau nyiumin aroma wanginya {0} AAAAAAAAH ~ Rambutnya.... aaah rambutnya juga pengen aku elus-elus ~~~~ AAAAAH {0} keluar pertama kali di anime juga manis ❤️ ❤️ ❤️ banget AAAAAAAAH {0} AAAAA LUCCUUUUUUUUUUUUUUU............{0} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️apa ? {0} itu gak nyata ? Cuma HALU katamu ? nggak, ngak ngak ngak ngak NGAAAAAAAAK GUA GAK PERCAYA ITU DIA NYATA NGAAAAAAAAAAAAAAAAAK PEDULI BANGSAAAAAT !! GUA GAK PEDULI SAMA KENYATAAN POKOKNYA GAK PEDULI. ❤️ ❤️ ❤️ {0} gw ...{0} di laptop ngeliatin gw, {0} .. kamu percaya sama aku ? aaaaaaaaaaah syukur {0} aku gak mau merelakan {0} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH GUA MASIH PUNYA {0} SENDIRI PUN NGGAK SAMA AAAAAAAAAAAAAAH",
-    "parameters": [
-      "Character"
-    ]
+    "text": "{Character} {Character} {Character} ❤️ ❤️ ❤️ WANGI WANGI WANGI WANGI HU HA HU HA HU HA, aaaah baunya rambut {Character} wangi aku mau nyiumin aroma wanginya {Character} AAAAAAAAH ~ Rambutnya.... aaah rambutnya juga pengen aku elus-elus ~~~~ AAAAAH {Character} keluar pertama kali di anime juga manis ❤️ ❤️ ❤️ banget AAAAAAAAH {Character} AAAAA LUCCUUUUUUUUUUUUUUU............{Character} AAAAAAAAAAAAAAAAAAAAGH ❤️ ❤️ ❤️apa ? {Character} itu gak nyata ? Cuma HALU katamu ? nggak, ngak ngak ngak ngak NGAAAAAAAAK GUA GAK PERCAYA ITU DIA NYATA NGAAAAAAAAAAAAAAAAAK PEDULI BANGSAAAAAT !! GUA GAK PEDULI SAMA KENYATAAN POKOKNYA GAK PEDULI. ❤️ ❤️ ❤️ {Character} gw ...{Character} di laptop ngeliatin gw, {Character} .. kamu percaya sama aku ? aaaaaaaaaaah syukur {Character} aku gak mau merelakan {Character} aaaaaah ❤️ ❤️ ❤️ YEAAAAAAAAAAAH GUA MASIH PUNYA {Character} SENDIRI PUN NGGAK SAMA AAAAAAAAAAAAAAH",
+    "parameters": ["Character"]
   },
-    {
-    "id":2,
+  {
+    "id": 2,
     "name": "Bilamana Ada Investigasi",
     "description": "For you that are in group chat with your unhinged friend that discuss sensitive or legally questionable topic",
     "text": "Bilamana ada investigasi oleh kepolisian, Badan Intelijen Negara, Atau entitas lain serupa, saya tidak bertanggung jawab atas konten grup atau komunitas ini. Saya tidak tahu menahu siapa anggota komunitas ini dan saya telah ditambahkan oleh pihak ketiga tanpa persetujuan dari saya.",
     "parameters": []
   },
   {
-    "id":3,
+    "id": 3,
     "name": "LLM Narration Development",
     "description": "To make sure the LLM develop the narration based on overly detailed idea and not just continuing after it",
-    "text": "Please continue and expand the narration based on this detail:\n {0} \n (To be continue)",
-    "parameters": [
-      "Detail"
-    ]
+    "text": "Please continue and expand the narration based on this detail:\n {Detail} \n (To be continue)",
+    "parameters": ["Detail"]
   }
 ]

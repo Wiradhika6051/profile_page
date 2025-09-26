@@ -46,13 +46,14 @@ function handleParameterUpdate(e){
 
   const idx = e.target.dataset.index
   // dapatkan template string idx
+  console.log(idx)
   const replacedTexts = document.querySelectorAll(`.replaced-word[data-index="${idx}"]`)
-
+  console.log(replacedTexts)
   let vals = e.srcElement.value.split("\n")
   let isEmpty = vals.length ===0 || (vals.length===1 && vals[0].trim()==="")
-
+  console.log(isEmpty)
   if(isEmpty){
-    vals = currentCopypasta.parameters[idx].split("\n")
+    vals = idx.split("\n")
   }
 
   const joinedVals = safeHTML(vals.join("\n"))
@@ -81,6 +82,9 @@ function resetDetail(){
 
 // Show detail panel
 function showDetail(id){
+  console.log(isDetailActive)
+  console.log(currentId)
+  console.log(id)
   if(isDetailActive && currentId===id){
     resetDetail()
     return;
@@ -93,8 +97,8 @@ function showDetail(id){
 
   // Reset and map initial parameters
   idMapping.clear()
-  currentCopypasta.parameters.forEach((p,i)=>idMapping.set(i.toString(),p))
-
+  currentCopypasta.parameters.forEach((p,i)=>idMapping.set(p,p))
+  console.log(idMapping)
   // Create input fields
   const paramInputs = buildParamsInputTemplate(currentCopypasta.parameters)
 
@@ -111,6 +115,9 @@ function showDetail(id){
   document.querySelector("#template").addEventListener("click",copyText)
 }
 function showCustomDetail(id){
+  console.log(isDetailActive)
+  console.log(currentId)
+  console.log(id)
   if(isDetailActive && currentId===id){
     resetDetail()
     return;
@@ -120,9 +127,13 @@ function showCustomDetail(id){
     return;
   }
   // Reset
+  console.log(loaded_data)
   const copypasta = JSON.parse(loaded_data)
+  console.log(copypasta)
   currentCopypasta = copypasta.find(c=>c.id===id)
-  currentId = copypasta.id;
+  console.log(currentCopypasta)
+  currentId = currentCopypasta.id;
+  console.log(currentId)
   isDetailActive = true
 
   // Reset and map initial parameters
@@ -148,10 +159,10 @@ function showCustomDetail(id){
 
 // Build params input template
 function buildParamsInputTemplate(params){
-  return params.map((p,i)=>
+  return params.map((p)=>
     `<div class="param-input">
         <p>${p}</p>
-        <textarea data-index=${i} rows="3"></textarea>
+        <textarea data-index=${p} rows="3"></textarea>
     </div>
   `).join('')   
 }
@@ -166,8 +177,8 @@ function buildTemplateTexts(c){
     .split("\n")
     .map(line=>`<p class="template-text">${line}</p>`)
     .join("")
-    .replace(/(?<!\\)\{(\d+)\}/g,(_,idx)=>{
-    return `<span class="replaced-word empty" data-index=${idx}>${c.parameters[idx]}</span>`
+    .replace(/(?<!\\)\{(.+?)\}/g,(_,data)=>{
+    return `<span class="replaced-word empty" data-index=${data}>${data}</span>`
   })
 }
 

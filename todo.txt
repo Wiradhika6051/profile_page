@@ -1,6 +1,7 @@
 Copypasta
 V.1.1
 * make multiline input reflect in the output as multiline and copied text
+* add feature to create custom copypasta
 
 FUTURE VERSION
 1. turn copypasta to allow custom one
@@ -12,8 +13,6 @@ FUTURE VERSION
 * edit copypasta
 * show copypasta
 * make confirmation of create new copypasta
-* refactor normal copypasta to not based on index
-* fix bug the parameter on custom one not updated
 
 2. turn blogs into CMS
 > add edit
