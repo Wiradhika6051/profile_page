@@ -9,6 +9,10 @@ const newCopypastaCard = document.getElementById("new-copypasta");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalCancel = document.getElementById("modal-cancel");
 const modalSubmit = document.getElementById("modal-submit");
+const confirmationCancelButton = document.getElementById("confirmation-cancel")
+const confirmationConfirmButton = document.getElementById("confirmation-confirm")
+const confirmationText = document.getElementById("confirmationText")
+const confirmationOverlay = document.getElementById("confirmationModalOverlay")
 const customCopypastaBox = document.getElementById("customCopypasta")
 const newParametersList = document.getElementById("newParameters")
 const copypastaText = document.getElementById("copypasta-text")
@@ -21,6 +25,7 @@ let currentId = null
 let matches = new Set()
 let isParamInputFinished = false;
 const idMapping = new Map();
+let confirmAction = null;
 
 // Initial Render
 renderCopypastaList(copypasta)
@@ -319,6 +324,27 @@ function createCharacter(text){
     //   Add New`
 }
 
+function openConfirmation(message,action){
+  confirmationText.textContent = message
+  confirmationOverlay.style.display = "block"
+  confirmAction = action
+}
+// confirmation yes button
+confirmationConfirmButton.addEventListener("click",()=>{
+  // hide confirmation
+  confirmationOverlay.style.display = "none"
+  // run action
+  if(confirmAction){
+    confirmAction()
+    // reset action
+    confirmAction = null;
+  }
+})
+confirmationCancelButton.addEventListener("click",()=>{
+  confirmationOverlay.style.display = "none"
+  confirmAction = null;
+})
+
 // Add listener
 newCopypastaCard.addEventListener("click",()=>{
   modalOverlay.style.display = "block";
@@ -327,16 +353,29 @@ newCopypastaCard.addEventListener("click",()=>{
 })
 // Tombol cancel
 modalCancel.addEventListener("click",()=>{
-  // Clear input
-  copypastaName.value = ""
-  copypastaDesc.value = ""
-  copypastaText.value = ""
-  newParametersList.innerHTML = ""
-  // hide overlay
-  modalOverlay.style.display = "none";
+  // Ask confirmation if there is content
+  if(copypastaName.value || copypastaDesc.value || copypastaText.value || newParametersList.innerHTML){
+    openConfirmation("Are you sure you want to discard change?",clearCopypasta)
+  }
+  else{
+    clearCopypasta()
+  }
 })
+
+function clearCopypasta(){
+    // Clear input
+    copypastaName.value = ""
+    copypastaDesc.value = ""
+    copypastaText.value = ""
+    newParametersList.innerHTML = ""
+    // hide overlay
+    modalOverlay.style.display = "none";
+}
 // Tombol submit
 modalSubmit.addEventListener("click",()=>{
+  openConfirmation("Are you sure you want to add this new copypasta?",addCopypasta)
+})
+function addCopypasta(){
   // get the text
   const text = copypastaText.value
   const standardized_text = text.replace(/\{(.*?)\}/g,(fullMatch,inner)=>{
@@ -383,8 +422,7 @@ modalSubmit.addEventListener("click",()=>{
 
   // insert before #new-copypasta
   customCopypastaBox.insertBefore(node, newCopypastaCard);
-})
-
+}
 // Add new param
 // addParam.addEventListener("click",()=>{
 //   if(addParam.classList.contains("param-input"))return;

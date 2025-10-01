@@ -42,24 +42,7 @@
             placeholder="Fill text..."
           ></textarea>
           <p>Parameters:</p>
-          <div id="newParameters">
-            <!-- <div id="addParam" class="new-params">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                class="bi bi-plus-lg"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
-                />
-              </svg>
-              Add New
-            </div> -->
-          </div>
+          <div id="newParameters"></div>
         </div>
         <div id="modalButton">
           <button id="modal-cancel">Cancel</button>
@@ -67,8 +50,16 @@
         </div>
       </div>
     </div>
-
-    <!-- <script src="js/navbar.js"></script> -->
+    <div id="confirmationModalOverlay">
+      <div id="confirmationModal">
+        <h1>Confirmation</h1>
+        <p id="confirmationText">tes</p>
+        <div id="confirmationButton">
+            <button id="confirmation-cancel" class="cancel-button">Cancel</button>
+            <button id="confirmation-confirm" class="confirm-button">Confirm</button>
+        </div>
+      </div>
+    </div>
     <script type="module" src="js/copypasta.js"></script>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/copypasta.css" />

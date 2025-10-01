@@ -5,14 +5,13 @@ V.1.1
 
 FUTURE VERSION
 1. turn copypasta to allow custom one
-> first phase store in localstorage
 > then add copy option
 > further on move to dedicated DB
 > make credit screen
 
 * edit copypasta
 * show copypasta
-* make confirmation of create new copypasta
+* refactor copypasta
 
 2. turn blogs into CMS
 > add edit
