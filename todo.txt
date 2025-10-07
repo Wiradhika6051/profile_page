@@ -10,8 +10,9 @@ FUTURE VERSION
 > make credit screen
 
 * edit copypasta
-* show copypasta
-* refactor copypasta
+* delete copypasta
+* copy copypasta
+* refactor copypasta.html, copypasta.js, copypasta.css
 
 2. turn blogs into CMS
 > add edit
