@@ -9,10 +9,6 @@ const newCopypastaCard = document.getElementById("new-copypasta");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalCancel = document.getElementById("modal-cancel");
 const modalSubmit = document.getElementById("modal-submit");
-// const confirmationCancelButton = document.getElementById("confirmation-cancel")
-// const confirmationConfirmButton = document.getElementById("confirmation-confirm")
-const confirmationText = document.getElementById("confirmationText")
-const confirmationOverlay = document.getElementById("confirmationModalOverlay")
 const customCopypastaBox = document.getElementById("customCopypasta")
 const newParametersList = document.getElementById("newParameters")
 const copypastaText = document.getElementById("copypasta-text")
@@ -26,7 +22,6 @@ let currentCopypasta = null;
 let currentId = null
 let matches = new Set()
 const idMapping = new Map();
-let confirmAction = null;
 
 // Initial Render
 renderCopypastaList(copypasta)
@@ -39,7 +34,6 @@ function showToast(message,duration= 3000){
   toast.className = 'toast'
   toast.textContent = message
   toastContainer.appendChild(toast)
-
   setTimeout(()=>{
     toast.remove()
   },duration)
@@ -52,12 +46,10 @@ function handleParameterUpdate(e){
 
   const idx = e.target.dataset.index
   // dapatkan template string idx
-  console.log(idx)
   const replacedTexts = document.querySelectorAll(`.replaced-word[data-index="${idx}"]`)
-  console.log(replacedTexts)
   let vals = e.srcElement.value.split("\n")
   let isEmpty = vals.length ===0 || (vals.length===1 && vals[0].trim()==="")
-  console.log(isEmpty)
+  
   if(isEmpty){
     vals = idx.split("\n")
   }
@@ -88,9 +80,6 @@ function resetDetail(){
 
 // Show detail panel
 function showDetail(id){
-  console.log(isDetailActive)
-  console.log(currentId)
-  console.log(id)
   if(isDetailActive && currentId===id){
     resetDetail()
     return;
@@ -104,7 +93,7 @@ function showDetail(id){
   // Reset and map initial parameters
   idMapping.clear()
   currentCopypasta.parameters.forEach((p,i)=>idMapping.set(p,p))
-  console.log(idMapping)
+  
   // Create input fields
   const paramInputs = buildParamsInputTemplate(currentCopypasta.parameters)
 
@@ -121,9 +110,6 @@ function showDetail(id){
   document.querySelector("#template").addEventListener("click",copyText)
 }
 function showCustomDetail(id){
-  console.log(isDetailActive)
-  console.log(currentId)
-  console.log(id)
   if(isDetailActive && currentId===id){
     resetDetail()
     return;
@@ -133,33 +119,24 @@ function showCustomDetail(id){
     return;
   }
   // Reset
-  console.log(loaded_data)
   const copypasta = JSON.parse(loaded_data)
-  console.log(copypasta)
   currentCopypasta = copypasta.find(c=>c.id===id)
-  console.log(currentCopypasta)
   currentId = currentCopypasta.id;
-  console.log(currentId)
   isDetailActive = true
 
   // Reset and map initial parameters
   idMapping.clear()
-  console.log(currentCopypasta)
   currentCopypasta.parameters.forEach((p,i)=>idMapping.set(p,p))
-  console.log(idMapping)
   // Create input fields
   const paramInputs = buildParamsInputTemplate(currentCopypasta.parameters)
-
   // Fill the template detail
   const textTemplate = buildTemplateTexts(currentCopypasta)
-
   // Render detail panel
   detailRoot.innerHTML = `
     <div class="detail-box">
       <div id='template'>${textTemplate}</div>
       <div id='replace'>${paramInputs}</div>
     </div>`
-
   document.querySelector("#template").addEventListener("click",copyText)
 }
 
@@ -172,6 +149,7 @@ function buildParamsInputTemplate(params){
     </div>
   `).join('')   
 }
+
 // Sanitize replaced texts
 function safeHTML(text) {
   return escapeHTML(text).replace(/\n/g, "<br>");
@@ -220,7 +198,6 @@ function renderCopypastaList(copypasta){
       `.trim();
 
       const node = template.content.firstChild;
-
       // insert before #new-copypasta
       customCopypastaBox.insertBefore(node, newCopypastaCard);})
   }
@@ -233,29 +210,7 @@ function renderCopypastaList(copypasta){
 }
 
 function createCharacter(text){
-    console.log("start")
-    // addParam.textContent = text
-    // addParam.classList.remove("param-input")
-    // newParametersList
-    // insert into character list
-    // const paramHTML = `            
-    //   <div class="new-params param">
-    //     <svg
-    //       class="close-i"
-    //       xmlns="http://www.w3.org/2000/svg"
-    //       width="16"
-    //       height="16"
-    //       fill="currentColor"
-    //       class="bi bi-x-lg"
-    //       viewBox="0 0 16 16"
-    //     >
-    //       <path
-    //         d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
-    //       />
-    //     </svg>
-    //     ${capitalize(text)}
-    //   </div>`
-      const paramHTML = `            
+    const paramHTML = `            
       <div class="new-params param">
         ${capitalize(text)}
       </div>`
@@ -263,89 +218,8 @@ function createCharacter(text){
     const template = document.createElement("template");
     template.innerHTML = paramHTML.trim(); // trim avoids text nodes
     const node = template.content.firstChild;
-  //   node.addEventListener("click",()=>{
-  //     // literally bunuh node sendiri
-  //     // if(node.parentNode){
-  //     //   node.parentElement.removeChild(node)
-  //     // }
-  //     if(node.classList.contains("param-input"))return;
-  //     isParamInputFinished = false;
-  //     node.classList.add("param-input")
-  //     node.innerHTML = ""
-  //     // Create input
-  //     const input = document.createElement("input");
-  //     input.type = "text";
-  //     node.appendChild(input)
-  //     // focus input
-  //     input.focus()
-  //     // Kalau pencet enter, ketutup
-  //     input.addEventListener("keydown",(e)=>{
-  //       console.log(e.key)
-  //       if (e.key=="Enter" && !isParamInputFinished){
-  //         isParamInputFinished = true;
-  //         const text = input.value || ""
-  //         updateCharacter(node,text)
-  //       }
-  //     })
-  //     // Kalau pencet selain input, jadi ketutup
-  //     //  blur -> lagi gak fokus ke element
-  //     input.addEventListener("blur",()=>{
-  //       if(isParamInputFinished)return;
-  //       isParamInputFinished = true;
-  //       const text = input.value || ""
-  //       updateCharacter(node,text)
-  // })      
-  //   })
-    // insert into params list 
-    // const children = newParametersList.children
-    // if(children.length>0){
-    //   // insert second to last
-    //   newParametersList.insertBefore(node,children[children.length-1])
-    // }
-    // else{
-    //   // langsung insert (untuk handle edge case)
-    //   newParametersList.appendChild(node)
-    // }
     newParametersList.appendChild(node)
-    // Reset the add param button
-    // addParam.innerHTML = `
-    //   <svg
-    //     xmlns="http://www.w3.org/2000/svg"
-    //     width="20"
-    //     height="20"
-    //     fill="currentColor"
-    //     class="bi bi-plus-lg"
-    //     viewBox="0 0 16 16"
-    //   >
-    //     <path
-    //       fill-rule="evenodd"
-    //       d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"
-    //     />
-    //   </svg>
-    //   Add New`
 }
-
-function openConfirmation(message,action){
-  confirmationText.textContent = message
-  confirmationOverlay.style.display = "block"
-  confirmAction = action
-}
-// confirmation yes button
-// confirmationConfirmButton.addEventListener("click",()=>{
-//   // hide confirmation
-//   confirmationOverlay.style.display = "none"
-//   // run action
-//   if(confirmAction){
-//     confirmAction()
-//     // reset action
-//     confirmAction = null;
-//   }
-// })
-// confirmationCancelButton.addEventListener("click",()=>{
-//   confirmationOverlay.style.display = "none"
-//   confirmAction = null;
-// })
-
 // Add listener
 newCopypastaCard.addEventListener("click",()=>{
   modalOverlay.style.display = "block";
@@ -356,7 +230,6 @@ newCopypastaCard.addEventListener("click",()=>{
 modalCancel.addEventListener("click",()=>{
   // Ask confirmation if there is content
   if(copypastaName.value || copypastaDesc.value || copypastaText.value || newParametersList.innerHTML){
-    // openConfirmation("Are you sure you want to discard change?",clearCopypasta)
     confirmationDialog.open({
       message:"Are you sure you want to discard change?",
       confirmAction:clearCopypasta
@@ -378,7 +251,6 @@ function clearCopypasta(){
 }
 // Tombol submit
 modalSubmit.addEventListener("click",()=>{
-  // openConfirmation("Are you sure you want to add this new copypasta?",addCopypasta)
   confirmationDialog.open({
     message:"Are you sure you want to add this new copypasta?",
     confirmAction:addCopypasta
@@ -428,49 +300,16 @@ function addCopypasta(){
   `.trim();
 
   const node = template.content.firstChild;
-
   // insert before #new-copypasta
   customCopypastaBox.insertBefore(node, newCopypastaCard);
 }
-// Add new param
-// addParam.addEventListener("click",()=>{
-//   if(addParam.classList.contains("param-input"))return;
-//   isParamInputFinished = false;
-//   addParam.classList.add("param-input")
-//   addParam.innerHTML = ""
-//   // Create input
-//   const input = document.createElement("input");
-//   input.type = "text";
-//   addParam.appendChild(input)
-//   // focus input
-//   input.focus()
-//   // Kalau pencat enter, ketutup
-//   input.addEventListener("keydown",(e)=>{
-//     console.log(e.key)
-//     if (e.key=="Enter" && !isParamInputFinished){
-//       isParamInputFinished = true;
-//       const text = input.value || ""
-//       createCharacter(text)
-//     }
-//   })
-//   // Kalau pencet selain input, jadi ketutup
-//   //  blur -> lagi gak fokus ke element
-//   input.addEventListener("blur",()=>{
-//     if(isParamInputFinished)return;
-//     isParamInputFinished = true;
-//     const text = input.value || ""
-//     createCharacter(text)
-//   })
-// })
 
 copypastaText.addEventListener("input",(e)=>{
   const text = e.target.value
   // if it like {0}. process.. if like \{0\}, dont
   const raw_matches = [...text.matchAll(/(?<!\\)\{(.*?)\}/g)].map(m => m[1].toLowerCase());
-  console.log(raw_matches)
-  // const matches = raw_matches.filter((item, index) => raw_matches.indexOf(item) === index);
   matches = new Set(raw_matches)
-  console.log(matches)
+  
   // create tag
   newParametersList.innerHTML = ""
   if(matches){
