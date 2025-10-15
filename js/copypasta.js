@@ -1,6 +1,6 @@
 import copypasta from "../data/copypasta.json" with {type:"json"}
 import {escapeHTML,capitalize} from "./utils.js"
-import { ICONS } from "./icons.js"
+import Confirmation from "./confirmation.js"
 // DOM
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
@@ -9,8 +9,8 @@ const newCopypastaCard = document.getElementById("new-copypasta");
 const modalOverlay = document.getElementById("modal-overlay");
 const modalCancel = document.getElementById("modal-cancel");
 const modalSubmit = document.getElementById("modal-submit");
-const confirmationCancelButton = document.getElementById("confirmation-cancel")
-const confirmationConfirmButton = document.getElementById("confirmation-confirm")
+// const confirmationCancelButton = document.getElementById("confirmation-cancel")
+// const confirmationConfirmButton = document.getElementById("confirmation-confirm")
 const confirmationText = document.getElementById("confirmationText")
 const confirmationOverlay = document.getElementById("confirmationModalOverlay")
 const customCopypastaBox = document.getElementById("customCopypasta")
@@ -18,12 +18,13 @@ const newParametersList = document.getElementById("newParameters")
 const copypastaText = document.getElementById("copypasta-text")
 const copypastaName = document.getElementById("copypasta-name")
 const copypastaDesc = document.getElementById("copypasta-desc")
+// Components
+const confirmationDialog = new Confirmation();
 // State
 let isDetailActive = false;
 let currentCopypasta = null;
 let currentId = null
 let matches = new Set()
-let isParamInputFinished = false;
 const idMapping = new Map();
 let confirmAction = null;
 
@@ -330,20 +331,20 @@ function openConfirmation(message,action){
   confirmAction = action
 }
 // confirmation yes button
-confirmationConfirmButton.addEventListener("click",()=>{
-  // hide confirmation
-  confirmationOverlay.style.display = "none"
-  // run action
-  if(confirmAction){
-    confirmAction()
-    // reset action
-    confirmAction = null;
-  }
-})
-confirmationCancelButton.addEventListener("click",()=>{
-  confirmationOverlay.style.display = "none"
-  confirmAction = null;
-})
+// confirmationConfirmButton.addEventListener("click",()=>{
+//   // hide confirmation
+//   confirmationOverlay.style.display = "none"
+//   // run action
+//   if(confirmAction){
+//     confirmAction()
+//     // reset action
+//     confirmAction = null;
+//   }
+// })
+// confirmationCancelButton.addEventListener("click",()=>{
+//   confirmationOverlay.style.display = "none"
+//   confirmAction = null;
+// })
 
 // Add listener
 newCopypastaCard.addEventListener("click",()=>{
@@ -355,7 +356,11 @@ newCopypastaCard.addEventListener("click",()=>{
 modalCancel.addEventListener("click",()=>{
   // Ask confirmation if there is content
   if(copypastaName.value || copypastaDesc.value || copypastaText.value || newParametersList.innerHTML){
-    openConfirmation("Are you sure you want to discard change?",clearCopypasta)
+    // openConfirmation("Are you sure you want to discard change?",clearCopypasta)
+    confirmationDialog.open({
+      message:"Are you sure you want to discard change?",
+      confirmAction:clearCopypasta
+    })
   }
   else{
     clearCopypasta()
@@ -373,7 +378,11 @@ function clearCopypasta(){
 }
 // Tombol submit
 modalSubmit.addEventListener("click",()=>{
-  openConfirmation("Are you sure you want to add this new copypasta?",addCopypasta)
+  // openConfirmation("Are you sure you want to add this new copypasta?",addCopypasta)
+  confirmationDialog.open({
+    message:"Are you sure you want to add this new copypasta?",
+    confirmAction:addCopypasta
+  })
 })
 function addCopypasta(){
   // get the text

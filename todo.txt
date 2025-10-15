@@ -7,7 +7,12 @@ FUTURE VERSION
 1. turn copypasta to allow custom one
 > then add copy option
 > further on move to dedicated DB
+> make dialog edit modular?
 > make credit screen
+
+* turn confirmation dialog modular
+- add toast for successful
+- move css to its own
 
 * edit copypasta
 * delete copypasta
