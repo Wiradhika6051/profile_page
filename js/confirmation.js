@@ -40,10 +40,6 @@ class Confirmation {
     // find container
     let mountPoint = document.getElementById("Confirmation-confirmation");
     if (!mountPoint) {
-      // console.error(
-      //   '⚠️ Missing <div id="Confirmation-confirmation"></div> in HTML'
-      // );
-      // return;
       mountPoint = document.createElement("div")
       mountPoint.id = "Confirmation-confirmation"
       document.body.appendChild(mountPoint)
