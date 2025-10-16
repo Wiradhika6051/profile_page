@@ -19,7 +19,7 @@
     background: #fff;
     padding: 25px 30px;
     border-radius: 10px;
-    width: 20vw;
+    width: 30vw;
     z-index:1002;
     box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
@@ -38,9 +38,22 @@
 #confirmationModal p{
     margin:0;
 }
+@media (max-width:650px){
+    #confirmationModal{
+        width: 37.5vw;
+    }
+}
+@media (max-width:500px){
+    #confirmationModal{
+        width: 62vw;
+    }
+}
 @media (max-width:300px){
     #confirmationButton{
         flex-direction: column;
         text-align: center;
+    }
+    #confirmationModal{
+        width: 65vw;
     }
 }

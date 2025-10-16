@@ -12,7 +12,6 @@ FUTURE VERSION
 
 * turn confirmation dialog modular
 - add toast for successful
-- move css to its own
 
 * Make toaster a custom element
 * edit copypasta
