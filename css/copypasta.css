@@ -39,7 +39,6 @@
     /* justify-content: space-around; */
     justify-content: flex-start;
 }
-
 #toast-container{
     position: fixed;
     top:1rem;
@@ -49,7 +48,6 @@
     gap: 0.5rem;
     z-index: 9999;
 }
-
 .toast{
     background-color: aquamarine;
     animation: fadeInOut 3s forwards;
@@ -77,20 +75,17 @@
 .copypasta-box h2{
     text-align: center;
 }
-
 .param-input{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
-
 .param-input textarea{
     box-sizing: border-box;
     padding: 0.5rem;
     width: 16vw;
     resize: none;
 }
-
 .copypasta-info{
     background-color: aquamarine;
     margin: 1vh 1vw;
@@ -105,14 +100,12 @@
 .copypasta-info p{
     color: #6227A5;
 }
-
 hr{
     border:none;
     height:8px;
     color:black;
     background-color: black;
 }
-
 #customCopypasta{
     display: flex;
     flex-direction: row;
@@ -136,7 +129,6 @@ hr{
 #new-copypasta:hover{
     background-color: lightgreen;
     border: 10px solid green;
-    /* color: #b7c14e; */
 }
 #new-copypasta:hover p{
     color: black;
@@ -154,18 +146,6 @@ hr{
   display: none; 
   z-index: 1000;
 }
-/* Confirmation modal */
-#confirmationModalOverlay{
-    position: fixed;
-    top:0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0);
-    backdrop-filter: blur(4px);
-    display: none;
-    z-index:1002;
-}
 /* The dialog box */
 #modal-dialog {
   position: fixed;
@@ -179,19 +159,6 @@ hr{
   z-index: 1001;
   box-shadow: 0 6px 20px rgba(0,0,0,0.4);
 }
-/* Confirmation Modal */
-#confirmationModal{
-    position: fixed;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    background: #fff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    width: 20vw;
-    z-index:1002;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-}
 /* Modal inputs */
 #modal-dialog input,
 #modal-dialog textarea {
@@ -201,28 +168,25 @@ hr{
   box-sizing: border-box;
 }
 /* Modal buttons */
-#modal-dialog button, #confirmationModal button {
+#modal-dialog button {
   margin-top: 10px;
   padding: 8px 12px;
   cursor: pointer;
 }
-#modalButton,#confirmationButton{
+#modalButton{
     text-align: right
 }
-
-
-#modal-dialog h1,#confirmationModal h1{
+#modal-dialog h1{
     text-align: center;
     overflow:auto;
 }
-#copypastaInputHolder p,#confirmationModal p{
+#copypastaInputHolder p{
     margin:0;
 }
 #copypastaInputHolder textarea{
     width: 100%;
     resize: none;
 }
-
 #newParameters{
     display: flex;
     flex-direction: row;
@@ -274,13 +238,10 @@ hr{
         text-align: left;
         padding-left: 2vw;
     }
-
-
 }
 @media (max-width:300px){
-    #modalButton, #confirmationButton{
+    #confirmationButton{
         flex-direction: column;
         text-align: center;
     }
-
 }
