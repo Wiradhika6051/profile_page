@@ -10,9 +10,6 @@ FUTURE VERSION
 > make dialog edit modular?
 > make credit screen
 
-* turn confirmation dialog modular
-- add toast for successful
-
 * Make toaster a custom element
 * edit copypasta
 * delete copypasta

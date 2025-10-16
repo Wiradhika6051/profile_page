@@ -302,6 +302,8 @@ function addCopypasta(){
   const node = template.content.firstChild;
   // insert before #new-copypasta
   customCopypastaBox.insertBefore(node, newCopypastaCard);
+  // show toaster
+  showToast("New Copypasta Added")
 }
 
 copypastaText.addEventListener("input",(e)=>{
