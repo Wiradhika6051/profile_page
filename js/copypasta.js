@@ -1,6 +1,7 @@
 import copypasta from "../data/copypasta.json" with {type:"json"}
 import {escapeHTML,capitalize} from "./utils.js"
 import Confirmation from "./confirmation.js"
+import Toaster from "./toaster.js"
 // DOM
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
@@ -16,6 +17,7 @@ const copypastaName = document.getElementById("copypasta-name")
 const copypastaDesc = document.getElementById("copypasta-desc")
 // Components
 const confirmationDialog = new Confirmation();
+const toaster = new Toaster(toastContainer);
 // State
 let isDetailActive = false;
 let currentCopypasta = null;
@@ -26,18 +28,6 @@ const idMapping = new Map();
 // Initial Render
 renderCopypastaList(copypasta)
 detailRoot.addEventListener("input",handleParameterUpdate)
-
-
-// Toast Notification
-function showToast(message,duration= 3000){
-  const toast = document.createElement("div")
-  toast.className = 'toast'
-  toast.textContent = message
-  toastContainer.appendChild(toast)
-  setTimeout(()=>{
-    toast.remove()
-  },duration)
-}
 
 // oninput in parameter
 function handleParameterUpdate(e){
@@ -68,7 +58,7 @@ function handleParameterUpdate(e){
 function copyText(e){
   const text = e.currentTarget.innerText
   navigator.clipboard.writeText(text)
-  showToast("Teks berhasil disalin!")
+  toaster.show("Teks berhasil disalin!")
 }
 
 // resetDetail
@@ -303,7 +293,7 @@ function addCopypasta(){
   // insert before #new-copypasta
   customCopypastaBox.insertBefore(node, newCopypastaCard);
   // show toaster
-  showToast("New Copypasta Added")
+  toaster.show("New Copypasta Added")
 }
 
 copypastaText.addEventListener("input",(e)=>{

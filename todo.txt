@@ -9,8 +9,8 @@ FUTURE VERSION
 > further on move to dedicated DB
 > make dialog edit modular?
 > make credit screen
+> make toaster have close button
 
-* Make toaster a custom element
 * edit copypasta
 * delete copypasta
 * copy copypasta
