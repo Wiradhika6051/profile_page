@@ -2,6 +2,7 @@ import copypasta from "../data/copypasta.json" with {type:"json"}
 import {escapeHTML,capitalize} from "./utils.js"
 import Confirmation from "./confirmation.js"
 import Toaster from "./toaster.js"
+import {ICONS} from "./icons.js"
 // DOM
 const copypastaRoot= document.querySelector("#copypasta")
 const detailRoot = document.querySelector("#detail")
@@ -181,7 +182,10 @@ function renderCopypastaList(copypasta){
       template.innerHTML = `
         <div class="copypasta-info custom-copypasta" data-id="${data.id}">
           <div class="desc copypasta-box">
-            <h2>${data.name}</h2>
+            <div class="copypasta-box-top">
+              <h2>${data.name}</h2>
+              <button class='delete-btn'>${ICONS['delete']}</buttom>
+            </div>
             <p>${data.description}</p>
           </div>
         </div>

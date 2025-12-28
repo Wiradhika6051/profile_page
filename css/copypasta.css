@@ -73,7 +73,42 @@
     text-overflow: ellipsis;
 }
 .copypasta-box h2{
-    text-align: center;
+    text-align: left;
+    width: 90%;
+}
+.copypasta-box-top{
+    display: flex;
+    flex-direction: row;
+}
+.delete-btn{
+    /* height:100%; */
+    width: max(10%,8vw);
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease,
+        box-shadow 0.1s ease;
+}
+.delete-btn:hover{
+    background-color: #b91c1c;
+}
+/* ketika di tekan */
+.delete-btn:active{
+    transform: translateY(1px);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.25);
+}
+/* focus keyboard */
+.delete-btn:focus-visible{
+    outline: 3px solid rgba(220, 38, 38, 0.5);
+    outline-offset: 2px;
 }
 .param-input{
     display: flex;
@@ -231,6 +266,10 @@ hr{
     #new-copypasta{
         width: 83vw;
     }
+    .delete-btn{
+    /* height:100%; */
+    width: max(10vw,22.5%);
+}
 }
 @media (min-width: 500px) and (max-width: 810px) {
     header a {
