@@ -12,6 +12,7 @@ FUTURE VERSION
 > make toaster have close button
 
 * edit copypasta
+* created copypasta dont have delete button
 * delete copypasta
 * copy copypasta
 * refactor copypasta.html, copypasta.js, copypasta.css

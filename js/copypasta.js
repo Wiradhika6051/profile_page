@@ -184,7 +184,7 @@ function renderCopypastaList(copypasta){
           <div class="desc copypasta-box">
             <div class="copypasta-box-top">
               <h2>${data.name}</h2>
-              <button class='delete-btn'>${ICONS['delete']}</buttom>
+              <button class='delete-btn' data-id="${data.id}">${ICONS['delete']}</button>
             </div>
             <p>${data.description}</p>
           </div>
@@ -195,12 +195,25 @@ function renderCopypastaList(copypasta){
       // insert before #new-copypasta
       customCopypastaBox.insertBefore(node, newCopypastaCard);})
   }
+  document.querySelectorAll(".delete-btn").forEach((btn)=>{
+    btn.addEventListener("click",(e)=>{
+      // deleteCustomCopypasta(btn.dataset.id)
+      e.stopPropagation()
+    })})
   // add event delegation
   customCopypastaBox.addEventListener("click",(e)=>{
     const copypasta = e.target.closest(".custom-copypasta")
     if(!copypasta)return
     showCustomDetail(copypasta.dataset.id)
   })
+}
+
+function deleteCustomCopypasta(id){
+  const data = localStorage.getItem("custom_copypastas")
+  if(!data)return;
+  const customCopypastas = JSON.parse(data)
+  const filtered = customCopypastas.filter(c=>c.id!==id)
+  localStorage.setItem("custom_copypastas",JSON.stringify(filtered))
 }
 
 function createCharacter(text){
@@ -287,7 +300,10 @@ function addCopypasta(){
   template.innerHTML = `
     <div class="copypasta-info custom-copypasta" data-id="${newCopypastaData.id}">
       <div class="desc copypasta-box">
-        <h2>${newCopypastaData.name}</h2>
+        <div class="copypasta-box-top">
+          <h2>${newCopypastaData.name}</h2>
+          <button class='delete-btn' data-id="${newCopypastaData.id}">${ICONS['delete']}</button>
+        </div>
         <p>${newCopypastaData.description}</p>
       </div>
     </div>
